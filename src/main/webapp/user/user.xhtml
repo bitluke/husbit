@@ -1,0 +1,80 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+    <head>
+        <title>Husbit | User</title>
+    </head>
+
+
+    <body>
+        <ui:composition template="/resources/template/TwoColtemplate.xhtml">
+
+            <ui:define name="contentpart">
+
+                <div id="content">
+                    <p:panel header="Create User" id="createPanel">
+                        <h:form styleClass="formStyle" id="create">
+                            <p:growl id="formMessage"/>
+                            <p:tooltip hideEvent="grow" for=":create" /> 
+                            <h:panelGrid columns="4" >
+                            
+                                <h:outputText styleClass="txt" value="#{msgs.firstName}"/>
+                                <p:inputText value="#{appUserView.appUser.name.firstName}" id="firstname"
+                                             title="Specify your firstname" requiredMessage="Enter first name" required="true"/>
+                            
+                                <h:outputText styleClass="txt" value="#{msgs.middleName}"/>
+                                <p:inputText value="#{appUserView.appUser.name.middleName}" id="middlename"
+                                             title="Specify your middle name" requiredMessage="Enter middle name"
+                                             required="true"/>
+                           
+                                <h:outputText styleClass="txt" value="#{msgs.lastName}"/>
+                                <p:inputText value="#{appUserView.appUser.name.lastName}" id="lastname"
+                                             title="Specify your lastname" requiredMessage="Enter last name" required="true"/>
+                           
+                                <h:outputText styleClass="txt" value="#{msgs.userRole}"/>
+                                <p:selectOneMenu value="#{appUserView.appUser.approle}">
+                                    <f:selectItem itemLabel="Select A Role" itemValue="" />
+                                    <f:selectItems value="#{appRoleView.appRoleList}" var="rolez" itemLabel="#{rolez.roleName}" itemValue="#{rolez.id}"/>
+                                </p:selectOneMenu>
+
+                                <h:outputText styleClass="txt" value="#{msgs.userName}"/>
+                                <p:inputText title="Username to login " value="#{appUserView.appUser.username}"
+                                             validatorMessage="Your Username is needed"
+                                             id="username" required="true" requiredMessage="Your Username is needed"/>
+                           
+                                <h:outputText styleClass="txt" value="#{msgs.userPassword}"/>
+                                <p:password value="#{appUserView.appUser.password}" id="passwd" minLength="6"
+                                            feedback="true"/>
+                            
+                                <h:outputText styleClass="txt" value="#{msgs.emptyword}"/>
+                                <h:panelGroup>
+                                    <p:commandButton value="#{msgs.Savebutton}" update="formMessage"
+                                                     />
+                                    <p:commandButton type="reset" value="#{msgs.Cancelbutton}" immediate="true"/>
+                                </h:panelGroup>
+                       
+
+                          </h:panelGrid>
+                        </h:form>
+                    </p:panel>
+                </div>
+            </ui:define>
+            <ui:define name="operationspart">
+                <h:form>
+                    <p:menu>
+                        <p:submenu label="User Operations">
+                            <p:menuitem value="View all Users" url="users.xhtml"/>
+                            <p:menuitem value="Manage Users" url="manage.xhtml"/>
+                        </p:submenu>
+                    </p:menu>
+                </h:form>
+            </ui:define>
+        </ui:composition>
+    </body>
+
+</html>

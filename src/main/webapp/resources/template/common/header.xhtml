@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Created by IntelliJ IDEA.
+  User: lukman
+  Date: 7/2/11
+  Time: 1:10 PM
+-->
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+        
+
+<h:head>
+
+</h:head>
+
+<body>
+<ui:composition>
+    <div id="header">
+        <div id="logo">Husbit</div>
+    </div>
+    <!-- header -->
+    <h:form>
+        <div class="headerMenu">
+            <p:toolbar>
+                <p:toolbarGroup align="left">
+                    <p:commandButton type="push"  action="#{app.home}" value="Home" immediate="true" />
+                    <p:menuButton value="Services">
+                        <p:menuitem value="Logout" action="#{app.logoutUser}"/>
+                        <p:menuitem value="Edit Details" url="#"/>
+                    </p:menuButton>
+                    <p:menuButton value="Accounts">
+                        <p:menuitem value="Logout" action="#{app.logoutUser}"/>
+                        <p:menuitem value="Edit Details" url="#"/>
+                    </p:menuButton>
+                    <p:menuButton value="Administration">
+                        <p:menuitem value="Users" action="#{app.logoutUser}"/>
+                        <p:menuitem value="Edit Details" url="#"/>
+                    </p:menuButton>
+                    <p:commandButton type="push" action="#{app.moveToReports}" value="Report" immediate="true"/>
+                </p:toolbarGroup>
+                <p:separator/>
+                <p:toolbarGroup align="right">
+                    <p:menuButton value="Welcome:#{p:remoteUser()}">
+                        <p:menuitem value="Logout" action="#{app.logoutUser}"/>
+                        <p:menuitem value="Edit Details" url="#"/>
+                    </p:menuButton>
+                </p:toolbarGroup>
+            </p:toolbar>
+        </div>
+    </h:form>
+</ui:composition>
+</body>
+
+</html>

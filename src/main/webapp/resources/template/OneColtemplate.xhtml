@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+    <title>Husbit</title>
+    <script src="#{request.contextPath}/resources/js/ie.js" type="text/javascript"/>
+    <link rel="stylesheet" type="text/css" media="screen, projection"
+          href="#{request.contextPath}/resources/css/yiitheme/screen.css"/>
+    <link rel="stylesheet" type="text/css" media="print"
+          href="#{request.contextPath}/resources/css/yiitheme/print.css"/>
+    <!--[if lt IE 8]>
+    <link rel="stylesheet" type="text/css" media="screen, projection" href="#{request.contextPath}/resources/css/yiitheme/ie.css"/>
+    <![endif]-->
+    <link rel="stylesheet" type="text/css" href="#{request.contextPath}/resources/css/yiitheme/main.css"/>
+    <link rel="stylesheet" type="text/css" href="#{request.contextPath}/resources/css/yiitheme/form.css"/>
+</h:head>
+<h:body>
+    <div class="container" id="page">
+        <ui:insert name="headerpart">
+            <ui:include src="common/noheader.xhtml"/>
+        </ui:insert>
+
+        <div class="container">
+            <div class="span-24">
+                <ui:insert name="contentpart">
+                    <ui:include src="common/singleContent.xhtml"/>
+                </ui:insert>
+            </div>
+            <!--end of content -->
+        </div>
+
+
+        <ui:insert name="footerpart">
+            <ui:include src="common/footer.xhtml"/>
+        </ui:insert>
+        <!--end of footer -->
+
+    </div>
+    <!--end of page -->
+
+</h:body>
+
+</html>

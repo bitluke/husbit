@@ -1,0 +1,182 @@
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.bfs.husbit</groupId>
+    <artifactId>Husbit</artifactId>
+    <version>1.0</version>
+    <packaging>war</packaging>
+
+    <name>Husbit</name>
+
+    <properties>
+        <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <netbeans.hint.deploy.server>gfv3ee6</netbeans.hint.deploy.server>
+    </properties>
+
+    <dependencies>
+<!--        <dependency>
+            <groupId>org.eclipse.persistence</groupId>
+            <artifactId>eclipselink</artifactId>
+            <version>2.2.0</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse.persistence</groupId>
+            <artifactId>javax.persistence</artifactId>
+            <version>2.0.3</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse.persistence</groupId>
+            <artifactId>org.eclipse.persistence.jpa.modelgen.processor</artifactId>
+            <version>2.2.0</version>
+            <scope>provided</scope>
+        </dependency>-->
+<!--        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>6.0.1</version>
+            <scope>test</scope>
+        </dependency>-->
+        <dependency>
+            <groupId>javax</groupId>
+            <artifactId>javaee-web-api</artifactId>
+            <version>6.0</version>
+            <scope>provided</scope>
+        </dependency>
+        
+        <dependency>
+            <groupId>mysql</groupId>    
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.14</version>
+        </dependency>
+        
+        <dependency>
+            <groupId>org.primefaces</groupId>
+            <artifactId>primefaces</artifactId>
+            <version>3.0.RC1</version>
+        </dependency>
+        
+        <dependency>
+            <groupId>org.primefaces.themes</groupId>
+            <artifactId>smoothness</artifactId>
+            <version>1.0.2</version>
+        </dependency>
+
+
+        <dependency>
+            <groupId>com.bfs</groupId>
+            <artifactId>bitfingers</artifactId>
+            <version>2.0</version>
+            <type>jar</type>
+        </dependency>
+
+        <!-- Seam Solder provides convenient, portable CDI extensions such as an injectable logger -->
+        <dependency>
+            <groupId>org.jboss.seam.solder</groupId>
+            <artifactId>seam-solder</artifactId>
+            <version>3.0.0.Final</version>
+        </dependency>
+
+        <!-- JSR-303 (Bean Validation) Implementation -->
+        <!-- Provides portable constraints such as @Email -->
+        <!-- Hibernate Validator is the only JSR-303 implementation at the moment, so we can assume it's provided -->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version>4.1.0.Final</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>net.sf.jasperreports</groupId>
+            <artifactId>jasperreports</artifactId>
+            <version>4.5.0</version>
+        </dependency>
+      
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.8.2</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.3.2</version>
+                <configuration>
+                    <source>1.6</source>
+                    <target>1.6</target>
+                    <compilerArguments>
+                        <endorseddirs>${endorsed.dir}</endorseddirs>
+                    </compilerArguments>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>2.1.1</version>
+                <configuration>
+                    <failOnMissingWebXml>false</failOnMissingWebXml>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <version>2.1</version>
+                <executions>
+                    <execution>
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>copy</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${endorsed.dir}</outputDirectory>
+                            <silent>true</silent>
+                            <artifactItems>
+                                <artifactItem>
+                                    <groupId>javax</groupId>
+                                    <artifactId>javaee-endorsed-api</artifactId>
+                                    <version>6.0</version>
+                                    <type>jar</type>
+                                </artifactItem>
+                            </artifactItems>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+    <repositories>
+        <repository>
+            <url>http://ftp.ing.umu.se/mirror/eclipse/rt/eclipselink/maven.repo/</url>
+            <id>eclipselink</id>
+            <layout>default</layout>
+            <name>Repository for library Library[eclipselink]</name>
+        </repository>
+        
+        <repository>
+            <id>prime-repo</id>
+            <name>PrimeFaces Maven Repository</name>
+            <url>http://repository.primefaces.org</url>
+            <layout>default</layout>
+        </repository>
+
+        <repository>
+            <id>glassfish-releases</id>
+            <url>http://download.java.net/maven/glassfish</url>
+        </repository>
+
+        <repository>
+            <id>jasperreports</id>
+            <url>http://jasperreports.sourceforge.net/maven2</url>
+        </repository>
+    </repositories>
+</project>

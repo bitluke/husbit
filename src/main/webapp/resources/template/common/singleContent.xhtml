@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Created by IntelliJ IDEA.
+  User: lukman
+  Date: 6/21/11
+  Time: 5:12 PM
+-->
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html">
+<head>
+
+</head>
+
+<body>
+<ui:composition>
+    <div id="content">
+        <h:form>
+            <h3>Welcome to <i>Husbit</i></h3>
+            <p>You can perform the following operations within the application</p>
+            <ul>
+                <li><h:commandLink action="/issue/new?faces-redirect=true">Create an Issue</h:commandLink></li>
+                <li><h:commandLink action="/report/report?faces-redirect=true">Generate reports</h:commandLink></li>
+            </ul>
+        </h:form>
+    </div>
+    <!-- content -->
+</ui:composition>
+</body>
+
+</html>
