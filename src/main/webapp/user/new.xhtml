@@ -6,12 +6,12 @@
       xmlns:p="http://primefaces.org/ui"
       xmlns:ui="http://java.sun.com/jsf/facelets">
 
-    <head>
+    <h:head>
         <title>Husbit | User</title>
-    </head>
+    </h:head>
 
 
-    <body>
+    <h:body>
         <ui:composition template="/resources/template/TwoColtemplate.xhtml">
 
             <ui:define name="contentpart">
@@ -19,23 +19,21 @@
                 <div id="content">
                     <p:panel header="Create User" id="createPanel">
                         <h:form styleClass="formStyle" id="create">
-                            <p:growl id="formMessage"/>
-                            <p:tooltip hideEvent="grow" for=":create" /> 
+                            <p:growl id="formMessage" autoUpdate="true" />
                             <h:panelGrid columns="4" >
-                            
                                 <h:outputText styleClass="txt" value="#{msgs.firstName}"/>
                                 <p:inputText value="#{appUserView.appUser.name.firstName}" id="firstname"
                                              title="Specify your firstname" requiredMessage="Enter first name" required="true"/>
-                            
+
                                 <h:outputText styleClass="txt" value="#{msgs.middleName}"/>
                                 <p:inputText value="#{appUserView.appUser.name.middleName}" id="middlename"
                                              title="Specify your middle name" requiredMessage="Enter middle name"
                                              required="true"/>
-                           
+
                                 <h:outputText styleClass="txt" value="#{msgs.lastName}"/>
                                 <p:inputText value="#{appUserView.appUser.name.lastName}" id="lastname"
                                              title="Specify your lastname" requiredMessage="Enter last name" required="true"/>
-                           
+
                                 <h:outputText styleClass="txt" value="#{msgs.userRole}"/>
                                 <p:selectOneMenu value="#{appUserView.appUser.approle}">
                                     <f:selectItem itemLabel="Select A Role" itemValue="" />
@@ -46,20 +44,20 @@
                                 <p:inputText title="Username to login " value="#{appUserView.appUser.username}"
                                              validatorMessage="Your Username is needed"
                                              id="username" required="true" requiredMessage="Your Username is needed"/>
-                           
+
                                 <h:outputText styleClass="txt" value="#{msgs.userPassword}"/>
                                 <p:password value="#{appUserView.appUser.password}" id="passwd" minLength="6"
                                             feedback="true"/>
-                            
-                                <h:outputText styleClass="txt" value="#{msgs.emptyword}"/>
+
+                                <h:outputText styleClass="txt" value="#{msgs.emptymessage}"/>
                                 <h:panelGroup>
                                     <p:commandButton value="#{msgs.Savebutton}" update="formMessage"
                                                      />
-                                    <p:commandButton type="reset" value="#{msgs.Cancelbutton}" immediate="true"/>
+                                    <p:commandButton type="reset" value="#{msgs.Cancelbutton}" update="formMessage" immediate="true"/>
                                 </h:panelGroup>
-                       
 
-                          </h:panelGrid>
+
+                            </h:panelGrid>
                         </h:form>
                     </p:panel>
                 </div>
@@ -75,6 +73,6 @@
                 </h:form>
             </ui:define>
         </ui:composition>
-    </body>
+    </h:body>
 
 </html>
