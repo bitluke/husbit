@@ -5,19 +5,23 @@
 package com.bfs.husbit.view;
 
 import com.bfs.core.BaseSerializable;
+import com.bfs.core.security.SecurityManager;
+import com.bfs.husbit.model.AppRole;
 import com.bfs.husbit.model.AppUser;
+import com.bfs.husbit.stateless.AppRoleFacade;
 import com.bfs.husbit.stateless.AppUserFacade;
 import com.bfs.husbit.view.datamodel.AppUserDataModel;
+
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.enterprise.context.ConversationScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
+
 import org.jboss.logging.Logger;
 
 /**
- *
  * @author lukman
  */
 @Named
@@ -26,14 +30,16 @@ public class AppUserView implements BaseSerializable {
 
     @EJB
     private AppUserFacade appUserFacade;
+    @EJB
+    private AppRoleFacade appRoleFacade;
     @Inject
     private Logger log;
     @Inject
     private AppUser appUser;
     private List<AppUser> appUsers;
     private AppUserDataModel appUserDataModel;
-    
-    
+
+
     //------------- internal bean method -----------------------------------
 
     public AppUserView() {
@@ -70,18 +76,21 @@ public class AppUserView implements BaseSerializable {
         this.appUsers = appUsers;
     }
     //---------------CRUD methods ---------------------------------------------
+
     /**
      * Creates an appUser at DB level
+     *
      * @return The next view which is the view.xhtml
      */
     public String createappUser() {
-//        appUser.getRole().setUserName(appUser.getUsername());
-//        //hash Password. &amp;includeViewParams=true
-//        appUser.setPassString(SecurityManager.hashPassword(appUser.getPassword()));
-//        log.infof("About to Create user with username  ", appUser.getUsername());
-//        appUserFacade.create(appUser);
-//        log.infof("Created user with username and redirecting", appUser.getUsername());
-        return "/user/manage?faces-redirect=true";
+        //AppRole appRole = appRoleFacade.find(appUser.getApprole().getId());
+        appUser.getApprole().setId(appUser.getApprole().getId());
+        //hash Password.
+        appUser.setPassword(SecurityManager.hashPassword(appUser.getPassword()));
+        log.infof("About to Create user with username  ", appUser.getUsername());
+        appUserFacade.create(appUser);
+        log.infof("Created user with username and redirecting", appUser.getUsername());
+        return "/home?faces-redirect=true";
     }
 
 }

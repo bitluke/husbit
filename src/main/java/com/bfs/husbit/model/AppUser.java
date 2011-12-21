@@ -7,8 +7,6 @@ package com.bfs.husbit.model;
 import com.bfs.core.model.BaseModel;
 
 import com.bfs.husbit.model.embeddable.Name;
-import java.util.ArrayList;
-import java.util.List;
 import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -16,10 +14,9 @@ import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.Transient;
 
 /**
  *
@@ -39,8 +36,9 @@ public class AppUser extends BaseModel {
     private Name name;
     private String username;
     private String password;
+    @Inject
     private AppRole approle;
-    private List<AppRole> approles;
+    //private List<AppRole> approles;
     private Boolean defaultAppUser = Boolean.FALSE;
 
     public AppUser() {
@@ -58,34 +56,18 @@ public class AppUser extends BaseModel {
         super.setId(id);
     }
 
-    @ManyToMany(cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
-    public List<AppRole> getApproles() {
-        return approles;
+
+    public Name getName() {
+        return name;
     }
 
-    public void setApproles(List<AppRole> approles) {
-        this.approles = approles;
-    }
-
-    public void setApprole(AppRole approle) {
-        if(getApproles() != null){
-            getApproles().add(approle);
-        }else{
-            List<AppRole> tmproles = new ArrayList<AppRole>();
-            tmproles.add(approle);
-            setApproles(tmproles);
-        }
-    }
-    
-    @Transient
+    @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH})
     public AppRole getApprole() {
         return approle;
     }
 
-    
-    
-    public Name getName() {
-        return name;
+    public void setApprole(AppRole approle) {
+        this.approle = approle;
     }
 
     public void setName(Name name) {

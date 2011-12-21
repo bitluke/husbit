@@ -12,9 +12,9 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 
 /**
  *
@@ -24,7 +24,7 @@ import javax.persistence.NamedQuery;
 @Named
 @Dependent
 @NamedQueries({
-    @NamedQuery(name = "findAllAppRole", query = "select R from AppRole R"),
+    @NamedQuery(name = "findAllAppRole", query = "select R from AppRole R order by R.roleDescription"),
     @NamedQuery(name = "findAppRoleByRoleName", query = "select R from AppRole R where R.roleName = :rolename")
 })
 public class AppRole extends BaseModel {
@@ -67,7 +67,7 @@ public class AppRole extends BaseModel {
         this.roleName = roleName;
     }
 
-    @ManyToMany(mappedBy = "approles")
+    @OneToMany(mappedBy = "approle")
     public List<AppUser> getAppUsers() {
         return appUsers;
     }

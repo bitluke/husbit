@@ -1,0 +1,90 @@
+<?xml version="1.0"?><component name="dataSourceStorage">
+  <data-source source="LOCAL" name="HUSBIT" product="MySQL" version="5.1.54-1ubuntu4" jdbc-version="4.0" driver-version="mysql-connector-java-5.1.14 ( Revision: ${bzr.revision-id} )" uuid="5f16a419-27f3-4b8f-ac47-676a9f7360da">
+    <extra-name-characters>#@</extra-name-characters>
+    <identifier-quote-string>`</identifier-quote-string>
+    <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
+    <jdbc-url>jdbc:mysql://127.0.0.1:3306/husbit</jdbc-url>
+    <user-name>root</user-name>
+    <user-password>dfc7dfd3dfd9dfdbdfc6</user-password>
+    <schema-pattern>HUSBIT.*</schema-pattern>
+    <default-schemas>HUSBIT.*</default-schemas>
+    <libraries>
+      <library>
+        <url>jar://$MAVEN_REPOSITORY$/mysql/mysql-connector-java/5.1.14/mysql-connector-java-5.1.14.jar!/</url>
+      </library>
+    </libraries>
+    <table name="APPROLE" schema="" catalog="husbit" type="TABLE">
+      <column name="ID" sqlType="BIGINT" length="19" precision="0" nullable="false" jdbcType="-5" />
+      <column name="group_desc" sqlType="VARCHAR" length="255" precision="0" nullable="true" jdbcType="12" />
+      <column name="group_name" sqlType="VARCHAR" length="255" precision="0" nullable="true" jdbcType="12" />
+      <column name="VERSION" sqlType="BIGINT" length="19" precision="0" nullable="true" jdbcType="-5" />
+      <primary-key name="PRIMARY" columns="id" />
+    </table>
+    <table name="APPUSER" schema="" catalog="husbit" type="TABLE">
+      <column name="ID" sqlType="BIGINT" length="19" precision="0" nullable="false" jdbcType="-5" />
+      <column name="DEFAULTAPPUSER" sqlType="BIT" length="0" precision="0" nullable="true" jdbcType="-7" />
+      <column name="PASSWORD" sqlType="VARCHAR" length="255" precision="0" nullable="true" jdbcType="12" />
+      <column name="USERNAME" sqlType="VARCHAR" length="255" precision="0" nullable="true" jdbcType="12" />
+      <column name="VERSION" sqlType="BIGINT" length="19" precision="0" nullable="true" jdbcType="-5" />
+      <column name="FIRSTNAME" sqlType="VARCHAR" length="255" precision="0" nullable="true" jdbcType="12" />
+      <column name="LASTNAME" sqlType="VARCHAR" length="255" precision="0" nullable="true" jdbcType="12" />
+      <column name="MIDDLENAME" sqlType="VARCHAR" length="255" precision="0" nullable="true" jdbcType="12" />
+      <primary-key name="PRIMARY" columns="id" />
+    </table>
+    <table name="APPUSER_APPROLE" schema="" catalog="husbit" type="TABLE">
+      <column name="approles_ID" sqlType="BIGINT" length="19" precision="0" nullable="false" jdbcType="-5" />
+      <column name="appUsers_ID" sqlType="BIGINT" length="19" precision="0" nullable="false" jdbcType="-5" />
+      <primary-key name="PRIMARY" columns="approles_id,appusers_id" />
+      <index name="FK_APPUSER_APPROLE_appUsers_ID" unique="false" columns="appUsers_ID" />
+    </table>
+    <table name="ATTENDANCE" schema="" catalog="husbit" type="TABLE">
+      <column name="ID" sqlType="BIGINT" length="19" precision="0" nullable="false" jdbcType="-5" />
+      <column name="CHECKINGDATE" sqlType="DATETIME" length="19" precision="0" nullable="true" jdbcType="93" />
+      <column name="CHECKOUTDATE" sqlType="DATETIME" length="19" precision="0" nullable="true" jdbcType="93" />
+      <column name="DAYS" sqlType="BIGINT" length="19" precision="0" nullable="true" jdbcType="-5" />
+      <column name="VERSION" sqlType="BIGINT" length="19" precision="0" nullable="true" jdbcType="-5" />
+      <column name="CUSTOMER_ID" sqlType="BIGINT" length="19" precision="0" nullable="true" jdbcType="-5" />
+      <column name="ROOM_ID" sqlType="BIGINT" length="19" precision="0" nullable="true" jdbcType="-5" />
+      <primary-key name="PRIMARY" columns="id" />
+      <index name="FK_ATTENDANCE_ROOM_ID" unique="false" columns="ROOM_ID" />
+      <index name="FK_ATTENDANCE_CUSTOMER_ID" unique="false" columns="CUSTOMER_ID" />
+    </table>
+    <table name="CUSTOMER" schema="" catalog="husbit" type="TABLE">
+      <column name="ID" sqlType="BIGINT" length="19" precision="0" nullable="false" jdbcType="-5" />
+      <column name="ADDRESS" sqlType="VARCHAR" length="255" precision="0" nullable="true" jdbcType="12" />
+      <column name="AGE" sqlType="BIGINT" length="19" precision="0" nullable="true" jdbcType="-5" />
+      <column name="COMPANYADDRESS" sqlType="VARCHAR" length="255" precision="0" nullable="true" jdbcType="12" />
+      <column name="COMPANYNAME" sqlType="VARCHAR" length="255" precision="0" nullable="true" jdbcType="12" />
+      <column name="OCCUPATION" sqlType="VARCHAR" length="255" precision="0" nullable="true" jdbcType="12" />
+      <column name="PHONENUMBER" sqlType="VARCHAR" length="255" precision="0" nullable="true" jdbcType="12" />
+      <column name="VERSION" sqlType="BIGINT" length="19" precision="0" nullable="true" jdbcType="-5" />
+      <column name="FIRSTNAME" sqlType="VARCHAR" length="255" precision="0" nullable="true" jdbcType="12" />
+      <column name="LASTNAME" sqlType="VARCHAR" length="255" precision="0" nullable="true" jdbcType="12" />
+      <column name="MIDDLENAME" sqlType="VARCHAR" length="255" precision="0" nullable="true" jdbcType="12" />
+      <primary-key name="PRIMARY" columns="id" />
+    </table>
+    <table name="ROOM" schema="" catalog="husbit" type="TABLE">
+      <column name="ID" sqlType="BIGINT" length="19" precision="0" nullable="false" jdbcType="-5" />
+      <column name="NAME" sqlType="VARCHAR" length="255" precision="0" nullable="true" jdbcType="12" />
+      <column name="NUMBEROFUSAGE" sqlType="BIGINT" length="19" precision="0" nullable="true" jdbcType="-5" />
+      <column name="ROOMSTATE" sqlType="VARCHAR" length="255" precision="0" nullable="true" jdbcType="12" />
+      <column name="VERSION" sqlType="BIGINT" length="19" precision="0" nullable="true" jdbcType="-5" />
+      <column name="ROOMCATEGORY_ID" sqlType="BIGINT" length="19" precision="0" nullable="true" jdbcType="-5" />
+      <primary-key name="PRIMARY" columns="id" />
+      <index name="FK_ROOM_ROOMCATEGORY_ID" unique="false" columns="ROOMCATEGORY_ID" />
+    </table>
+    <table name="ROOMCATEGORY" schema="" catalog="husbit" type="TABLE">
+      <column name="ID" sqlType="BIGINT" length="19" precision="0" nullable="false" jdbcType="-5" />
+      <column name="DESCRIPTION" sqlType="VARCHAR" length="255" precision="0" nullable="true" jdbcType="12" />
+      <column name="NAME" sqlType="VARCHAR" length="255" precision="0" nullable="true" jdbcType="12" />
+      <column name="RATE" sqlType="BIGINT" length="19" precision="0" nullable="true" jdbcType="-5" />
+      <column name="VERSION" sqlType="BIGINT" length="19" precision="0" nullable="true" jdbcType="-5" />
+      <primary-key name="PRIMARY" columns="id" />
+    </table>
+    <table name="SEQUENCE" schema="" catalog="husbit" type="TABLE">
+      <column name="SEQ_NAME" sqlType="VARCHAR" length="50" precision="0" nullable="false" jdbcType="12" />
+      <column name="SEQ_COUNT" sqlType="DECIMAL" length="38" precision="0" nullable="true" jdbcType="3" />
+      <primary-key name="PRIMARY" columns="seq_name" />
+    </table>
+  </data-source>
+</component>

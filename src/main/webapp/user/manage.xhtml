@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Created by IntelliJ IDEA.
+  User: lukman
+  Date: 12/21/11
+  Time: 4:50 AM
+-->
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+<head>
+    <title>D'Help</title>
+
+</head>
+<body>
+<ui:composition template="/resources/template/TwoColtemplate.xhtml">
+    <ui:define name="contentpart">
+        <div id="content">
+            <p:panel header="List of issues" id="createPanel">
+                <h:form id="updateform">
+                    <p:growl id="sa"/>
+                    <p:dataTable id="tableform" paginator="true" rows="10" var="iss"
+                                 value="#{ap.issueDataModel}" rowKey="#{iss.id}"
+                                 widgetVar="wiss">
+
+                        <f:facet name="header">
+                            <p:outputPanel>
+                                <h:outputText value="Search all fields:"/>
+                                <h:inputText id="globalFilter" onkeyup="wiss.filter()"/>
+                            </p:outputPanel>
+                        </f:facet>
+
+                        <p:column sortBy="#{iss.name.firstName}" filterBy="#{iss.name.firstName}"
+                                  headerText="#{msgs.firstName}">
+                            <h:outputText value="#{iss.name.firstName}"/>
+                        </p:column>
+
+                        <p:column sortBy="#{iss.msisdn}" filterBy="#{iss.msisdn}" headerText="#{msgs.msisdn}">
+                            <h:outputText value="#{iss.msisdn}"/>
+                        </p:column>
+
+                        <p:column sortBy="#{iss.imei}" filterBy="#{iss.imei}" headerText="#{msgs.imei}">
+                            <h:outputText value="#{iss.imei}"/>
+                        </p:column>
+
+                        <p:column sortBy="#{iss.problem}" filterBy="#{iss.problem}" headerText="#{msgs.problem}">
+                            <h:outputText value="#{iss.problem}"/>
+                        </p:column>
+
+                        <p:column headerText="Options">
+                            <p:commandButton image="ui-icon ui-icon-search" action="#{appUserView.setUpEdit}"
+                                             title="View Issue">
+                                <f:setPropertyActionListener value="#{iss}" target="#{appUserView.selectedIssue}"/>
+                                <f:setPropertyActionListener target="#{appUserView.editMode}" value="#{false}"/>
+                            </p:commandButton>
+                            <p:spacer width="5"/>
+                            <p:commandButton image="ui-icon ui-icon-pencil" action="#{appUserView.setUpEdit}"
+                                             title="Edit User">
+                                <f:setPropertyActionListener target="#{appUserView.selectedIssue}" value="#{iss}"/>
+                                <f:setPropertyActionListener target="#{appUserView.editMode}" value="#{true}"/>
+                            </p:commandButton>
+                            <p:spacer width="5"/>
+                            <p:commandButton onstart="confirmation.show()" update=":updateform:deletedsp"
+                                             image="ui-icon ui-icon-close" title="Remove User">
+                                <f:setPropertyActionListener target="#{appUserView.selectedIssue}" value="#{iss}"/>
+                            </p:commandButton>
+                        </p:column>
+                    </p:dataTable>
+
+                    <p:confirmDialog id="confirmdelete"
+                                     message="Are you sure you want to delete this Issue"
+                                     closable="true"
+                                     width="280"
+                                     header="Removing Issue"
+                                     widgetVar="confirmation">
+
+                        <h:panelGrid id="deletedsp" columns="2">
+                            <h:outputText value="First Name:"/>
+                            <h:outputText value="#{appUserView.selectedIssue.name.firstName}"/>
+
+                            <h:outputText value="Last Name:"/>
+                            <h:outputText value="#{appUserView.selectedIssue.name.lastName}"/>
+
+                            <p:spacer/>
+                            <p:outputPanel>
+
+                                <p:commandButton
+                                        update="tableform"
+                                        value="Cancel"
+                                        onclick="confirmation.hide()"/>
+
+                                <p:commandButton
+                                        immediate="true"
+                                        action="#{appUserView.removeIssue()}"
+                                        value="Delete User"
+                                        oncomplete="confirmation.hide()"
+                                        update=":updateform:tableform">
+
+                                    <f:param name="sid" value="#{appUserView.selectedIssue.id}"/>
+
+                                </p:commandButton>
+                            </p:outputPanel>
+                        </h:panelGrid>
+                    </p:confirmDialog>
+                </h:form>
+            </p:panel>
+        </div>
+    </ui:define>
+
+
+    <ui:define name="operationspart">
+        <h:form>
+            <p:menu>
+                <p:submenu label="Operations">
+                    <p:menuitem value="View all Users" url="/issue/users.xhtml"/>
+                    <p:menuitem value="Create Issue" url="/issue/new.xhtml"/>
+                </p:submenu>
+            </p:menu>
+        </h:form>
+    </ui:define>
+</ui:composition>
+</body>
+
+</html>
