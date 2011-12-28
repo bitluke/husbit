@@ -4,32 +4,28 @@
  */
 package com.bfs.husbit.model;
 
-import com.bfs.core.model.BaseModel;
 
 import com.bfs.husbit.model.embeddable.Name;
+
 import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 import javax.inject.Named;
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import java.io.Serializable;
 
 /**
- *
  * @author lukman
  */
 @Entity
 @Named
 @Dependent
 @NamedQueries({
-    @NamedQuery(name = "findDefaultAppUser", query = "select A from AppUser A where A.defaultAppUser = :dlt"),
-    @NamedQuery(name = "findAllAppUser", query = "select A from AppUser A where A.defaultAppUser = :dlt")
+        @NamedQuery(name = "findDefaultAppUser", query = "select A from AppUser A where A.defaultAppUser = :dlt"),
+        @NamedQuery(name = "findAllAppUser", query = "select A from AppUser A where A.defaultAppUser = :dlt")
 })
-public class AppUser extends BaseModel {
+
+public class AppUser  implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Inject
@@ -38,24 +34,22 @@ public class AppUser extends BaseModel {
     private String password;
     @Inject
     private AppRole approle;
-    //private List<AppRole> approles;
     private Boolean defaultAppUser = Boolean.FALSE;
+    private Boolean enabled = Boolean.TRUE;
+    private Long version;
 
     public AppUser() {
+
     }
 
-    @Id
-    @GeneratedValue
-    @Override
-    public Long getId() {
-        return super.getId();
+    @Version
+    public Long getVersion() {
+        return version;
     }
 
-    @Override
-    public void setId(Long id) {
-        super.setId(id);
+    public void setVersion(Long version) {
+        this.version = version;
     }
-
 
     public Name getName() {
         return name;
@@ -74,6 +68,7 @@ public class AppUser extends BaseModel {
         this.name = name;
     }
 
+    @NotNull
     public String getPassword() {
         return password;
     }
@@ -82,6 +77,8 @@ public class AppUser extends BaseModel {
         this.password = password;
     }
 
+    @Id
+    @NotNull
     public String getUsername() {
         return username;
     }
@@ -98,10 +95,18 @@ public class AppUser extends BaseModel {
         this.defaultAppUser = defaultAppUser;
     }
 
+    public Boolean getEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(Boolean enabled) {
+        this.enabled = enabled;
+    }
+
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (id != null ? id.hashCode() : 0);
+        hash += (username != null ? username.hashCode() : 0);
         return hash;
     }
 
@@ -112,7 +117,7 @@ public class AppUser extends BaseModel {
             return false;
         }
         AppUser other = (AppUser) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
+        if ((this.username == null && other.username != null) || (this.username != null && !this.username.equals(other.username))) {
             return false;
         }
         return true;
@@ -120,6 +125,6 @@ public class AppUser extends BaseModel {
 
     @Override
     public String toString() {
-        return "com.bfs.husbit.model.AppUser[ id=" + id + " ]";
+        return "com.bfs.husbit.model.AppUser[ id=" + username + " ]";
     }
 }

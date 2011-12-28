@@ -45,6 +45,8 @@ public class ApplicationFacade {
         AppUser defaultAppUser = appUserFacade.findDefaultAppUserForLogin();
         //check if default user does not exist.
         if (defaultAppUser == null) {
+            // create view for glassFish Authentication.
+           // appUserFacade.createView();
             //persist a default user for login.
             appUserFacade.create(getDefaultUserProperties());
         }
@@ -54,7 +56,7 @@ public class ApplicationFacade {
     private AppUser getDefaultUserProperties() {
         // create user 
         AppUser appUser = new AppUser();
-        appUser.setPassword(SecurityManager.hashPassword("demo123"));
+        appUser.setPassword("demo123");
         appUser.setUsername("demo");
         Name name = new Name();
         name.setFirstName("demo");
@@ -66,7 +68,7 @@ public class ApplicationFacade {
             //initialise roles
             initRoles();
             //set demo to the admin role
-            AppRole aRole = (AppRole) appRoleFacade.findRole("admin").get(0);
+            AppRole aRole = (AppRole) appRoleFacade.findRole("ROLE_ADMIN").get(0);
             appUser.setApprole(aRole);
         }
         appUser.setDefaultAppUser(Boolean.TRUE);
@@ -75,20 +77,20 @@ public class ApplicationFacade {
 
     public void initRoles() {
         AppRole role = new AppRole();
-        role.setRoleName("admin");
+        role.setRoleName("ROLE_ADMIN");
         role.setRoleDescription("Administrator");
         appRoleFacade.create(role);
         role = new AppRole();
-        role.setRoleName("accountant");
+        role.setRoleName("ROLE_ACCOUNT");
         role.setRoleDescription("Accountant");
         appRoleFacade.create(role);
         role = new AppRole();
-        role.setRoleName("receptionist");
+        role.setRoleName("ROLE_RECEPTIONIST");
         role.setRoleDescription("Receptionist");
         appRoleFacade.create(role);
         role = new AppRole();
-        role.setRoleName("basicuser");
-        role.setRoleDescription("Basic user");
+        role.setRoleName("ROLE_USER");
+        role.setRoleDescription("Basic User");
         appRoleFacade.create(role);
     }
 }

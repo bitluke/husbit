@@ -4,14 +4,23 @@
  */
 package com.bfs.husbit.stateless;
 
+import java.sql.Connection;
+import java.sql.SQLException;
 import java.util.List;
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
 import javax.persistence.EntityManager;
+import javax.sql.DataSource;
+import org.jboss.logging.Logger;
+import org.jboss.logging.Logger.Level;
 
 /**
  *
  * @author lukman
  */
 public abstract class AbstractFacade<T> {
+    private static final String  JNDI_NAME =  "jdbc/husbit";
     private Class<T> entityClass;
 
     public AbstractFacade(Class<T> entityClass) {
@@ -59,4 +68,35 @@ public abstract class AbstractFacade<T> {
         return ((Long) q.getSingleResult()).intValue();
     }
     
+    
+    public static Connection getConnection() {
+        Context ctx = null;
+        DataSource ds = null;
+        Connection conn = null;
+        try {
+            ctx = new InitialContext();
+            ds = (DataSource) ctx.lookup(JNDI_NAME);
+            conn = ds.getConnection("root","mysql");
+
+
+        } catch (NamingException ex) {
+            Logger.getLogger(AbstractFacade.class.getName()).log(Level.FATAL, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(AbstractFacade.class.getName()).log(Level.FATAL, null, ex);
+        }
+        return conn;
+    }
+    
+    public static DataSource getDataSource() {
+        Context ctx = null;
+        DataSource ds = null;
+        try {
+            ctx = new InitialContext();
+            ds = (DataSource) ctx.lookup(JNDI_NAME);
+
+        } catch (NamingException ex) {
+            Logger.getLogger(AbstractFacade.class.getName()).log(Level.FATAL, null, ex);
+        }
+        return ds;
+    }
 }

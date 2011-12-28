@@ -15,8 +15,8 @@
     </libraries>
     <table name="APPROLE" schema="" catalog="husbit" type="TABLE">
       <column name="ID" sqlType="BIGINT" length="19" precision="0" nullable="false" jdbcType="-5" />
-      <column name="group_desc" sqlType="VARCHAR" length="255" precision="0" nullable="true" jdbcType="12" />
-      <column name="group_name" sqlType="VARCHAR" length="255" precision="0" nullable="true" jdbcType="12" />
+      <column name="ROLEDESCRIPTION" sqlType="VARCHAR" length="255" precision="0" nullable="true" jdbcType="12" />
+      <column name="ROLENAME" sqlType="VARCHAR" length="255" precision="0" nullable="true" jdbcType="12" />
       <column name="VERSION" sqlType="BIGINT" length="19" precision="0" nullable="true" jdbcType="-5" />
       <primary-key name="PRIMARY" columns="id" />
     </table>
@@ -29,13 +29,9 @@
       <column name="FIRSTNAME" sqlType="VARCHAR" length="255" precision="0" nullable="true" jdbcType="12" />
       <column name="LASTNAME" sqlType="VARCHAR" length="255" precision="0" nullable="true" jdbcType="12" />
       <column name="MIDDLENAME" sqlType="VARCHAR" length="255" precision="0" nullable="true" jdbcType="12" />
+      <column name="APPROLE_ID" sqlType="BIGINT" length="19" precision="0" nullable="true" jdbcType="-5" />
       <primary-key name="PRIMARY" columns="id" />
-    </table>
-    <table name="APPUSER_APPROLE" schema="" catalog="husbit" type="TABLE">
-      <column name="approles_ID" sqlType="BIGINT" length="19" precision="0" nullable="false" jdbcType="-5" />
-      <column name="appUsers_ID" sqlType="BIGINT" length="19" precision="0" nullable="false" jdbcType="-5" />
-      <primary-key name="PRIMARY" columns="approles_id,appusers_id" />
-      <index name="FK_APPUSER_APPROLE_appUsers_ID" unique="false" columns="appUsers_ID" />
+      <index name="FK_APPUSER_APPROLE_ID" unique="false" columns="APPROLE_ID" />
     </table>
     <table name="ATTENDANCE" schema="" catalog="husbit" type="TABLE">
       <column name="ID" sqlType="BIGINT" length="19" precision="0" nullable="false" jdbcType="-5" />
@@ -48,6 +44,11 @@
       <primary-key name="PRIMARY" columns="id" />
       <index name="FK_ATTENDANCE_ROOM_ID" unique="false" columns="ROOM_ID" />
       <index name="FK_ATTENDANCE_CUSTOMER_ID" unique="false" columns="CUSTOMER_ID" />
+    </table>
+    <table name="AUTH" schema="" catalog="husbit" type="VIEW">
+      <column name="USERNAME" sqlType="VARCHAR" length="255" precision="0" nullable="true" jdbcType="12" />
+      <column name="PASSWORD" sqlType="VARCHAR" length="255" precision="0" nullable="true" jdbcType="12" />
+      <column name="GROUP_NAME" sqlType="VARCHAR" length="255" precision="0" nullable="true" jdbcType="12" />
     </table>
     <table name="CUSTOMER" schema="" catalog="husbit" type="TABLE">
       <column name="ID" sqlType="BIGINT" length="19" precision="0" nullable="false" jdbcType="-5" />
@@ -85,6 +86,18 @@
       <column name="SEQ_NAME" sqlType="VARCHAR" length="50" precision="0" nullable="false" jdbcType="12" />
       <column name="SEQ_COUNT" sqlType="DECIMAL" length="38" precision="0" nullable="true" jdbcType="3" />
       <primary-key name="PRIMARY" columns="seq_name" />
+    </table>
+    <table name="authorities" schema="" catalog="husbit" type="TABLE">
+      <column name="username" sqlType="VARCHAR" length="50" precision="0" nullable="false" jdbcType="12" />
+      <column name="authority" sqlType="VARCHAR" length="50" precision="0" nullable="false" jdbcType="12" />
+      <index name="ix_auth_username" unique="true" columns="username" />
+      <index name="ix_auth_username" unique="true" columns="authority" />
+    </table>
+    <table name="users" schema="" catalog="husbit" type="TABLE">
+      <column name="username" sqlType="VARCHAR" length="50" precision="0" nullable="false" jdbcType="12" />
+      <column name="password" sqlType="VARCHAR" length="50" precision="0" nullable="false" jdbcType="12" />
+      <column name="enabled" sqlType="BIT" length="0" precision="0" nullable="false" jdbcType="-7" />
+      <primary-key name="PRIMARY" columns="username" />
     </table>
   </data-source>
 </component>

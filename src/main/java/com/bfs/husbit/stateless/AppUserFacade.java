@@ -5,13 +5,14 @@
 package com.bfs.husbit.stateless;
 
 import com.bfs.husbit.model.AppUser;
+
 import java.util.List;
+import javax.annotation.PostConstruct;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 /**
- *
  * @author lukman
  */
 @Stateless
@@ -19,10 +20,18 @@ public class AppUserFacade extends AbstractFacade<AppUser> {
 
     @PersistenceContext(unitName = "com.bfs.husbit_Husbit_war_1.0PU")
     private EntityManager em;
+   
+
 
     @Override
     protected EntityManager getEntityManager() {
         return em;
+    }
+    
+    
+    @PostConstruct
+    public void initAfterConstrutor(){
+       
     }
 
     public AppUserFacade() {
@@ -36,10 +45,31 @@ public class AppUserFacade extends AbstractFacade<AppUser> {
         return allAppUsers;
     }
 
+    //@TransactionAttribute(TransactionAttributeType.REQUIRED)
     public AppUser findDefaultAppUserForLogin() {
         List<AppUser> defaultAppUser =
                 (List<AppUser>) em.createNamedQuery("findDefaultAppUser").setParameter("dlt", true).getResultList();
         return defaultAppUser != null && !defaultAppUser.isEmpty()
                 ? defaultAppUser.get(0) : null;
     }
+
+    public void createView() {
+        final String sqlView = "create view AUTH as select apu.username as USERNAME , apu.password as PASSWORD, roleName as GROUP_NAME from APPUSER apu join APPROLE apr on apu.approle_id = apr.id ";
+        int executeUpdate = em.createNativeQuery(sqlView).executeUpdate();
+        System.out.println("excute update " + executeUpdate);
+    }
+
+    //spring security mettods =========================================================================================
+    @Override
+    public void create(AppUser appUserEntity) {
+        super.create(appUserEntity);
+        
+    }
+
+    @Override
+    public void edit(AppUser appUserEntity) {
+        super.edit(appUserEntity);
+
+    }
+
 }

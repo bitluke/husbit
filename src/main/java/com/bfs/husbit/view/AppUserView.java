@@ -86,7 +86,7 @@ public class AppUserView implements BaseSerializable {
         //AppRole appRole = appRoleFacade.find(appUser.getApprole().getId());
         appUser.getApprole().setId(appUser.getApprole().getId());
         //hash Password.
-        appUser.setPassword(SecurityManager.hashPassword(appUser.getPassword()));
+        appUser.setPassword(appUser.getPassword());
         log.infof("About to Create user with username  ", appUser.getUsername());
         appUserFacade.create(appUser);
         log.infof("Created user with username and redirecting", appUser.getUsername());

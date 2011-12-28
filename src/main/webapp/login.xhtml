@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <link rel="stylesheet" type="text/css" href="#{request.contextPath}/resources/css/yiitheme/main.css"/>
+       
+    </h:head>
+
+    <h:body>
+        <div id="idform" style="width: 20%; margin: 200px auto">
+            <p:panel header="Login" footer="bfs">
+                <form  method="POST" action="j_spring_security_check">
+                    <h:panelGrid columns="2">
+                        <h:outputText value="Username:"/>
+                        <p:inputText id="j_username" validatorMessage="Specify your username"/>
+
+                        <h:outputText value="Password"/>
+                        <p:password id="j_password"  feedback="false"
+                                    validatorMessage="Specify your password"/>
+
+                        <h:outputText/>
+                        <input type="submit" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only ui-login-text" value="Login"/>
+
+                    </h:panelGrid>
+                </form>
+            </p:panel>
+        </div>
+    </h:body>
+
+</html>

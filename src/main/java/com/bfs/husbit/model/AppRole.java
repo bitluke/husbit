@@ -1,6 +1,12 @@
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
+ *INSERT INTO husbit.APPROLE (ID, ROLEDESCRIPTION, ROLENAME, VERSION) VALUES (4, 'Basic user', 'ROLE_USER', 1);
+ *INSERT INTO husbit.APPROLE (ID, ROLEDESCRIPTION, ROLENAME, VERSION) VALUES (2, 'Accountant', 'ROLE_ACCOUNT', 1);
+ *INSERT INTO husbit.APPROLE (ID, ROLEDESCRIPTION, ROLENAME, VERSION) VALUES (3, 'Receptionist', 'ROLE_RECEPTIONIST', 1);
+ *INSERT INTO husbit.APPROLE (ID, ROLEDESCRIPTION, ROLENAME, VERSION) VALUES (1, 'Administrator', 'ROLE_ADMIN', 1);
+ *INSERT INTO husbit.APPUSER (ID, DEFAULTAPPUSER, PASSWORD, USERNAME, VERSION, FIRSTNAME, LASTNAME, MIDDLENAME, APPROLE_ID) VALUES (5, true, 'd3ad9315b7be5dd53b31a273b3b3aba5defe700808305aa16a3062b76658a791', 'demo', 1, 'demo', 'demo', 'demo', 1);
+ *
  */
 package com.bfs.husbit.model;
 
@@ -8,7 +14,6 @@ import com.bfs.core.model.BaseModel;
 import java.util.List;
 import javax.enterprise.context.Dependent;
 import javax.inject.Named;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -30,8 +35,8 @@ import javax.persistence.OneToMany;
 public class AppRole extends BaseModel {
 
     private static final long serialVersionUID = 1L;
-    private String roleName;
-    private String roleDescription;
+    private String roleName;//ROLE_ADMIN,ROLE_ACCOUNTANT,ROLE_RECEEPTIONIST
+    private String roleDescription; //Admin, Accountant, Receptionist
     private List<AppUser> appUsers;
 
     public AppRole() {
@@ -49,7 +54,6 @@ public class AppRole extends BaseModel {
         super.setId(id);
     }
 
-    @Column(name = "group_desc")
     public String getRoleDescription() {
         return roleDescription;
     }
@@ -58,7 +62,7 @@ public class AppRole extends BaseModel {
         this.roleDescription = roleDescription;
     }
 
-    @Column(name = "group_name")
+    
     public String getRoleName() {
         return roleName;
     }

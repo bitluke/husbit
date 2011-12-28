@@ -29,7 +29,7 @@ public class AppUserDataModel extends ListDataModel<AppUser> implements Selectab
 
     @Override
     public Object getRowKey(AppUser appUser) {
-        return appUser.getId().toString();
+        return appUser.getUsername().toString();
     }
 
     @Override
