@@ -4,29 +4,6 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 xsi:schemaLocation="http://java.sun.com/xml/ns/javaee        
                 http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
 
-    <filter>
-        <filter-name>springSecurityFilterChain</filter-name>
-        <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
-    </filter>
-
-    <filter-mapping>
-        <filter-name>springSecurityFilterChain</filter-name>
-        <url-pattern>/*</url-pattern>
-    </filter-mapping>
-
-<!--    spring security config--> 
-    <context-param>
-        <param-name>contextConfigLocation</param-name>
-        <param-value>classpath:applicationContext.xml</param-value>
-    </context-param>
-    
-    
-    <!--use the listener to load spring configuration file -->
-    <listener>
-        <listener-class>
-            org.springframework.web.context.ContextLoaderListener
-        </listener-class>
-    </listener>
 
     <!-- An optional parameter that makes troubleshooting errors much easier -->
     <!-- You should remove this context parameter before deploying to production! -->
@@ -51,13 +28,6 @@ xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
     
     <!-- JSF 2.0 Servlet activates automatically when the WEB-INF/faces-config.xml descriptor is present -->
 
-    <!-- Enable this mapping to protect your view templates from direct URL access -->
-    <!--
-    <servlet-mapping>
-        <servlet-name>Faces Servlet</servlet-name>
-        <url-pattern>*.xhtml</url-pattern>
-    </servlet-mapping>
-    -->
     <servlet>
         <servlet-name>Faces Servlet</servlet-name>
         <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
@@ -106,11 +76,11 @@ xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
         <!-- Add additional files here, if desired, for example: <welcome-file>index.html</welcome-file> -->
         <welcome-file>index.xhtml</welcome-file>
     </welcome-file-list>
-    
+ 
 
     
       <!--JAAS configuration declaring the realm, login and login page error-->
-<!--    <login-config>
+    <login-config>
         <auth-method>FORM</auth-method>
         <realm-name>jdbc-jdbcrealm</realm-name>
         <form-login-config>
@@ -119,18 +89,18 @@ xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
         </form-login-config>
     </login-config>
     
-    declaration of the Roles for the application 
+<!--    declaration of the Roles for the application -->
     <security-role>
-        <role-name>basicuser</role-name>
+        <role-name>ROLE_USER</role-name>
     </security-role>
     <security-role>
-        <role-name>admin</role-name>
+        <role-name>ROLE_ADMIN</role-name>
     </security-role>
     <security-role>
-        <role-name>receptionist</role-name>
+        <role-name>ROLE_RECEEPTIONIST</role-name>
     </security-role>
     <security-role>
-        <role-name>accountant</role-name>
-    </security-role>-->
+        <role-name>ROLE_ACCOUNTANT</role-name>
+    </security-role>
  
 </web-app>

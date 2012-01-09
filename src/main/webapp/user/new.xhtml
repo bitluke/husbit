@@ -32,10 +32,10 @@
                                 <h:outputText value="#{msgs.lastName}"/>
                                 <p:inputText value="#{appUserView.appUser.name.lastName}" id="lastname"
                                              title="Specify your lastname" />
-
                                 <h:outputText  value="#{msgs.userRole}"/>
-                                <p:selectOneMenu value="#{appUserView.appUser.approle.id}">
-                                    <f:selectItem itemLabel="Select a role" itemValue="" />
+                                <p:selectOneMenu id="seleApprole" value="#{appUserView.appUser.approle.id}">
+                                    <f:validator validatorId="com.bfs.husbit.model.AppUser" />
+                                    <f:selectItem  itemLabel="Select a role" itemValue="-1" />
                                     <f:selectItems value="#{appRoleView.appRoleList}" var="rolez" itemLabel="#{rolez.roleDescription}" itemValue="#{rolez.id}"/>
                                 </p:selectOneMenu>
 

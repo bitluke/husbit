@@ -5,19 +5,21 @@
 package com.bfs.husbit.stateless;
 
 import com.bfs.husbit.model.AppRole;
+import com.bfs.husbit.resources.qualifier.HusbitDatabase;
+
 import java.util.List;
 import javax.ejb.Stateless;
+import javax.inject.Inject;
 import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 
 /**
- *
  * @author lukman
  */
 @Stateless
 public class AppRoleFacade extends AbstractFacade<AppRole> {
 
-    @PersistenceContext(unitName = "com.bfs.husbit_Husbit_war_1.0PU")
+    @Inject
+    @HusbitDatabase
     private EntityManager em;
 
     @Override

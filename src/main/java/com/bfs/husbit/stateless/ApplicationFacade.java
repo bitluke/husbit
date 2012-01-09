@@ -4,19 +4,23 @@
  */
 package com.bfs.husbit.stateless;
 
-import com.bfs.core.security.SecurityManager;
 import com.bfs.husbit.model.embeddable.Name;
 import com.bfs.husbit.model.AppRole;
 import com.bfs.husbit.model.AppUser;
+import com.bfs.core.security.SecurityManager;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
+
 import javax.ejb.Singleton;
+
 import javax.ejb.Startup;
 import javax.ejb.TransactionAttribute;
 import javax.ejb.TransactionAttributeType;
+import javax.inject.Inject;
+
+import org.jboss.logging.Logger;
 
 /**
- *
  * @author lukman
  */
 @Singleton
@@ -27,12 +31,14 @@ public class ApplicationFacade {
     private AppUserFacade appUserFacade;
     @EJB
     private AppRoleFacade appRoleFacade;
+    @Inject
+    private Logger log;
 
     public ApplicationFacade() {
     }
 
     @PostConstruct
-    @TransactionAttribute(TransactionAttributeType.REQUIRED)
+    //@TransactionAttribute(TransactionAttributeType.REQUIRED)
     public void initApplication() {
         //initialise demo user 
         initUser();
@@ -46,7 +52,7 @@ public class ApplicationFacade {
         //check if default user does not exist.
         if (defaultAppUser == null) {
             // create view for glassFish Authentication.
-           // appUserFacade.createView();
+            appUserFacade.createView();
             //persist a default user for login.
             appUserFacade.create(getDefaultUserProperties());
         }
@@ -54,9 +60,9 @@ public class ApplicationFacade {
     }
 
     private AppUser getDefaultUserProperties() {
-        // create user 
+        // create user
         AppUser appUser = new AppUser();
-        appUser.setPassword("demo123");
+        appUser.setPassword(SecurityManager.hashPassword("demodemo"));
         appUser.setUsername("demo");
         Name name = new Name();
         name.setFirstName("demo");

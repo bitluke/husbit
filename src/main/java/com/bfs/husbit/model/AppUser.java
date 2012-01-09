@@ -4,15 +4,16 @@
  */
 package com.bfs.husbit.model;
 
-
+import com.bfs.core.model.BaseModel;
 import com.bfs.husbit.model.embeddable.Name;
 
 import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 import javax.inject.Named;
 import javax.persistence.*;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
-import java.io.Serializable;
+import javax.validation.constraints.Size;
 
 /**
  * @author lukman
@@ -21,11 +22,10 @@ import java.io.Serializable;
 @Named
 @Dependent
 @NamedQueries({
-        @NamedQuery(name = "findDefaultAppUser", query = "select A from AppUser A where A.defaultAppUser = :dlt"),
-        @NamedQuery(name = "findAllAppUser", query = "select A from AppUser A where A.defaultAppUser = :dlt")
+    @NamedQuery(name = "findDefaultAppUser", query = "select A from AppUser A where A.defaultAppUser = :dlt"),
+    @NamedQuery(name = "findAllAppUser", query = "select A from AppUser A where A.defaultAppUser = :dlt")
 })
-
-public class AppUser  implements Serializable {
+public class AppUser extends BaseModel {
 
     private static final long serialVersionUID = 1L;
     @Inject
@@ -35,26 +35,32 @@ public class AppUser  implements Serializable {
     @Inject
     private AppRole approle;
     private Boolean defaultAppUser = Boolean.FALSE;
-    private Boolean enabled = Boolean.TRUE;
-    private Long version;
+    //private Boolean enabled = Boolean.TRUE;
 
     public AppUser() {
-
     }
 
-    @Version
-    public Long getVersion() {
-        return version;
+    @Override
+    @Id
+    @GeneratedValue
+    public Long getId() {
+        return super.getId();
     }
 
-    public void setVersion(Long version) {
-        this.version = version;
+    @Override
+    public void setId(Long id) {
+        super.setId(id);
     }
 
     public Name getName() {
         return name;
     }
 
+    public void setName(Name name) {
+        this.name = name;
+    }
+
+    
     @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH})
     public AppRole getApprole() {
         return approle;
@@ -64,11 +70,8 @@ public class AppUser  implements Serializable {
         this.approle = approle;
     }
 
-    public void setName(Name name) {
-        this.name = name;
-    }
-
     @NotNull
+    @Size(min= 6)
     public String getPassword() {
         return password;
     }
@@ -77,7 +80,6 @@ public class AppUser  implements Serializable {
         this.password = password;
     }
 
-    @Id
     @NotNull
     public String getUsername() {
         return username;
@@ -95,18 +97,17 @@ public class AppUser  implements Serializable {
         this.defaultAppUser = defaultAppUser;
     }
 
-    public Boolean getEnabled() {
-        return enabled;
-    }
-
-    public void setEnabled(Boolean enabled) {
-        this.enabled = enabled;
-    }
-
+//    public Boolean getEnabled() {
+//        return enabled;
+//    }
+//
+//    public void setEnabled(Boolean enabled) {
+//        this.enabled = enabled;
+//    }
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (username != null ? username.hashCode() : 0);
+        hash += (id != null ? id.hashCode() : 0);
         return hash;
     }
 
@@ -117,7 +118,7 @@ public class AppUser  implements Serializable {
             return false;
         }
         AppUser other = (AppUser) object;
-        if ((this.username == null && other.username != null) || (this.username != null && !this.username.equals(other.username))) {
+        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
         return true;
@@ -125,6 +126,6 @@ public class AppUser  implements Serializable {
 
     @Override
     public String toString() {
-        return "com.bfs.husbit.model.AppUser[ id=" + username + " ]";
+        return "com.bfs.husbit.model.AppUser[ id=" + id + " username " + username + " ]";
     }
 }

@@ -15,25 +15,43 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d84cc244-fa87-4bac-8a70-45cb2dea2c22" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/bfs/husbit/resources/DatabaseManager.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/bfs/husbit/resources/qualifier/HusbitDatabase.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/bfs/husbit/resources/qualifier/HusbitIdentitySession.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/applicationContext.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/spring-jdbc.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/spring-security.xml" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Husbit.ids" afterPath="$PROJECT_DIR$/Husbit.ids" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Husbit.iml" afterPath="$PROJECT_DIR$/Husbit.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Husbit.ipr" afterPath="$PROJECT_DIR$/Husbit.ipr" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Husbit.iws" afterPath="$PROJECT_DIR$/Husbit.iws" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nb-configuration.xml" afterPath="$PROJECT_DIR$/nb-configuration.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/bfs/husbit/model/AppRole.java" afterPath="$PROJECT_DIR$/src/main/java/com/bfs/husbit/model/AppRole.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/bfs/husbit/model/AppUser.java" afterPath="$PROJECT_DIR$/src/main/java/com/bfs/husbit/model/AppUser.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/bfs/husbit/stateless/AbstractFacade.java" afterPath="$PROJECT_DIR$/src/main/java/com/bfs/husbit/stateless/AbstractFacade.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/bfs/husbit/stateless/AppRoleFacade.java" afterPath="$PROJECT_DIR$/src/main/java/com/bfs/husbit/stateless/AppRoleFacade.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/bfs/husbit/stateless/AppUserFacade.java" afterPath="$PROJECT_DIR$/src/main/java/com/bfs/husbit/stateless/AppUserFacade.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/bfs/husbit/stateless/ApplicationFacade.java" afterPath="$PROJECT_DIR$/src/main/java/com/bfs/husbit/stateless/ApplicationFacade.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/bfs/husbit/stateless/AttendanceFacade.java" afterPath="$PROJECT_DIR$/src/main/java/com/bfs/husbit/stateless/AttendanceFacade.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/bfs/husbit/stateless/CustomerFacade.java" afterPath="$PROJECT_DIR$/src/main/java/com/bfs/husbit/stateless/CustomerFacade.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/bfs/husbit/stateless/RoomCategoryFacade.java" afterPath="$PROJECT_DIR$/src/main/java/com/bfs/husbit/stateless/RoomCategoryFacade.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/bfs/husbit/stateless/RoomFacade.java" afterPath="$PROJECT_DIR$/src/main/java/com/bfs/husbit/stateless/RoomFacade.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/bfs/husbit/view/AppRoleView.java" afterPath="$PROJECT_DIR$/src/main/java/com/bfs/husbit/view/AppRoleView.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/bfs/husbit/view/AppUserView.java" afterPath="$PROJECT_DIR$/src/main/java/com/bfs/husbit/view/AppUserView.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/bfs/husbit/view/datamodel/AppUserDataModel.java" afterPath="$PROJECT_DIR$/src/main/java/com/bfs/husbit/view/datamodel/AppUserDataModel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/setup/glassfish-resources.xml" afterPath="$PROJECT_DIR$/src/main/setup/glassfish-resources.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/bfs/husbit/view/Application.java" afterPath="$PROJECT_DIR$/src/main/java/com/bfs/husbit/view/Application.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/messages.properties" afterPath="$PROJECT_DIR$/src/main/resources/messages.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/messages_en.properties" afterPath="$PROJECT_DIR$/src/main/resources/messages_en.properties" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/beans.xml" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/beans.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/faces-config.xml" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/faces-config.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/glassfish-web.xml" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/glassfish-web.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/home.xhtml" afterPath="$PROJECT_DIR$/src/main/webapp/home.xhtml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/index.xhtml" afterPath="$PROJECT_DIR$/src/main/webapp/index.xhtml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/login.xhtml" afterPath="$PROJECT_DIR$/src/main/webapp/login.xhtml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/logout.xhtml" afterPath="$PROJECT_DIR$/src/main/webapp/logout.xhtml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/user/manage.xhtml" afterPath="$PROJECT_DIR$/src/main/webapp/user/manage.xhtml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/user/new.xhtml" afterPath="$PROJECT_DIR$/src/main/webapp/user/new.xhtml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/user/view.xhtml" afterPath="$PROJECT_DIR$/src/main/webapp/user/view.xhtml" />
     </list>
     <ignored path="Husbit.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -54,7 +72,7 @@
   </component>
   <component name="DebuggerManager">
     <line_breakpoints>
-      <breakpoint url="file://$PROJECT_DIR$/src/main/java/com/bfs/husbit/view/AppUserView.java" line="85" class="com.bfs.husbit.view.AppUserView" package="com.bfs.husbit.view">
+      <breakpoint url="file://$PROJECT_DIR$/src/main/java/com/bfs/husbit/view/AppUserView.java" line="119" class="com.bfs.husbit.view.AppUserView" package="com.bfs.husbit.view">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -108,91 +126,97 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="UserDetailsManager.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-core/3.1.0.RELEASE/spring-security-core-3.1.0.RELEASE-sources.jar!/org/springframework/security/provisioning/UserDetailsManager.java">
+      <file leaf-file-name="CustomerFacade.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/bfs/husbit/stateless/CustomerFacade.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="49" selection-start="415" selection-end="415" vertical-scroll-proportion="0.0">
+            <state line="18" column="13" selection-start="424" selection-end="424" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UserDetailsService.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-core/3.1.0.RELEASE/spring-security-core-3.1.0.RELEASE-sources.jar!/org/springframework/security/core/userdetails/UserDetailsService.java">
+      <file leaf-file-name="RoomCategoryFacade.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/bfs/husbit/stateless/RoomCategoryFacade.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="32" column="0" selection-start="1189" selection-end="1189" vertical-scroll-proportion="0.0">
+            <state line="18" column="13" selection-start="428" selection-end="428" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="JdbcDaoImpl.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-core/3.1.0.RELEASE/spring-security-core-3.1.0.RELEASE-sources.jar!/org/springframework/security/core/userdetails/jdbc/JdbcDaoImpl.java">
+      <file leaf-file-name="manage.xhtml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/user/manage.xhtml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="92" column="13" selection-start="4180" selection-end="4180" vertical-scroll-proportion="-2.3390806">
+            <state line="110" column="62" selection-start="5659" selection-end="5659" vertical-scroll-proportion="-45.208332">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UserDetails.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-core/3.1.0.RELEASE/spring-security-core-3.1.0.RELEASE-sources.jar!/org/springframework/security/core/userdetails/UserDetails.java">
+      <file leaf-file-name="m.xhtml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/user/m.xhtml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="44" column="0" selection-start="1600" selection-end="1600" vertical-scroll-proportion="0.0">
+            <state line="16" column="43" selection-start="494" selection-end="494" vertical-scroll-proportion="21.875">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="User.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-core/3.1.0.RELEASE/spring-security-core-3.1.0.RELEASE-sources.jar!/org/springframework/security/core/userdetails/User.java">
+      <file leaf-file-name="view.xhtml" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/user/view.xhtml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="49" column="13" selection-start="2110" selection-end="2110" vertical-scroll-proportion="0.0">
+            <state line="63" column="60" selection-start="3524" selection-end="3524" vertical-scroll-proportion="0.6189555">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="JdbcUserDetailsManager.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-core/3.1.0.RELEASE/spring-security-core-3.1.0.RELEASE-sources.jar!/org/springframework/security/provisioning/JdbcUserDetailsManager.java">
+      <file leaf-file-name="new.xhtml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/user/new.xhtml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="42" column="75" selection-start="2268" selection-end="2268" vertical-scroll-proportion="0.0">
+            <state line="60" column="65" selection-start="0" selection-end="3945" vertical-scroll-proportion="-10.291667">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MutableUser.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-core/3.1.0.RELEASE/spring-security-core-3.1.0.RELEASE-sources.jar!/org/springframework/security/provisioning/MutableUser.java">
+      <file leaf-file-name="faces-config.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/faces-config.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="6" selection-start="330" selection-end="330" vertical-scroll-proportion="0.0">
+            <state line="21" column="12" selection-start="973" selection-end="973" vertical-scroll-proportion="-8.428572">
+              <folding />
+            </state>
+          </provider>
+          <provider editor-type-id="com.intellij.jsf.ui.FacesConfigEditorProvider">
+            <state />
+          </provider>
+          <provider editor-type-id="com.intellij.jsf.yfilesGraph.editor.FacesNavigationFileEditorProvider">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AppUserView.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/bfs/husbit/view/AppUserView.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="126" column="48" selection-start="3329" selection-end="3329" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MutableUserDetails.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-core/3.1.0.RELEASE/spring-security-core-3.1.0.RELEASE-sources.jar!/org/springframework/security/provisioning/MutableUserDetails.java">
+      <file leaf-file-name="AppUserDataModel.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/bfs/husbit/view/datamodel/AppUserDataModel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="10" selection-start="177" selection-end="177" vertical-scroll-proportion="0.0">
+            <state line="22" column="37" selection-start="580" selection-end="580" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GroupManager.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-core/3.1.0.RELEASE/spring-security-core-3.1.0.RELEASE-sources.jar!/org/springframework/security/provisioning/GroupManager.java">
+      <file leaf-file-name="AppUser.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/bfs/husbit/model/AppUser.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="17" selection-start="680" selection-end="680" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="InMemoryUserDetailsManager.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-core/3.1.0.RELEASE/spring-security-core-3.1.0.RELEASE-sources.jar!/org/springframework/security/provisioning/InMemoryUserDetailsManager.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="30" column="13" selection-start="1313" selection-end="1313" vertical-scroll-proportion="0.0">
+            <state line="32" column="27" selection-start="906" selection-end="914" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -212,20 +236,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/main/webapp/user/view.xhtml" />
-        <option value="$PROJECT_DIR$/src/main/webapp/user/new.xhtml" />
-        <option value="$PROJECT_DIR$/src/main/webapp/user/manage.xhtml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/bfs/husbit/view/AppUserView.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/bfs/husbit/springsecurity/CustomJdbcDaoImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/bfs/husbit/model/AppRole.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/bfs/husbit/model/AppUser.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/bfs/husbit/stateless/RoomFacade.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/bfs/husbit/resources/IdentitySessionManager.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/bfs/husbit/stateless/ApplicationFacade.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/bfs/husbit/weld/HusbitJdbcUserDetailsManager.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/bfs/husbit/weld/HusbitUserDetailsManager.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/spring-jdbc.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/bfs/husbit/stateless/AppUserFacade.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/spring-security.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/bfs/husbit/model/AppRole.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/bfs/husbit/model/security/IdentityObject.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" />
+        <option value="$PROJECT_DIR$/src/main/webapp/index.xhtml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/bfs/husbit/view/Application.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/beans.xml" />
+        <option value="$PROJECT_DIR$/src/main/resources/META-INF/seam-beans.xml" />
+        <option value="$PROJECT_DIR$/src/main/webapp/user/new.xhtml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/bfs/husbit/resources/Messages.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/faces-config.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/bfs/husbit/view/AppUserView.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/user/manage.xhtml" />
+        <option value="$PROJECT_DIR$/src/main/webapp/user/view.xhtml" />
       </list>
     </option>
   </component>
@@ -233,7 +259,7 @@
     <option name="FILTER_ERRORS" value="false" />
     <option name="FILTER_WARNINGS" value="false" />
     <option name="FILTER_INFO" value="false" />
-    <option name="FILTER_DEBUG" value="true" />
+    <option name="FILTER_DEBUG" value="false" />
     <option name="CUSTOM_FILTER" />
   </component>
   <component name="MavenImportPreferences">
@@ -247,6 +273,48 @@
   </component>
   <component name="MavenProjectNavigator">
     <treeState>
+      <PATH>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="Husbit" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProjectNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="Dependencies" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$DependenciesNode" />
+        </PATH_ELEMENT>
+      </PATH>
+      <PATH>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="Husbit" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProjectNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="Plugins" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$PluginsNode" />
+        </PATH_ELEMENT>
+      </PATH>
+      <PATH>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="Husbit" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProjectNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="Lifecycle" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$LifecycleNode" />
+        </PATH_ELEMENT>
+      </PATH>
       <PATH>
         <PATH_ELEMENT>
           <option name="myItemId" value="" />
@@ -287,8 +355,9 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="Favorites" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -296,10 +365,6 @@
               <option name="myItemId" value="Husbit" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="External Libraries" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -369,7 +434,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="WEB-INF" />
+              <option name="myItemId" value="user" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -410,58 +475,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Husbit" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Husbit" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Resource Bundle 'messages'" />
-              <option name="myItemType" value="com.intellij.lang.properties.projectView.ResourceBundleNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Husbit" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Husbit" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="META-INF" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -547,13 +560,76 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Husbit" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Husbit" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="husbit" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="model" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Husbit" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Husbit" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="husbit" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="model" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="embeddable" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -573,7 +649,13 @@
     <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
   </component>
-  <component name="RunManager" selected="Query Language Console.Default">
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/webapp/user" />
+      <recent name="$PROJECT_DIR$/src/main/resources/META-INF" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Glassfish Server.Glassfish">
     <configuration default="false" name="Default" type="com.intellij.persistence.run.ConsoleRunConfigurationType" factoryName="Query Language Console" temporary="true">
       <option name="VM_PARAMETERS" value="" />
       <option name="USER_CFG_CLASS" />
@@ -857,31 +939,31 @@
     <frame x="-5" y="-10" width="1376" height="757" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Data Sources" active="false" anchor="right" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.27203646" sideWeight="0.56905156" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Atlassian " active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32935154" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Data Sources" active="false" anchor="right" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.27203646" sideWeight="0.5108153" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.36439267" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Atlassian " active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.327787" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.18693009" sideWeight="0.47088185" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.63061565" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3294509" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3294509" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="JSF" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3294509" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="CDI" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.50415975" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5141431" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="CDI" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.50415975" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32890365" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.34954408" sideWeight="0.484193" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2462006" sideWeight="0.5823627" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2462006" sideWeight="0.4309484" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2462006" sideWeight="0.4342762" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.34954408" sideWeight="0.5024958" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4076539" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21276596" sideWeight="0.4342762" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5657238" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3294509" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39267886" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -975,114 +1057,120 @@
     </option>
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-core/3.1.0.RELEASE/spring-security-core-3.1.0.RELEASE-sources.jar!/org/springframework/security/authentication/encoding/Md5PasswordEncoder.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/bfs/husbit/stateless/AppRoleFacade.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="13" selection-start="1157" selection-end="1157" vertical-scroll-proportion="0.0">
+        <state line="18" column="13" selection-start="401" selection-end="401" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-core/3.1.0.RELEASE/spring-security-core-3.1.0.RELEASE-sources.jar!/org/springframework/security/authentication/encoding/Md4PasswordEncoder.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/bfs/husbit/stateless/AppUserFacade.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="13" selection-start="1355" selection-end="1355" vertical-scroll-proportion="0.0">
+        <state line="19" column="13" selection-start="440" selection-end="440" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-core/3.1.0.RELEASE/spring-security-core-3.1.0.RELEASE-sources.jar!/org/springframework/security/authentication/encoding/Md4.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/bfs/husbit/stateless/AttendanceFacade.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="6" selection-start="846" selection-end="846" vertical-scroll-proportion="0.0">
+        <state line="18" column="13" selection-start="426" selection-end="426" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-core/3.1.0.RELEASE/spring-security-core-3.1.0.RELEASE-sources.jar!/org/springframework/security/authentication/encoding/LdapShaPasswordEncoder.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/bfs/husbit/stateless/CustomerFacade.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="13" selection-start="1482" selection-end="1482" vertical-scroll-proportion="0.0">
+        <state line="18" column="13" selection-start="424" selection-end="424" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-core/3.1.0.RELEASE/spring-security-core-3.1.0.RELEASE-sources.jar!/org/springframework/security/authentication/encoding/BasePasswordEncoder.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/bfs/husbit/view/datamodel/AppUserDataModel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="22" selection-start="792" selection-end="792" vertical-scroll-proportion="0.0">
+        <state line="22" column="37" selection-start="580" selection-end="580" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-core/3.1.0.RELEASE/spring-security-core-3.1.0.RELEASE-sources.jar!/org/springframework/security/authentication/encoding/BaseDigestPasswordEncoder.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/bfs/husbit/model/AppUser.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="22" selection-start="803" selection-end="803" vertical-scroll-proportion="0.0">
+        <state line="32" column="27" selection-start="906" selection-end="914" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-core/3.1.0.RELEASE/spring-security-core-3.1.0.RELEASE-sources.jar!/org/springframework/security/provisioning/MutableUser.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/com/bfs/bitfingers/2.0/bitfingers-2.0.jar!/com/bfs/core/model/embeddable/Name.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="6" selection-start="330" selection-end="330" vertical-scroll-proportion="0.0">
+        <state line="8" column="13" selection-start="253" selection-end="253" vertical-scroll-proportion="0.2268431">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-core/3.1.0.RELEASE/spring-security-core-3.1.0.RELEASE-sources.jar!/org/springframework/security/provisioning/MutableUserDetails.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/bfs/husbit/model/embeddable/Name.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="10" selection-start="177" selection-end="177" vertical-scroll-proportion="0.0">
+        <state line="19" column="13" selection-start="438" selection-end="438" vertical-scroll-proportion="0.33212996">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-core/3.1.0.RELEASE/spring-security-core-3.1.0.RELEASE-sources.jar!/org/springframework/security/provisioning/GroupManager.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/bfs/husbit/stateless/RoomFacade.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="17" selection-start="680" selection-end="680" vertical-scroll-proportion="0.0">
+        <state line="19" column="40" selection-start="473" selection-end="473" vertical-scroll-proportion="0.35198557">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-core/3.1.0.RELEASE/spring-security-core-3.1.0.RELEASE-sources.jar!/org/springframework/security/provisioning/InMemoryUserDetailsManager.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/bfs/husbit/stateless/RoomCategoryFacade.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="13" selection-start="1313" selection-end="1313" vertical-scroll-proportion="0.0">
+        <state line="18" column="13" selection-start="428" selection-end="428" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-core/3.1.0.RELEASE/spring-security-core-3.1.0.RELEASE-sources.jar!/org/springframework/security/provisioning/JdbcUserDetailsManager.java">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/faces-config.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="42" column="75" selection-start="2268" selection-end="2268" vertical-scroll-proportion="0.0">
+        <state line="21" column="12" selection-start="973" selection-end="973" vertical-scroll-proportion="-8.428572">
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="com.intellij.jsf.ui.FacesConfigEditorProvider">
+        <state />
+      </provider>
+      <provider editor-type-id="com.intellij.jsf.yfilesGraph.editor.FacesNavigationFileEditorProvider">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/bfs/husbit/view/AppUserView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="126" column="48" selection-start="3329" selection-end="3329" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-core/3.1.0.RELEASE/spring-security-core-3.1.0.RELEASE-sources.jar!/org/springframework/security/core/userdetails/UserDetails.java">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/user/manage.xhtml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="44" column="0" selection-start="1600" selection-end="1600" vertical-scroll-proportion="0.0">
+        <state line="110" column="62" selection-start="5659" selection-end="5659" vertical-scroll-proportion="-45.208332">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-core/3.1.0.RELEASE/spring-security-core-3.1.0.RELEASE-sources.jar!/org/springframework/security/core/userdetails/User.java">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/user/m.xhtml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="49" column="13" selection-start="2110" selection-end="2110" vertical-scroll-proportion="0.0">
+        <state line="16" column="43" selection-start="494" selection-end="494" vertical-scroll-proportion="21.875">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-core/3.1.0.RELEASE/spring-security-core-3.1.0.RELEASE-sources.jar!/org/springframework/security/provisioning/UserDetailsManager.java">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/user/new.xhtml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="49" selection-start="415" selection-end="415" vertical-scroll-proportion="0.0">
+        <state line="60" column="65" selection-start="0" selection-end="3945" vertical-scroll-proportion="-10.291667">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-core/3.1.0.RELEASE/spring-security-core-3.1.0.RELEASE-sources.jar!/org/springframework/security/core/userdetails/UserDetailsService.java">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/user/view.xhtml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="0" selection-start="1189" selection-end="1189" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-core/3.1.0.RELEASE/spring-security-core-3.1.0.RELEASE-sources.jar!/org/springframework/security/core/userdetails/jdbc/JdbcDaoImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="92" column="13" selection-start="4180" selection-end="4180" vertical-scroll-proportion="-2.3390806">
+        <state line="63" column="60" selection-start="3524" selection-end="3524" vertical-scroll-proportion="0.6189555">
           <folding />
         </state>
       </provider>

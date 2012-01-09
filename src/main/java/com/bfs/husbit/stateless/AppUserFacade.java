@@ -5,12 +5,13 @@
 package com.bfs.husbit.stateless;
 
 import com.bfs.husbit.model.AppUser;
+import com.bfs.husbit.resources.qualifier.HusbitDatabase;
 
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.ejb.Stateless;
+import javax.inject.Inject;
 import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 
 /**
  * @author lukman
@@ -18,20 +19,20 @@ import javax.persistence.PersistenceContext;
 @Stateless
 public class AppUserFacade extends AbstractFacade<AppUser> {
 
-    @PersistenceContext(unitName = "com.bfs.husbit_Husbit_war_1.0PU")
+    @Inject
+    @HusbitDatabase
     private EntityManager em;
-   
 
 
     @Override
     protected EntityManager getEntityManager() {
         return em;
     }
-    
-    
+
+
     @PostConstruct
-    public void initAfterConstrutor(){
-       
+    public void initAfterConstrutor() {
+
     }
 
     public AppUserFacade() {
@@ -59,17 +60,6 @@ public class AppUserFacade extends AbstractFacade<AppUser> {
         System.out.println("excute update " + executeUpdate);
     }
 
-    //spring security mettods =========================================================================================
-    @Override
-    public void create(AppUser appUserEntity) {
-        super.create(appUserEntity);
-        
-    }
-
-    @Override
-    public void edit(AppUser appUserEntity) {
-        super.edit(appUserEntity);
-
-    }
+  
 
 }

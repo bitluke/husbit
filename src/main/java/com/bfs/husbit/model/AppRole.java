@@ -14,12 +14,7 @@ import com.bfs.core.model.BaseModel;
 import java.util.List;
 import javax.enterprise.context.Dependent;
 import javax.inject.Named;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 
 /**
  *
@@ -42,9 +37,9 @@ public class AppRole extends BaseModel {
     public AppRole() {
     }
 
+    @Override
     @Id
     @GeneratedValue
-    @Override
     public Long getId() {
         return super.getId();
     }
@@ -62,7 +57,6 @@ public class AppRole extends BaseModel {
         this.roleDescription = roleDescription;
     }
 
-    
     public String getRoleName() {
         return roleName;
     }
@@ -102,6 +96,6 @@ public class AppRole extends BaseModel {
 
     @Override
     public String toString() {
-        return "com.bfs.husbit.model.AppRole[ id=" + id + " ]";
+        return "com.bfs.husbit.model.AppRole[ id=" + id + " roleDescription " + roleDescription + " ]";
     }
 }

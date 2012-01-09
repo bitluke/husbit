@@ -2,20 +2,20 @@
 <!DOCTYPE glassfish-web-app PUBLIC "-//GlassFish.org//DTD GlassFish Application Server 3.1 Servlet 3.0//EN" "http://glassfish.org/dtds/glassfish-web-app_3_0-1.dtd">
 <glassfish-web-app error-url="">
     <security-role-mapping>
-        <role-name>admin</role-name>
-        <group-name>admin</group-name>
+        <role-name>ROLE_ADMIN</role-name>
+        <group-name>ROLE_ADMIN</group-name>
     </security-role-mapping>
     <security-role-mapping>
-        <role-name>receptionist</role-name>
-        <group-name>receptionist</group-name>
+        <role-name>ROLE_RECEEPTIONIST</role-name>
+        <group-name>ROLE_RECEEPTIONIST</group-name>
     </security-role-mapping>
     <security-role-mapping>
-        <role-name>accountant</role-name>
-        <group-name>accountant</group-name>
+        <role-name>ROLE_ACCOUNTANT</role-name>
+        <group-name>ROLE_ACCOUNTANT</group-name>
     </security-role-mapping>
     <security-role-mapping>
-        <role-name>basicuser</role-name>
-        <group-name>basicuser</group-name>
+        <role-name>ROLE_USER</role-name>
+        <group-name>ROLE_USER</group-name>
     </security-role-mapping>
     <class-loader delegate="true"/>
     <jsp-config>

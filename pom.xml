@@ -43,11 +43,7 @@
             <scope>test</scope>
         </dependency>-->
         
-        <dependency>
-            <groupId>org.jboss.seam.security</groupId>
-            <artifactId>seam-security</artifactId>
-            <version>${seam.version}</version>
-        </dependency>
+       
         
         <dependency>
             <groupId>javax</groupId>
@@ -111,6 +107,7 @@
             <version>4.8.2</version>
             <scope>test</scope>
         </dependency>
+       
     </dependencies>
 
     <build>

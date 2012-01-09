@@ -5,29 +5,39 @@
 package com.bfs.husbit.view;
 
 import com.bfs.core.BaseSerializable;
+
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.sql.SQLException;
 import java.util.Map;
 import javax.annotation.PostConstruct;
-import javax.enterprise.context.SessionScoped;
+import javax.enterprise.context.ApplicationScoped;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 import javax.servlet.ServletException;
+
 import org.jboss.logging.Logger;
 
 /**
- *
  * @author lukman
  */
 @Named("app")
-@SessionScoped
+@ApplicationScoped
 public class Application implements BaseSerializable {
-  public Application() {
+
+    public Application() {
     }
 
-   
+
+
+    @PostConstruct
+    public void initApplication() {
+
+        //createDefaultUser();
+        System.out.println("Application Singleton created with location");
+    }
+
     /**
      * Moves the user to the patient's module
      *
@@ -63,6 +73,28 @@ public class Application implements BaseSerializable {
 
     }
 
+//
+//     public void createDefaultUser() {
+//        System.out.println("Observing Log Event ");
+//        PersistenceManager persistenceManager = identitySession.getPersistenceManager();
+//        RelationshipManager relationshipManager = identitySession.getRelationshipManager();
+//
+//        try {
+//            User defaultUser = persistenceManager.createUser("test");
+//            Group husbitGroup = persistenceManager.createGroup("GROUP", "husbit");
+////            Group userGroup = persistenceManager.createGroup("USER","husbit");
+//            relationshipManager.associateUser(husbitGroup, defaultUser);
+//            RoleManager roleManager = identitySession.getRoleManager();
+//            RoleType adminRoleType = roleManager.createRoleType("admin");
+//            Role role = roleManager.createRole(adminRoleType, defaultUser, husbitGroup);
+//
+//        } catch (IdentityException e) {
+//            log.error("User Cannot be created ", e);
+//        } catch (FeatureNotSupportedException e) {
+//            log.error("Role creation is not supported ", e);
+//        }
+//    }
+
     /**
      * Moves the user to the admin's module
      *
@@ -71,13 +103,9 @@ public class Application implements BaseSerializable {
     public String home() {
         return "/home.xhtml?faces-redirect=true";
     }
+    
     @Inject
     Logger log;
-
-    @PostConstruct
-    public void checkBeans() {
-        log.infof("Application Singleton created with location");
-    }
 
     public String getStackTrace() {
         FacesContext context = FacesContext.getCurrentInstance();
@@ -119,5 +147,5 @@ public class Application implements BaseSerializable {
 
         }
 
-    }  
+    }
 }

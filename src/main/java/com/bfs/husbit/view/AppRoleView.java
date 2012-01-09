@@ -19,6 +19,7 @@ import javax.inject.Named;
  */
 @Named
 @ConversationScoped
+
 public class AppRoleView implements BaseSerializable {
 
     @EJB

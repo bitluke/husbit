@@ -15,60 +15,64 @@
       xmlns:p="http://primefaces.org/ui"
       xmlns:ui="http://java.sun.com/jsf/facelets">
 <head>
-    <title>D'Help</title>
-
+    <title>Husbit</title>
 </head>
 <body>
 <ui:composition template="/resources/template/TwoColtemplate.xhtml">
     <ui:define name="contentpart">
         <div id="content">
-            <p:panel header="List of issues" id="createPanel">
+            <p:panel header="List of Users" id="createPanel">
                 <h:form id="updateform">
                     <p:growl id="sa"/>
-                    <p:dataTable id="tableform" paginator="true" rows="10" var="iss"
-                                 value="#{ap.issueDataModel}" rowKey="#{iss.id}"
-                                 widgetVar="wiss">
+                    <p:dataTable id="tableform" paginator="true" rows="10" var="appUzer"
+                                 value="#{appUserView.appUserDataModel}" rowKey="#{appUzer.id}"
+                                 widgetVar="wappUzer">
 
                         <f:facet name="header">
                             <p:outputPanel>
                                 <h:outputText value="Search all fields:"/>
-                                <h:inputText id="globalFilter" onkeyup="wiss.filter()"/>
+                                <h:inputText id="globalFilter" onkeyup="wappUzer.filter()"/>
                             </p:outputPanel>
                         </f:facet>
 
-                        <p:column sortBy="#{iss.name.firstName}" filterBy="#{iss.name.firstName}"
+                        <p:column sortBy="#{appUzer.name.firstName}" filterBy="#{appUzer.name.firstName}"
                                   headerText="#{msgs.firstName}">
-                            <h:outputText value="#{iss.name.firstName}"/>
+                            <h:outputText value="#{appUzer.name.firstName}"/>
                         </p:column>
 
-                        <p:column sortBy="#{iss.msisdn}" filterBy="#{iss.msisdn}" headerText="#{msgs.msisdn}">
-                            <h:outputText value="#{iss.msisdn}"/>
+                        <p:column sortBy="#{appUzer.name.middleName}" filterBy="#{appUzer.name.middleName}"
+                                  headerText="#{msgs.middleName}">
+                            <h:outputText value="#{appUzer.name.middleName}"/>
                         </p:column>
 
-                        <p:column sortBy="#{iss.imei}" filterBy="#{iss.imei}" headerText="#{msgs.imei}">
-                            <h:outputText value="#{iss.imei}"/>
+                        <p:column sortBy="#{appUzer.name.lastName}" filterBy="#{appUzer.name.lastName}"
+                                  headerText="#{msgs.lastName}">
+                            <h:outputText value="#{appUzer.name.lastName}"/>
                         </p:column>
 
-                        <p:column sortBy="#{iss.problem}" filterBy="#{iss.problem}" headerText="#{msgs.problem}">
-                            <h:outputText value="#{iss.problem}"/>
+                        <p:column sortBy="#{appUzer.username}" filterBy="#{appUzer.username}"
+                                  headerText="#{msgs.userName}">
+                            <h:outputText value="#{appUzer.username}"/>
                         </p:column>
+
+
 
                         <p:column headerText="Options">
                             <p:commandButton image="ui-icon ui-icon-search" action="#{appUserView.setUpEdit}"
                                              title="View Issue">
-                                <f:setPropertyActionListener value="#{iss}" target="#{appUserView.selectedIssue}"/>
+                                <f:setPropertyActionListener value="#{appUzer}" target="#{appUserView.selectedAppUser}"/>
                                 <f:setPropertyActionListener target="#{appUserView.editMode}" value="#{false}"/>
                             </p:commandButton>
                             <p:spacer width="5"/>
                             <p:commandButton image="ui-icon ui-icon-pencil" action="#{appUserView.setUpEdit}"
                                              title="Edit User">
-                                <f:setPropertyActionListener target="#{appUserView.selectedIssue}" value="#{iss}"/>
+                                <f:setPropertyActionListener target="#{appUserView.selectedAppUser}" value="#{appUzer}"/>
                                 <f:setPropertyActionListener target="#{appUserView.editMode}" value="#{true}"/>
                             </p:commandButton>
                             <p:spacer width="5"/>
                             <p:commandButton onstart="confirmation.show()" update=":updateform:deletedsp"
                                              image="ui-icon ui-icon-close" title="Remove User">
-                                <f:setPropertyActionListener target="#{appUserView.selectedIssue}" value="#{iss}"/>
+                                <f:setPropertyActionListener target="#{appUserView.selectedAppUser}" value="#{appUzer}"/>
                             </p:commandButton>
                         </p:column>
                     </p:dataTable>
@@ -82,10 +86,10 @@
 
                         <h:panelGrid id="deletedsp" columns="2">
                             <h:outputText value="First Name:"/>
-                            <h:outputText value="#{appUserView.selectedIssue.name.firstName}"/>
+                            <h:outputText value="#{appUserView.selectedAppUser.name.firstName}"/>
 
                             <h:outputText value="Last Name:"/>
-                            <h:outputText value="#{appUserView.selectedIssue.name.lastName}"/>
+                            <h:outputText value="#{appUserView.selectedAppUser.name.lastName}"/>
 
                             <p:spacer/>
                             <p:outputPanel>
@@ -97,12 +101,12 @@
 
                                 <p:commandButton
                                         immediate="true"
-                                        action="#{appUserView.removeIssue()}"
+                                        action="#{appUserView.removeAppuser()}"
                                         value="Delete User"
                                         oncomplete="confirmation.hide()"
                                         update=":updateform:tableform">
 
-                                    <f:param name="sid" value="#{appUserView.selectedIssue.id}"/>
+                                    <f:param name="sid" value="#{appUserView.selectedAppUser.id}"/>
 
                                 </p:commandButton>
                             </p:outputPanel>
@@ -118,8 +122,8 @@
         <h:form>
             <p:menu>
                 <p:submenu label="Operations">
-                    <p:menuitem value="View all Users" url="/issue/users.xhtml"/>
-                    <p:menuitem value="Create Issue" url="/issue/new.xhtml"/>
+                    <p:menuitem value="View all Users" url="/user/users.xhtml"/>
+                    <p:menuitem value="Create Issue" url="/user/new.xhtml"/>
                 </p:submenu>
             </p:menu>
         </h:form>

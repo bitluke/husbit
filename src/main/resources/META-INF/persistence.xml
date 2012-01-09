@@ -1,16 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <persistence version="2.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
-    <persistence-unit name="com.bfs.husbit_Husbit_war_1.0PU" transaction-type="JTA">
-        <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
-        <jta-data-source>jdbc/husbit</jta-data-source>
-        <exclude-unlisted-classes>false</exclude-unlisted-classes>
-        <properties>
-            <!-- Properties for Hibernate (default provider for JBoss AS) -->
-            <property name="hibernate.show_sql" value="true"/>
-            <property name="hibernate.format_sql" value="false"/>
-             <!-- Properties for EclipseLink (default provider for GlassFish) -->
-            <property name="eclipselink.logging.level" value="FINEST"/>
-            <property name="eclipselink.ddl-generation" value="create-tables"/>
-        </properties>
-    </persistence-unit>
+  <persistence-unit name="husbitPU" transaction-type="JTA">
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <!--<provider>org.hibernate.ejb.HibernatePersistence</provider>-->
+    <jta-data-source>jdbc/husbit</jta-data-source>
+    <exclude-unlisted-classes>false</exclude-unlisted-classes>
+    <properties>
+      <!-- Properties for Hibernate (default provider for JBoss AS) -->
+      <property name="hibernate.show_sql" value="true"/>
+      <property name="hibernate.format_sql" value="false"/>
+      <property name="hibernate.hbm2ddl.auto" value="create-drop"/>
+      <!-- Properties for EclipseLink (default provider for GlassFish) -->
+      <property name="eclipselink.logging.level" value="FINEST"/>
+      <property name="eclipselink.ddl-generation" value="create-tables"/>
+      <property name="eclipselink.logging.parameters" value="true"/>
+    </properties>
+  </persistence-unit>
 </persistence>

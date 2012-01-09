@@ -21,16 +21,16 @@
       <primary-key name="PRIMARY" columns="id" />
     </table>
     <table name="APPUSER" schema="" catalog="husbit" type="TABLE">
-      <column name="ID" sqlType="BIGINT" length="19" precision="0" nullable="false" jdbcType="-5" />
+      <column name="USERNAME" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12" />
       <column name="DEFAULTAPPUSER" sqlType="BIT" length="0" precision="0" nullable="true" jdbcType="-7" />
+      <column name="ENABLED" sqlType="BIT" length="0" precision="0" nullable="true" jdbcType="-7" />
       <column name="PASSWORD" sqlType="VARCHAR" length="255" precision="0" nullable="true" jdbcType="12" />
-      <column name="USERNAME" sqlType="VARCHAR" length="255" precision="0" nullable="true" jdbcType="12" />
       <column name="VERSION" sqlType="BIGINT" length="19" precision="0" nullable="true" jdbcType="-5" />
       <column name="FIRSTNAME" sqlType="VARCHAR" length="255" precision="0" nullable="true" jdbcType="12" />
       <column name="LASTNAME" sqlType="VARCHAR" length="255" precision="0" nullable="true" jdbcType="12" />
       <column name="MIDDLENAME" sqlType="VARCHAR" length="255" precision="0" nullable="true" jdbcType="12" />
       <column name="APPROLE_ID" sqlType="BIGINT" length="19" precision="0" nullable="true" jdbcType="-5" />
-      <primary-key name="PRIMARY" columns="id" />
+      <primary-key name="PRIMARY" columns="username" />
       <index name="FK_APPUSER_APPROLE_ID" unique="false" columns="APPROLE_ID" />
     </table>
     <table name="ATTENDANCE" schema="" catalog="husbit" type="TABLE">
@@ -45,11 +45,6 @@
       <index name="FK_ATTENDANCE_ROOM_ID" unique="false" columns="ROOM_ID" />
       <index name="FK_ATTENDANCE_CUSTOMER_ID" unique="false" columns="CUSTOMER_ID" />
     </table>
-    <table name="AUTH" schema="" catalog="husbit" type="VIEW">
-      <column name="USERNAME" sqlType="VARCHAR" length="255" precision="0" nullable="true" jdbcType="12" />
-      <column name="PASSWORD" sqlType="VARCHAR" length="255" precision="0" nullable="true" jdbcType="12" />
-      <column name="GROUP_NAME" sqlType="VARCHAR" length="255" precision="0" nullable="true" jdbcType="12" />
-    </table>
     <table name="CUSTOMER" schema="" catalog="husbit" type="TABLE">
       <column name="ID" sqlType="BIGINT" length="19" precision="0" nullable="false" jdbcType="-5" />
       <column name="ADDRESS" sqlType="VARCHAR" length="255" precision="0" nullable="true" jdbcType="12" />
@@ -62,6 +57,81 @@
       <column name="FIRSTNAME" sqlType="VARCHAR" length="255" precision="0" nullable="true" jdbcType="12" />
       <column name="LASTNAME" sqlType="VARCHAR" length="255" precision="0" nullable="true" jdbcType="12" />
       <column name="MIDDLENAME" sqlType="VARCHAR" length="255" precision="0" nullable="true" jdbcType="12" />
+      <primary-key name="PRIMARY" columns="id" />
+    </table>
+    <table name="IDENTITYOBJECT" schema="" catalog="husbit" type="TABLE">
+      <column name="ID" sqlType="BIGINT" length="19" precision="0" nullable="false" jdbcType="-5" />
+      <column name="NAME" sqlType="VARCHAR" length="255" precision="0" nullable="true" jdbcType="12" />
+      <column name="VERSION" sqlType="BIGINT" length="19" precision="0" nullable="true" jdbcType="-5" />
+      <column name="IDENTITY_OBJECT_TYPE_ID" sqlType="BIGINT" length="19" precision="0" nullable="true" jdbcType="-5" />
+      <primary-key name="PRIMARY" columns="id" />
+      <index name="FK_IDENTITYOBJECT_IDENTITY_OBJECT_TYPE_ID" unique="false" columns="IDENTITY_OBJECT_TYPE_ID" />
+    </table>
+    <table name="IDENTITYOBJECTATTRIBUTE" schema="" catalog="husbit" type="TABLE">
+      <column name="ATTRIBUTEID" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" />
+      <column name="NAME" sqlType="VARCHAR" length="255" precision="0" nullable="true" jdbcType="12" />
+      <column name="VALUE" sqlType="VARCHAR" length="255" precision="0" nullable="true" jdbcType="12" />
+      <column name="VERSION" sqlType="BIGINT" length="19" precision="0" nullable="true" jdbcType="-5" />
+      <column name="IDENTITY_OBJECT_ID" sqlType="BIGINT" length="19" precision="0" nullable="true" jdbcType="-5" />
+      <primary-key name="PRIMARY" columns="attributeid" />
+      <index name="FK_IDENTITYOBJECTATTRIBUTE_IDENTITY_OBJECT_ID" unique="false" columns="IDENTITY_OBJECT_ID" />
+    </table>
+    <table name="IDENTITYOBJECTCREDENTIAL" schema="" catalog="husbit" type="TABLE">
+      <column name="ID" sqlType="BIGINT" length="19" precision="0" nullable="false" jdbcType="-5" />
+      <column name="VALUE" sqlType="VARCHAR" length="255" precision="0" nullable="true" jdbcType="12" />
+      <column name="VERSION" sqlType="BIGINT" length="19" precision="0" nullable="true" jdbcType="-5" />
+      <column name="IDENTITY_OBJECT_ID" sqlType="BIGINT" length="19" precision="0" nullable="true" jdbcType="-5" />
+      <column name="CREDENTIAL_TYPE_ID" sqlType="BIGINT" length="19" precision="0" nullable="true" jdbcType="-5" />
+      <primary-key name="PRIMARY" columns="id" />
+      <index name="FK_IDENTITYOBJECTCREDENTIAL_CREDENTIAL_TYPE_ID" unique="false" columns="CREDENTIAL_TYPE_ID" />
+      <index name="FK_IDENTITYOBJECTCREDENTIAL_IDENTITY_OBJECT_ID" unique="false" columns="IDENTITY_OBJECT_ID" />
+    </table>
+    <table name="IDENTITYOBJECTCREDENTIALTYPE" schema="" catalog="husbit" type="TABLE">
+      <column name="ID" sqlType="BIGINT" length="19" precision="0" nullable="false" jdbcType="-5" />
+      <column name="NAME" sqlType="VARCHAR" length="255" precision="0" nullable="true" jdbcType="12" />
+      <column name="VERSION" sqlType="BIGINT" length="19" precision="0" nullable="true" jdbcType="-5" />
+      <primary-key name="PRIMARY" columns="id" />
+    </table>
+    <table name="IDENTITYOBJECTRELATIONSHIP" schema="" catalog="husbit" type="TABLE">
+      <column name="ID" sqlType="BIGINT" length="19" precision="0" nullable="false" jdbcType="-5" />
+      <column name="NAME" sqlType="VARCHAR" length="255" precision="0" nullable="true" jdbcType="12" />
+      <column name="VERSION" sqlType="BIGINT" length="19" precision="0" nullable="true" jdbcType="-5" />
+      <column name="FROM_IDENTITY_ID" sqlType="BIGINT" length="19" precision="0" nullable="true" jdbcType="-5" />
+      <column name="RELATIONSHIP_TYPE_ID" sqlType="BIGINT" length="19" precision="0" nullable="true" jdbcType="-5" />
+      <column name="TO_IDENTITY_ID" sqlType="BIGINT" length="19" precision="0" nullable="true" jdbcType="-5" />
+      <primary-key name="PRIMARY" columns="id" />
+      <index name="FK_IDENTITYOBJECTRELATIONSHIP_RELATIONSHIP_TYPE_ID" unique="false" columns="RELATIONSHIP_TYPE_ID" />
+      <index name="FK_IDENTITYOBJECTRELATIONSHIP_FROM_IDENTITY_ID" unique="false" columns="FROM_IDENTITY_ID" />
+      <index name="FK_IDENTITYOBJECTRELATIONSHIP_TO_IDENTITY_ID" unique="false" columns="TO_IDENTITY_ID" />
+    </table>
+    <table name="IDENTITYOBJECTRELATIONSHIPTYPE" schema="" catalog="husbit" type="TABLE">
+      <column name="ID" sqlType="BIGINT" length="19" precision="0" nullable="false" jdbcType="-5" />
+      <column name="NAME" sqlType="VARCHAR" length="255" precision="0" nullable="true" jdbcType="12" />
+      <column name="VERSION" sqlType="BIGINT" length="19" precision="0" nullable="true" jdbcType="-5" />
+      <primary-key name="PRIMARY" columns="id" />
+    </table>
+    <table name="IDENTITYOBJECTTYPE" schema="" catalog="husbit" type="TABLE">
+      <column name="ID" sqlType="BIGINT" length="19" precision="0" nullable="false" jdbcType="-5" />
+      <column name="NAME" sqlType="VARCHAR" length="255" precision="0" nullable="true" jdbcType="12" />
+      <column name="VERSION" sqlType="BIGINT" length="19" precision="0" nullable="true" jdbcType="-5" />
+      <primary-key name="PRIMARY" columns="id" />
+    </table>
+    <table name="IDENTITYPERMISSION" schema="" catalog="husbit" type="TABLE">
+      <column name="ID" sqlType="BIGINT" length="19" precision="0" nullable="false" jdbcType="-5" />
+      <column name="PERMISSION" sqlType="VARCHAR" length="255" precision="0" nullable="true" jdbcType="12" />
+      <column name="RELATIONSHIPNAME" sqlType="VARCHAR" length="255" precision="0" nullable="true" jdbcType="12" />
+      <column name="RESOURCE" sqlType="VARCHAR" length="255" precision="0" nullable="true" jdbcType="12" />
+      <column name="VERSION" sqlType="BIGINT" length="19" precision="0" nullable="true" jdbcType="-5" />
+      <column name="IDENTITYOBJECT_ID" sqlType="BIGINT" length="19" precision="0" nullable="true" jdbcType="-5" />
+      <column name="RELATIONSHIPTYPE_ID" sqlType="BIGINT" length="19" precision="0" nullable="true" jdbcType="-5" />
+      <primary-key name="PRIMARY" columns="id" />
+      <index name="FK_IDENTITYPERMISSION_IDENTITYOBJECT_ID" unique="false" columns="IDENTITYOBJECT_ID" />
+      <index name="FK_IDENTITYPERMISSION_RELATIONSHIPTYPE_ID" unique="false" columns="RELATIONSHIPTYPE_ID" />
+    </table>
+    <table name="IDENTITYROLENAME" schema="" catalog="husbit" type="TABLE">
+      <column name="ID" sqlType="BIGINT" length="19" precision="0" nullable="false" jdbcType="-5" />
+      <column name="NAME" sqlType="VARCHAR" length="255" precision="0" nullable="true" jdbcType="12" />
+      <column name="VERSION" sqlType="BIGINT" length="19" precision="0" nullable="true" jdbcType="-5" />
       <primary-key name="PRIMARY" columns="id" />
     </table>
     <table name="ROOM" schema="" catalog="husbit" type="TABLE">
@@ -86,18 +156,6 @@
       <column name="SEQ_NAME" sqlType="VARCHAR" length="50" precision="0" nullable="false" jdbcType="12" />
       <column name="SEQ_COUNT" sqlType="DECIMAL" length="38" precision="0" nullable="true" jdbcType="3" />
       <primary-key name="PRIMARY" columns="seq_name" />
-    </table>
-    <table name="authorities" schema="" catalog="husbit" type="TABLE">
-      <column name="username" sqlType="VARCHAR" length="50" precision="0" nullable="false" jdbcType="12" />
-      <column name="authority" sqlType="VARCHAR" length="50" precision="0" nullable="false" jdbcType="12" />
-      <index name="ix_auth_username" unique="true" columns="username" />
-      <index name="ix_auth_username" unique="true" columns="authority" />
-    </table>
-    <table name="users" schema="" catalog="husbit" type="TABLE">
-      <column name="username" sqlType="VARCHAR" length="50" precision="0" nullable="false" jdbcType="12" />
-      <column name="password" sqlType="VARCHAR" length="50" precision="0" nullable="false" jdbcType="12" />
-      <column name="enabled" sqlType="BIT" length="0" precision="0" nullable="false" jdbcType="-7" />
-      <primary-key name="PRIMARY" columns="username" />
     </table>
   </data-source>
 </component>
