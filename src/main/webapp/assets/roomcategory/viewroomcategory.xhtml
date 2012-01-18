@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Created by IntelliJ IDEA.
+  User: lukman
+  Date: 1/12/12
+  Time: 6:16 PM
+-->
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+    <h:head>
+        <title>Husbit | RoomCategory View</title>
+    </h:head>
+
+
+    <h:body>
+        <ui:composition template="/resources/template/TwoColtemplate.xhtml">
+
+            <ui:define name="contentpart">
+
+                <div id="content">
+                    <h:form styleClass="formStyle" id="create">
+                        <p:panel header="#{roomCategoryView.editMode ? 'Update' : 'View'} Room Category" id="updatePanel">
+                            <p:growl id="formMessage" autoUpdate="true"/>
+                            <h:panelGrid columns="4">
+                                <h:outputText value="#{msgs.roomCategory_name}"/>
+                                <h:outputText rendered="#{!roomCategoryView.editMode}"
+                                              value="#{roomCategoryView.selectedRoomCategory.name}" id="name"/>
+                                <p:inputText rendered="#{roomCategoryView.editMode}"
+                                             value="#{roomCategoryView.selectedRoomCategory.name}" id="ename"
+                                             title="Specify name of room category"/>
+
+                                <h:outputText value="#{msgs.roomCategory_description}"/>
+                                <p:inputTextarea rendered="#{!roomCategoryView.editMode}" maxHeight="40" maxLength="120"
+                                                 value="#{roomCategoryView.selectedRoomCategory.description}"
+                                                 disabled="true"
+                                                 id="description"
+                                                 title="Specify room category Description"/>
+                                <p:inputTextarea rendered="#{roomCategoryView.editMode}" maxHeight="40" maxLength="120"
+                                                 value="#{roomCategoryView.selectedRoomCategory.description}"
+                                                 id="edescription"
+                                                 title="Specify room category Description"/>
+
+
+                                <h:outputText
+                                    value="#{msgs.roomCategory_rate} (#{roomCategoryView.roomCategory.rate.currency})"/>
+                                <h:outputText rendered="#{!roomCategoryView.editMode}"
+                                              value="#{roomCategoryView.selectedRoomCategory.rate.amount}" id="rate"/>
+                                <p:inputText rendered="#{roomCategoryView.editMode}" title="Rate of the room category"
+                                             value="#{roomCategoryView.selectedRoomCategory.rate.amount}"
+                                             id="erate"/>
+
+                                <p:spacer/>
+                                <p:spacer/>
+
+                                <h:outputText value="#{msgs.emptymessage}"/>
+                                <h:panelGroup>
+                                    <p:commandButton rendered="#{!roomCategoryView.editMode}" value="#{msgs.button_back}"
+                                                     actionListener="#{roomCategoryView.endConversation}"
+                                                     action="/assets/roomcategory/newroomcategory.xhmtl?faces-redirect=true"
+                                                     update="formMessage"/>
+                                    <p:commandButton rendered="#{roomCategoryView.editMode}" value="#{msgs.button_update}"
+                                                     actionListener="#{roomCategoryView.endConversation}"
+                                                     action="#{roomCategoryView.editRoomCategory}"
+                                                     update="formMessage"/>
+                                    <p:commandButton rendered="#{roomCategoryView.editMode}" value="#{msgs.button_cancel}"
+                                                     actionListener="#{roomCategoryView.endConversation}"
+                                                     action="/assets/roomcategory/newroomcategory.xhmtl?faces-redirect=true"
+                                                     update="formMessage"/>
+
+                                </h:panelGroup>
+
+                            </h:panelGrid>
+
+                        </p:panel>
+                        <p:spacer/>
+
+                        <p:panel header="List of Rooms" id="listPanel">
+
+                                    <p:dataTable id="tableform" paginator="true" rows="10" var="rmz"
+                                                 value="#{roomCategoryView.internalRoomDataModel}" rowKey="#{rmz.id}"
+                                                 widgetVar="wrmz">
+
+                                        <f:facet name="header">
+                                            <p:outputPanel>
+                                                <h:outputText value="Search all fields:"/>
+                                                <h:inputText id="globalFilter" onkeyup="wrmz.filter()"/>
+                                            </p:outputPanel>
+                                        </f:facet>
+
+                                        <p:column sortBy="#{rmz.name}" filterBy="#{rmz.name}"
+                                                  headerText="#{msgs.roomCategory_name}">
+                                            <h:outputText value="#{rmz.name}"/>
+                                        </p:column>
+
+                                        <p:column sortBy="#{rmz.numberOfUsage}" filterBy="#{rmz.numberOfUsage}"
+                                                  headerText="#{msgs.room_noOfUsage}">
+                                            <h:outputText value="#{rmz.numberOfUsage}"/>
+                                        </p:column>
+
+                                        <p:column sortBy="#{rmz.roomCategory.name}" filterBy="#{rmz.roomCategory.name}"
+                                                  headerText="#{msgs.roomCategory_description}">
+                                            <h:outputText value="#{rmz.roomCategory.name}"/>
+                                        </p:column>
+
+
+                                        <p:column rendered="#{roomCategoryView.editMode}" headerText="Options">
+                                            <p:commandButton icon="ui-icon ui-icon-search"
+                                                             action="#{roomView.setUpEdit}"
+                                                             title="View Room">
+                                                <f:setPropertyActionListener value="#{rmz}"
+                                                                             target="#{roomView.selectedRoom}"/>
+                                                <f:setPropertyActionListener target="#{roomView.editMode}"
+                                                                             value="#{false}"/>
+                                            </p:commandButton>
+                                            <p:spacer width="5"/>
+                                            <p:commandButton icon="ui-icon ui-icon-pencil" action="#{roomView.setUpEdit}"
+                                                             title="Edit Room">
+                                                <f:setPropertyActionListener
+                                                    target="#{roomView.selectedRoom}"
+                                                    value="#{rmz}"/>
+                                                <f:setPropertyActionListener target="#{roomView.editMode}"
+                                                                             value="#{true}"/>
+                                            </p:commandButton>
+
+                                        </p:column>
+
+                                    </p:dataTable>
+
+                        </p:panel>
+                    </h:form>
+                </div>
+            </ui:define>
+            <ui:define name="operationspart">
+                <h:form>
+                    <p:menu>
+                        <p:submenu label="Operations">
+                            <p:menuitem value="Create Room" url="/assets/room/newroom.xhtml"/>
+                        </p:submenu>
+                    </p:menu>
+                </h:form>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+
+</html>

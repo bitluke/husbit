@@ -1,0 +1,151 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+    <title>Husbit | Room</title>
+</h:head>
+
+
+<h:body>
+    <ui:composition template="/resources/template/TwoColtemplate.xhtml">
+
+        <ui:define name="contentpart">
+
+            <div id="content">
+                <h:form styleClass="formStyle" id="create">
+                    <p:panel header="Create Room" id="createPanel">
+
+                        <p:growl id="formMessage" autoUpdate="true"/>
+                        <h:panelGrid columns="4">
+                            <h:outputText value="#{msgs.name}"/>
+                            <p:inputText value="#{roomView.room.name}" id="name"
+                                         title="Room Name"/>
+
+                            <h:outputText value="#{msgs.label_noOfUsage}"/>
+                            <p:inputText disabled="true" value="#{roomView.room.numberOfUsage}" id="nofusage"
+                                         title="Number of usage for the room"/>
+
+                            <h:outputText value="#{msgs.label_roomCategory}"/>
+                            <p:selectOneMenu id="selectRoomCategory" value="#{roomView.room.roomCategory.id}">
+                                <f:selectItems value="#{roomCategoryList}" var="rc"
+                                               itemLabel="#{rc.name}" itemValue="#{rc.id}"/>
+                            </p:selectOneMenu>
+
+                            <p:spacer/>
+                            <p:spacer/>
+
+
+                            <h:outputText value="#{msgs.emptymessage}"/>
+                            <h:panelGroup>
+                                <p:commandButton rendered="#{!roomCategoryList.isEmpty()}" value="#{msgs.button_save}" action="#{roomView.createRoom}"
+                                                 update="formMessage"/>
+                                <p:commandButton rendered="#{!roomCategoryList.isEmpty()}" type="reset" value="#{msgs.button_cancel}" update="formMessage"
+                                                 immediate="true"/>
+                            </h:panelGroup>
+                        </h:panelGrid>
+                    </p:panel>
+                    <p:spacer/>
+                    <p:panel header="Room List" id="rmlist">
+                        <p:dataTable id="roomtable" paginator="true" rows="10" var="rm"
+                                     value="#{roomView.roomDataModel}" rowKey="#{rm.id}"
+                                     widgetVar="wrm">
+
+                            <f:facet name="header">
+                                <p:outputPanel>
+                                    <h:outputText value="Search all fields:"/>
+                                    <h:inputText id="globalFilter" onkeyup="wrmCategory.filter()"/>
+                                </p:outputPanel>
+                            </f:facet>
+
+                            <p:column sortBy="#{rm.name}" filterBy="#{rm.name}"
+                                      headerText="#{msgs.room_name}">
+                                <h:outputText value="#{rm.name}"/>
+                            </p:column>
+
+
+                            <p:column sortBy="#{rm.roomCategory.name}" filterBy="#{rm.roomCategory.name}"
+                                      headerText="#{msgs.roomCategory_name}">
+                                <h:outputText value="#{rm.roomCategory.name}"/>
+                            </p:column>
+
+                            <p:column headerText="Options">
+                                <p:commandButton icon="ui-icon ui-icon-search" action="#{roomView.setUpEdit}"
+                                                 title="View Room">
+                                    <f:setPropertyActionListener value="#{rm}"
+                                                                 target="#{roomView.selectedRoom}"/>
+                                    <f:setPropertyActionListener target="#{roomView.editMode}"
+                                                                 value="#{false}"/>
+                                </p:commandButton>
+                                <p:spacer width="5"/>
+                                <p:commandButton icon="ui-icon ui-icon-pencil" action="#{roomView.setUpEdit}"
+                                                 title="Edit Room">
+                                    <f:setPropertyActionListener
+                                            target="#{roomView.selectedRoom}"
+                                            value="#{rm}"/>
+                                    <f:setPropertyActionListener target="#{roomView.editMode}"
+                                                                 value="#{true}"/>
+                                </p:commandButton>
+                                <p:spacer width="5"/>
+                                <p:commandButton onstart="confirmation.show()" update=":create:deletedsp"
+                                                 icon="ui-icon ui-icon-close" title="Remove Room">
+                                    <f:setPropertyActionListener target="#{roomView.selectedRoom}"
+                                                                 value="#{rm}"/>
+                                </p:commandButton>
+                            </p:column>
+
+                        </p:dataTable>
+                        <p:confirmDialog id="confirmdelete"
+                                         message="Are you sure you want to delete this Room"
+                                         closable="true"
+                                         width="280"
+                                         header="Removing Room"
+                                         widgetVar="confirmation">
+
+                            <h:panelGrid id="deletedsp" columns="2">
+                                <h:outputText value="#{msgs.roomCategory_name}"/>
+                                <h:outputText value="#{roomView.selectedRoom.name}"/>
+
+                                <p:spacer/>
+                                <h:panelGroup>
+
+                                    <p:commandButton
+                                            update="roomtable"
+                                            value="#{msgs.button_cancel}"
+                                            onclick="confirmation.hide()"/>
+
+                                    <p:commandButton
+                                            action="#{roomView.removeRoom}"
+                                            value="#{msgs.button_delete}"
+                                            update="@parent">
+                                        <f:param name="rmId" value="#{roomView.selectedRoom.id}"/>
+
+                                    </p:commandButton>
+                                </h:panelGroup>
+                            </h:panelGrid>
+                        </p:confirmDialog>
+                    </p:panel>
+                </h:form>
+            </div>
+        </ui:define>
+        <ui:define name="operationspart">
+            <h:form>
+                <p:menu>
+                    <p:submenu label="Room Category Operations">
+                        <p:menuitem value="View Room Category" url="/assets/roomcategory/newroomcategory.xhtml"/>
+                    </p:submenu>
+                    <p:submenu label="Other Operations">
+                        <p:menuitem value="View Room Category" url="/assets/roomcategory/newroomcategory.xhtml"/>
+                    </p:submenu>
+                </p:menu>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+</h:body>
+
+</html>

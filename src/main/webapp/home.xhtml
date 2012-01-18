@@ -4,31 +4,32 @@ To change this template, choose Tools | Templates
 and open the template in the editor.
 -->
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:p="http://primefaces.org/ui"
       xmlns:ui="http://java.sun.com/jsf/facelets">
 
-    <h:head>
-        <title>Husbit <img src="resources/css/img/loading5.gif"/> Home</title>
-    </h:head>
+<h:head>
+    <title>Husbit Home</title>
+</h:head>
 
 
-    <h:body>
-        <ui:composition template="/resources/template/TwoColtemplate.xhtml">
-            <ui:define name="operationspart">
-                <h:form>
-                    <p:menu>
-                        <p:submenu label="User Operations">
-                            <p:menuitem value="View alldsfdsfs Users" url="users.xhtml"/>
-                            <p:menuitem value="Managedfsdfdsf Users" url="manage.xhtml"/>
-                        </p:submenu>
-                    </p:menu>
-                </h:form>
-            </ui:define>
-        </ui:composition>
-    </h:body>
+<h:body>
+    <ui:composition template="/resources/template/TwoColtemplate.xhtml">
+        <ui:define name="operationspart">
+            <h:form>
+                <p:menu>
+                    <p:submenu label="User Operations">
+                        <p:menuitem value="View alldsfdsfs Users" url="users.xhtml"/>
+                        <p:menuitem value="Managedfsdfdsf Users" url="manage.xhtml"/>
+                    </p:submenu>
+                </p:menu>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+</h:body>
 
 </html>

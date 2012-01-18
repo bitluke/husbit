@@ -5,22 +5,22 @@
 package com.bfs.husbit.model;
 
 import com.bfs.core.model.BaseModel;
+
 import java.util.List;
 import javax.enterprise.context.Dependent;
+import javax.inject.Inject;
 import javax.inject.Named;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 
 /**
- *
  * @author lukman
  */
 @Entity
 @Named
 @Dependent
+@NamedQueries({
+        @NamedQuery(name = "deleteRoom", query = "delete from Room R where R.id = :rid")
+})
 public class Room extends BaseModel {
 
     private static final long serialVersionUID = 1L;
@@ -28,15 +28,15 @@ public class Room extends BaseModel {
      * The name given to the room
      */
     private String name;
+    @Inject
     private RoomCategory roomCategory;
-    private String roomState;
-    private Long NumberOfUsage;
+    private Long numberOfUsage;
     private List<Attendance> attendances;
 
     public Room() {
     }
 
-    
+
     @Id
     @GeneratedValue
     @Override
@@ -48,7 +48,7 @@ public class Room extends BaseModel {
     public void setId(Long id) {
         super.setId(id);
     }
-    
+
     public String getName() {
         return name;
     }
@@ -57,7 +57,7 @@ public class Room extends BaseModel {
         this.name = name;
     }
 
-    @ManyToOne
+    @ManyToOne(cascade = {CascadeType.DETACH,CascadeType.REFRESH,CascadeType.REMOVE})
     public RoomCategory getRoomCategory() {
         return roomCategory;
     }
@@ -67,20 +67,13 @@ public class Room extends BaseModel {
     }
 
     public Long getNumberOfUsage() {
-        return NumberOfUsage;
+        return numberOfUsage;
     }
 
-    public void setNumberOfUsage(Long NumberOfUsage) {
-        this.NumberOfUsage = NumberOfUsage;
+    public void setNumberOfUsage(Long numberOfUsage) {
+        this.numberOfUsage = numberOfUsage;
     }
 
-    public String getRoomState() {
-        return roomState;
-    }
-
-    public void setRoomState(String roomState) {
-        this.roomState = roomState;
-    }
 
     @OneToMany(mappedBy = "room")
     public List<Attendance> getAttendances() {
@@ -94,18 +87,17 @@ public class Room extends BaseModel {
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (id != null ? id.hashCode() : 0);
+        hash += (name != null ? name.hashCode() : 0);
         return hash;
     }
 
     @Override
     public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
         if (!(object instanceof Room)) {
             return false;
         }
         Room other = (Room) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
+        if ((this.name == null && other.name != null) || (this.name != null && !this.name.equals(other.name))) {
             return false;
         }
         return true;
@@ -113,6 +105,6 @@ public class Room extends BaseModel {
 
     @Override
     public String toString() {
-        return "com.bfs.husbit.model.Room[ id=" + id + " ]";
+        return "com.bfs.husbit.model.Room[ id=" + id + " name " + name  + "]";
     }
 }

@@ -5,28 +5,32 @@
 package com.bfs.husbit.model;
 
 import com.bfs.core.model.BaseModel;
+import com.bfs.husbit.model.embeddable.MonetaryAmount;
+
 import java.util.List;
 import javax.enterprise.context.Dependent;
+import javax.inject.Inject;
 import javax.inject.Named;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 /**
- *
  * @author lukman
  */
 @Entity
 @Named
 @Dependent
+@NamedQueries({
+        @NamedQuery(name = "deleteRoomCategory", query = "delete from RoomCategory RC where RC.id = :rcid")
+})
 public class RoomCategory extends BaseModel {
 
     private static final long serialVersionUID = 1L;
     private List<Room> rooms;
     private String name;
     private String description;
-    private Long rate;
+    @Inject
+    private MonetaryAmount rate;
 
     public RoomCategory() {
     }
@@ -51,6 +55,7 @@ public class RoomCategory extends BaseModel {
         this.description = description;
     }
 
+    @NotNull
     public String getName() {
         return name;
     }
@@ -59,15 +64,16 @@ public class RoomCategory extends BaseModel {
         this.name = name;
     }
 
-    public Long getRate() {
+    @NotNull
+    public MonetaryAmount getRate() {
         return rate;
     }
 
-    public void setRate(Long rate) {
+    public void setRate(MonetaryAmount rate) {
         this.rate = rate;
     }
 
-    @OneToMany(mappedBy = "roomCategory")
+    @OneToMany(orphanRemoval = true,cascade = CascadeType.ALL,mappedBy = "roomCategory")
     public List<Room> getRooms() {
         return rooms;
     }

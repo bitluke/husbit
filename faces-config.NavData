@@ -2,8 +2,23 @@
 <Scene Scope="Project" version="2">
     <Scope Scope="Faces Configuration Only"/>
     <Scope Scope="Project">
+        <Node id="resources/template/common/singleContent.xhtml" x="150" y="450" zoom="true"/>
         <Node id="index.jsp" x="150" y="150" zoom="true"/>
+        <Node id="login.xhtml" x="900" y="150" zoom="true"/>
+        <Node id="resources/template/common/operations.xhtml" x="900" y="300" zoom="true"/>
+        <Node id="newTemplateClient.xhtml" x="1150" y="300" zoom="true"/>
+        <Node id="resources/template/common/about.xhtml" x="400" y="750" zoom="true"/>
+        <Node id="resources/template/common/footer.xhtml" x="1150" y="150" zoom="true"/>
+        <Node id="error.xhtml" x="1400" y="150" zoom="true"/>
         <Node id="newTemplate.xhtml" x="400" y="150" zoom="true"/>
+        <Node id="index.xhtml" x="150" y="750" zoom="true"/>
+        <Node id="resources/template/common/header.xhtml" x="650" y="150" zoom="true"/>
+        <Node id="resources/template/common/leftpanel.xhtml" x="650" y="450" zoom="true"/>
+        <Node id="logout.xhtml" x="900" y="450" zoom="true"/>
+        <Node id="resources/template/common/noheader.xhtml" x="400" y="600" zoom="true"/>
+        <Node id="resources/template/OneColtemplate.xhtml" x="150" y="300" zoom="true"/>
+        <Node id="resources/template/TwoColtemplate.xhtml" x="650" y="300" zoom="true"/>
+        <Node id="home.xhtml" x="150" y="600" zoom="true"/>
     </Scope>
     <Scope Scope="All Faces Configurations"/>
 </Scene>

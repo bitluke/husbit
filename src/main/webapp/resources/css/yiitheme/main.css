@@ -3,7 +3,7 @@ body {
     padding: 0;
     color: #555;
     font: normal 10pt Arial, Helvetica, sans-serif;
-    background:  #EFEFEF;; 
+    background: #EFEFEF;;
 }
 
 .ui-widget, .ui-widget .ui-widget {
@@ -17,17 +17,17 @@ table.jqplot-table-legend {
     width: 0px;
 }
 
-.ui-dashboard-column{
-    width:400px;
-    margin:10px;
+.ui-dashboard-column {
+    width: 400px;
+    margin: 10px;
 }
 
-.ui-panel{
-    margin:10px 10px 10px 10px    ;
+.ui-panel {
+    margin: 10px 10px 10px 10px;
 }
 
-.ui-selectonemenu{
-    vertical-align:middle;
+.ui-selectonemenu {
+    vertical-align: middle;
 }
 
 #page {
@@ -202,6 +202,6 @@ div.search-form {
     font-weight: bold;
 }
 
-.ui-menu{
-   margin: 10px 0 0; 
+.ui-menu {
+    margin: 10px 0 0;
 }

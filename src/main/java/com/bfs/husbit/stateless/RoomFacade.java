@@ -5,12 +5,11 @@
 package com.bfs.husbit.stateless;
 
 import com.bfs.husbit.model.Room;
-import com.bfs.husbit.resources.qualifier.HusbitDatabase;
+import com.bfs.husbit.util.qualifier.HusbitDatabase;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 
 /**
  * @author lukman
@@ -29,4 +28,8 @@ public class RoomFacade extends AbstractFacade<Room> {
         super(Room.class);
     }
 
+
+    public int remove(Long roomId) {
+        return em.createNamedQuery("deleteRoom").setParameter("rid", roomId).executeUpdate();
+    }
 }

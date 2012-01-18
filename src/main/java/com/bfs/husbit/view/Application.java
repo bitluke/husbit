@@ -30,7 +30,6 @@ public class Application implements BaseSerializable {
     }
 
 
-
     @PostConstruct
     public void initApplication() {
 
@@ -73,27 +72,6 @@ public class Application implements BaseSerializable {
 
     }
 
-//
-//     public void createDefaultUser() {
-//        System.out.println("Observing Log Event ");
-//        PersistenceManager persistenceManager = identitySession.getPersistenceManager();
-//        RelationshipManager relationshipManager = identitySession.getRelationshipManager();
-//
-//        try {
-//            User defaultUser = persistenceManager.createUser("test");
-//            Group husbitGroup = persistenceManager.createGroup("GROUP", "husbit");
-////            Group userGroup = persistenceManager.createGroup("USER","husbit");
-//            relationshipManager.associateUser(husbitGroup, defaultUser);
-//            RoleManager roleManager = identitySession.getRoleManager();
-//            RoleType adminRoleType = roleManager.createRoleType("admin");
-//            Role role = roleManager.createRole(adminRoleType, defaultUser, husbitGroup);
-//
-//        } catch (IdentityException e) {
-//            log.error("User Cannot be created ", e);
-//        } catch (FeatureNotSupportedException e) {
-//            log.error("Role creation is not supported ", e);
-//        }
-//    }
 
     /**
      * Moves the user to the admin's module
@@ -103,7 +81,7 @@ public class Application implements BaseSerializable {
     public String home() {
         return "/home.xhtml?faces-redirect=true";
     }
-    
+
     @Inject
     Logger log;
 

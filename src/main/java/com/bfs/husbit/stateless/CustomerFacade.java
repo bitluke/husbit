@@ -5,12 +5,11 @@
 package com.bfs.husbit.stateless;
 
 import com.bfs.husbit.model.Customer;
-import com.bfs.husbit.resources.qualifier.HusbitDatabase;
+import com.bfs.husbit.util.qualifier.HusbitDatabase;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 
 /**
  * @author lukman

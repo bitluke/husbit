@@ -1,0 +1,160 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+    <title>Husbit | RoomCategory</title>
+</h:head>
+
+
+<h:body>
+    <ui:composition template="/resources/template/TwoColtemplate.xhtml">
+
+        <ui:define name="contentpart">
+
+            <div id="content">
+                <h:form styleClass="formStyle" id="create">
+                    <p:panel header="Create Room Category" id="createPanel">
+                        <p:growl id="formMessage" autoUpdate="true"/>
+                        <h:panelGrid columns="4">
+                            <h:outputText value="#{msgs.roomCategory_name}"/>
+                            <p:inputText value="#{roomCategoryView.roomCategory.name}" id="name"
+                                         title="Specify name of room category"/>
+
+                            <h:outputText value="#{msgs.roomCategory_description}"/>
+                            <p:inputTextarea maxHeight="40" maxLength="120"
+                                             value="#{roomCategoryView.roomCategory.description}" id="description"
+                                             title="Specify room category Description"/>
+
+
+                            <h:outputText
+                                    value="#{msgs.roomCategory_rate} (#{roomCategoryView.roomCategory.rate.currency})"/>
+                            <p:inputText title="Rate of the room category"
+                                         value="#{roomCategoryView.roomCategory.rate.amount}"
+                                         id="rate"/>
+
+                            <p:spacer/>
+                            <p:spacer/>
+
+                            <h:outputText value="#{msgs.emptymessage}"/>
+                            <h:panelGroup>
+                                <p:commandButton value="#{msgs.button_save}"
+                                                 action="#{roomCategoryView.createRoomCategory}"
+                                                 update="formMessage"/>
+                                <p:commandButton type="reset" value="#{msgs.button_cancel}" update="formMessage"
+                                                 immediate="true"/>
+                            </h:panelGroup>
+
+                        </h:panelGrid>
+
+                    </p:panel>
+                    <p:spacer/>
+
+                    <p:panel header="Room Categories" id="listPanel">
+
+                        <p:dataTable id="tableform" paginator="true" rows="10" var="rmCategory"
+                                     value="#{roomCategoryView.roomCategoryDataModel}" rowKey="#{rmCategory.id}"
+                                     widgetVar="wrmCategory">
+
+                            <f:facet name="header">
+                                <p:outputPanel>
+                                    <h:outputText value="Search all fields:"/>
+                                    <h:inputText id="globalFilter" onkeyup="wrmCategory.filter()"/>
+                                </p:outputPanel>
+                            </f:facet>
+
+                            <p:column sortBy="#{rmCategory.name}" filterBy="#{rmCategory.name}"
+                                      headerText="#{msgs.roomCategory_name}">
+                                <h:outputText value="#{rmCategory.name}"/>
+                            </p:column>
+
+                            <p:column sortBy="#{rmCategory.description}" filterBy="#{rmCategory.description}"
+                                      headerText="#{msgs.roomCategory_description}">
+                                <h:outputText value="#{rmCategory.description}"/>
+                            </p:column>
+
+                            <p:column sortBy="#{rmCategory.rate.amount}" filterBy="#{rmCategory.rate.amount}"
+                                      headerText="#{msgs.roomCategory_rate}">
+                                <h:outputText value="#{rmCategory.rate.amount}"/>
+                            </p:column>
+
+                            <p:column headerText="Options">
+                                <p:commandButton icon="ui-icon ui-icon-search" action="#{roomCategoryView.setUpEdit}"
+                                                 title="View room category">
+                                    <f:setPropertyActionListener value="#{rmCategory}"
+                                                                 target="#{roomCategoryView.selectedRoomCategory}"/>
+                                    <f:setPropertyActionListener target="#{roomCategoryView.editMode}"
+                                                                 value="#{false}"/>
+                                </p:commandButton>
+                                <p:spacer width="5"/>
+                                <p:commandButton icon="ui-icon ui-icon-pencil" action="#{roomCategoryView.setUpEdit}"
+                                                 title="Edit User">
+                                    <f:setPropertyActionListener target="#{roomCategoryView.selectedRoomCategory}"
+                                                                 value="#{rmCategory}"/>
+                                    <f:setPropertyActionListener target="#{roomCategoryView.editMode}" value="#{true}"/>
+                                </p:commandButton>
+                                <p:spacer width="5"/>
+                                <p:commandButton onstart="confirmation.show()"
+                                                 icon="ui-icon ui-icon-close" update=":create:deletedsp" title="Remove room category">
+                                    <f:setPropertyActionListener target="#{roomCategoryView.selectedRoomCategory}"
+                                                                 value="#{rmCategory}"/>
+                                </p:commandButton>
+                            </p:column>
+
+                        </p:dataTable>
+
+                        <p:confirmDialog id="confirmdelete"
+                                         message="Are you sure you want to delete this Room Category"
+                                         closable="true"
+                                         width="280"
+                                         header="Removing Room Category"
+                                         widgetVar="confirmation">
+
+                            <h:panelGrid id="deletedsp" columns="2">
+                                <h:outputText value="#{msgs.roomCategory_name}"/>
+                                <h:outputText value="#{roomCategoryView.selectedRoomCategory.name}"/>
+
+                                <h:outputText value="#{msgs.roomCategory_description}"/>
+                                <h:outputText value="#{roomCategoryView.selectedRoomCategory.description}"/>
+
+                                <p:spacer/>
+                                <h:panelGroup>
+
+                                    <p:commandButton
+                                            update="tableform"
+                                            value="#{msgs.button_cancel}"
+                                            onclick="confirmation.hide()"/>
+
+                                    <p:commandButton
+                                            action="#{roomCategoryView.removeRoomCategory}"
+                                            value="#{msgs.button_delete}"
+                                            update="@parent">
+                                        <f:param name="sRoomCategoryId" value="#{roomCategoryView.selectedRoomCategory.id}"/>
+
+                                    </p:commandButton>
+                                </h:panelGroup>
+                            </h:panelGrid>
+                        </p:confirmDialog>
+
+                    </p:panel>
+                </h:form>
+            </div>
+        </ui:define>
+        <ui:define name="operationspart">
+            <h:form>
+                <p:menu>
+                    <p:submenu label="Operations">
+                        <p:menuitem value="Create Room" url="/assets/room/newroom.xhtml"/>
+                    </p:submenu>
+                </p:menu>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+</h:body>
+
+</html>

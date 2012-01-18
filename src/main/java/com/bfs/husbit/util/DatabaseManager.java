@@ -1,6 +1,6 @@
-package com.bfs.husbit.resources;
+package com.bfs.husbit.util;
 
-import com.bfs.husbit.resources.qualifier.HusbitDatabase;
+import com.bfs.husbit.util.qualifier.HusbitDatabase;
 
 import javax.enterprise.inject.Produces;
 import javax.persistence.EntityManager;

@@ -10,13 +10,8 @@
         http://java.sun.com/xml/ns/javaee 
         http://java.sun.com/xml/ns/javaee/beans_1_0.xsd">
 
-    <security:IdentityImpl>
-        <s:modifies/>
-        <security:authenticatorName>IdmAuthenticator</security:authenticatorName>
-    </security:IdentityImpl>
-
 
     <!--<interceptors>-->
-        <!--<class>org.jboss.seam.security.SecurityInterceptor</class>-->
+    <!--<class>org.jboss.seam.security.SecurityInterceptor</class>-->
     <!--</interceptors>-->
 </beans>

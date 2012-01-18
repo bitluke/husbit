@@ -1,0 +1,92 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+    <title>Husbit | Room</title>
+</h:head>
+
+
+<h:body>
+    <ui:composition template="/resources/template/TwoColtemplate.xhtml">
+
+        <ui:define name="contentpart">
+
+            <div id="content">
+                <p:panel header="#{roomView.editMode ? 'Update': 'View' } Room" id="createPanel">
+                    <h:form styleClass="formStyle" id="create">
+                        <p:growl id="formMessage" autoUpdate="true"/>
+                        <h:panelGrid columns="4">
+                            <h:outputText value="#{msgs.name}"/>
+                            <h:outputText rendered="#{!roomView.editMode}" value="#{roomView.selectedRoom.name}"
+                                          id="name"/>
+                            <p:inputText rendered="#{roomView.editMode}" value="#{roomView.selectedRoom.name}"
+                                         id="ename"
+                                         title="Room Name"/>
+
+                            <h:outputText value="#{msgs.label_noOfUsage}"/>
+                            <p:inputText disabled="true" value="#{roomView.selectedRoom.numberOfUsage}" id="nofusage"
+                                         title="Number of usage for the room"/>
+
+                            <h:outputText value="#{msgs.label_roomCategory}"/>
+                            <h:outputText rendered="#{!roomView.editMode}"
+                                          value="#{roomView.selectedRoom.roomCategory.name}"/>
+                            <p:selectOneMenu rendered="#{roomView.editMode}" id="selectRoomCategory"
+                                             value="#{roomView.selectedRoom.roomCategory.id}">
+                                <f:selectItems value="#{roomCategoryList}" var="rc"
+                                               itemLabel="#{rc.name}" itemValue="#{rc.id}"/>
+                            </p:selectOneMenu>
+
+                            <p:spacer/>
+                            <p:spacer/>
+
+
+                            <h:outputText value="#{msgs.emptymessage}"/>
+                            <h:panelGroup>
+                                <p:commandButton rendered="#{!roomView.editMode}"
+                                                 value="#{msgs.button_back}"
+                                                 update="formMessage"
+                                                 action="/assets/room/newroom.xhtml?faces-redirect=true"
+                                                 actionListener="#{roomView.endConversation}"
+                                                />
+                                <p:commandButton rendered="#{roomView.editMode}"
+                                                 value="#{msgs.button_update}"
+                                                 actionListener="#{roomView.endConversation}"
+                                                 action="#{roomView.editRoom}"
+                                                 update="formMessage"/>
+                                <p:commandButton type="reset"
+                                                 value="#{msgs.button_cancel}"
+                                                 rendered="#{roomView.editMode}"
+                                                 action="/assets/room/newroom.xhtml?faces-redirect=true"
+                                                 actionListener="#{roomView.endConversation}"
+                                                 update="formMessage"
+                                                />
+                            </h:panelGroup>
+
+
+                        </h:panelGrid>
+                    </h:form>
+                </p:panel>
+            </div>
+        </ui:define>
+        <ui:define name="operationspart">
+            <h:form>
+                <p:menu>
+                    <p:submenu label="Room Operations">
+                        <p:menuitem value="View Room Category" url="/assets/roomcategory/newroomcategory.xhtml"/>
+                    </p:submenu>
+                    <p:submenu label="Room2 Operations">
+                        <p:menuitem value="View Room Category" url="/assets/roomcategory/newroomcategory.xhtml"/>
+                    </p:submenu>
+                </p:menu>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+</h:body>
+
+</html>

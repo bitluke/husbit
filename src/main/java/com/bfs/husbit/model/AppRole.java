@@ -1,31 +1,26 @@
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
- *INSERT INTO husbit.APPROLE (ID, ROLEDESCRIPTION, ROLENAME, VERSION) VALUES (4, 'Basic user', 'ROLE_USER', 1);
- *INSERT INTO husbit.APPROLE (ID, ROLEDESCRIPTION, ROLENAME, VERSION) VALUES (2, 'Accountant', 'ROLE_ACCOUNT', 1);
- *INSERT INTO husbit.APPROLE (ID, ROLEDESCRIPTION, ROLENAME, VERSION) VALUES (3, 'Receptionist', 'ROLE_RECEPTIONIST', 1);
- *INSERT INTO husbit.APPROLE (ID, ROLEDESCRIPTION, ROLENAME, VERSION) VALUES (1, 'Administrator', 'ROLE_ADMIN', 1);
- *INSERT INTO husbit.APPUSER (ID, DEFAULTAPPUSER, PASSWORD, USERNAME, VERSION, FIRSTNAME, LASTNAME, MIDDLENAME, APPROLE_ID) VALUES (5, true, 'd3ad9315b7be5dd53b31a273b3b3aba5defe700808305aa16a3062b76658a791', 'demo', 1, 'demo', 'demo', 'demo', 1);
  *
  */
 package com.bfs.husbit.model;
 
 import com.bfs.core.model.BaseModel;
+
 import java.util.List;
 import javax.enterprise.context.Dependent;
 import javax.inject.Named;
 import javax.persistence.*;
 
 /**
- *
  * @author lukman
  */
 @Entity
 @Named
 @Dependent
 @NamedQueries({
-    @NamedQuery(name = "findAllAppRole", query = "select R from AppRole R order by R.roleDescription"),
-    @NamedQuery(name = "findAppRoleByRoleName", query = "select R from AppRole R where R.roleName = :rolename")
+        @NamedQuery(name = "findAllAppRole", query = "select R from AppRole R order by R.roleDescription"),
+        @NamedQuery(name = "findAppRoleByRoleName", query = "select R from AppRole R where R.roleName = :rolename")
 })
 public class AppRole extends BaseModel {
 

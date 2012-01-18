@@ -10,49 +10,50 @@ and open the template in the editor.
       xmlns:p="http://primefaces.org/ui"
       xmlns:ui="http://java.sun.com/jsf/facelets">
 
-    <h:head>
-        <title>Husbit</title>
-        <script src="#{request.contextPath}/resources/js/ie.js" type="text/javascript"/>
-        <link rel="stylesheet" type="text/css" media="screen, projection"
-              href="#{request.contextPath}/resources/css/yiitheme/screen.css"/>
-        <link rel="stylesheet" type="text/css" media="print"
-              href="#{request.contextPath}/resources/css/yiitheme/print.css"/>
-        <!--[if lt IE 8]>
-        <link rel="stylesheet" type="text/css" media="screen, projection" href="#{request.contextPath}/resources/css/yiitheme/ie.css"/>
-        <![endif]-->
-        <link rel="stylesheet" type="text/css" href="#{request.contextPath}/resources/css/yiitheme/main.css"/>
-        <link rel="stylesheet" type="text/css" href="#{request.contextPath}/resources/css/yiitheme/form.css"/>
-    </h:head>
-    <h:body>
-        <div class="container" id="page">
-            <ui:insert name="headerpart">
-                <ui:include src="common/header.xhtml"/>
-            </ui:insert>
-            <div class="container">
-                <div class="span-19">
-                    <ui:insert name="contentpart">
-                        <ui:include src="common/about.xhtml"/>
-                    </ui:insert>
+<h:head>
+    <title>Husbit</title>
+    <script src="#{request.contextPath}/resources/js/ie.js" type="text/javascript"/>
+    <link rel="stylesheet" type="text/css" media="screen, projection"
+          href="#{request.contextPath}/resources/css/yiitheme/screen.css"/>
+    <link rel="stylesheet" type="text/css" media="print"
+          href="#{request.contextPath}/resources/css/yiitheme/print.css"/>
+    <!--[if lt IE 8]>
+    <link rel="stylesheet" type="text/css" media="screen, projection" href="#{request.contextPath}/resources/css/yiitheme/ie.css"/>
+    <![endif]-->
+    <link rel="stylesheet" type="text/css" href="#{request.contextPath}/resources/css/yiitheme/main.css"/>
+    <link rel="stylesheet" type="text/css" href="#{request.contextPath}/resources/css/yiitheme/form.css"/>
+</h:head>
+<h:body>
+    <div class="container" id="page">
+        <ui:insert name="headerpart">
+            <ui:include src="common/header.xhtml"/>
+        </ui:insert>
 
-                    <!-- end of content -->
-                </div>
-                <div class="span-5 last">
-                    <div id="sidebar">
-                        <ui:insert name="operationspart">
-                            <ui:include src="common/operations.xhtml"/>
-                        </ui:insert>
-                    </div>
-                    <!--end of sidebar -->
-                </div>
+        <div class="container">
+            <div class="span-19">
+                <ui:insert name="contentpart">
+                    <ui:include src="common/about.xhtml"/>
+                </ui:insert>
+
+                <!-- end of content -->
             </div>
-            <ui:insert name="footerpart">
-                <ui:include src="common/footer.xhtml"/>
-            </ui:insert>
-            <!--end of footer -->
-
+            <div class="span-5 last">
+                <div id="sidebar">
+                    <ui:insert name="operationspart">
+                        <ui:include src="common/operations.xhtml"/>
+                    </ui:insert>
+                </div>
+                <!--end of sidebar -->
+            </div>
         </div>
-        <!--end of page -->
+        <ui:insert name="footerpart">
+            <ui:include src="common/footer.xhtml"/>
+        </ui:insert>
+        <!--end of footer -->
 
-    </h:body>
+    </div>
+    <!--end of page -->
+
+</h:body>
 
 </html>

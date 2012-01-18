@@ -40,11 +40,6 @@
                             <h:outputText value="#{appUzer.name.firstName}"/>
                         </p:column>
 
-                        <p:column sortBy="#{appUzer.name.middleName}" filterBy="#{appUzer.name.middleName}"
-                                  headerText="#{msgs.middleName}">
-                            <h:outputText value="#{appUzer.name.middleName}"/>
-                        </p:column>
-
                         <p:column sortBy="#{appUzer.name.lastName}" filterBy="#{appUzer.name.lastName}"
                                   headerText="#{msgs.lastName}">
                             <h:outputText value="#{appUzer.name.lastName}"/>
@@ -55,33 +50,40 @@
                             <h:outputText value="#{appUzer.username}"/>
                         </p:column>
 
-
+                        <p:column sortBy="#{appUzer.approle.roleDescription}"
+                                  filterBy="#{appUzer.approle.roleDescription}"
+                                  headerText="#{msgs.roleDescription}">
+                            <h:outputText value="#{appUzer.approle.roleDescription}"/>
+                        </p:column>
 
                         <p:column headerText="Options">
                             <p:commandButton image="ui-icon ui-icon-search" action="#{appUserView.setUpEdit}"
                                              title="View Issue">
-                                <f:setPropertyActionListener value="#{appUzer}" target="#{appUserView.selectedAppUser}"/>
+                                <f:setPropertyActionListener value="#{appUzer}"
+                                                             target="#{appUserView.selectedAppUser}"/>
                                 <f:setPropertyActionListener target="#{appUserView.editMode}" value="#{false}"/>
                             </p:commandButton>
                             <p:spacer width="5"/>
                             <p:commandButton image="ui-icon ui-icon-pencil" action="#{appUserView.setUpEdit}"
                                              title="Edit User">
-                                <f:setPropertyActionListener target="#{appUserView.selectedAppUser}" value="#{appUzer}"/>
+                                <f:setPropertyActionListener target="#{appUserView.selectedAppUser}"
+                                                             value="#{appUzer}"/>
                                 <f:setPropertyActionListener target="#{appUserView.editMode}" value="#{true}"/>
                             </p:commandButton>
                             <p:spacer width="5"/>
                             <p:commandButton onstart="confirmation.show()" update=":updateform:deletedsp"
                                              image="ui-icon ui-icon-close" title="Remove User">
-                                <f:setPropertyActionListener target="#{appUserView.selectedAppUser}" value="#{appUzer}"/>
+                                <f:setPropertyActionListener target="#{appUserView.selectedAppUser}"
+                                                             value="#{appUzer}"/>
                             </p:commandButton>
                         </p:column>
                     </p:dataTable>
 
                     <p:confirmDialog id="confirmdelete"
-                                     message="Are you sure you want to delete this Issue"
+                                     message="Are you sure you want to delete this User"
                                      closable="true"
                                      width="280"
-                                     header="Removing Issue"
+                                     header="Removing User"
                                      widgetVar="confirmation">
 
                         <h:panelGrid id="deletedsp" columns="2">
@@ -92,7 +94,7 @@
                             <h:outputText value="#{appUserView.selectedAppUser.name.lastName}"/>
 
                             <p:spacer/>
-                            <p:outputPanel>
+                            <h:panelGroup>
 
                                 <p:commandButton
                                         update="tableform"
@@ -100,16 +102,13 @@
                                         onclick="confirmation.hide()"/>
 
                                 <p:commandButton
-                                        immediate="true"
-                                        action="#{appUserView.removeAppuser()}"
+                                        action="#{appUserView.removeAppuser}"
                                         value="Delete User"
-                                        oncomplete="confirmation.hide()"
                                         update=":updateform:tableform">
-
-                                    <f:param name="sid" value="#{appUserView.selectedAppUser.id}"/>
+                                    <f:param name="appUserId" value="#{appUserView.selectedAppUser.id}"/>
 
                                 </p:commandButton>
-                            </p:outputPanel>
+                            </h:panelGroup>
                         </h:panelGrid>
                     </p:confirmDialog>
                 </h:form>
@@ -122,8 +121,7 @@
         <h:form>
             <p:menu>
                 <p:submenu label="Operations">
-                    <p:menuitem value="View all Users" url="/user/users.xhtml"/>
-                    <p:menuitem value="Create Issue" url="/user/new.xhtml"/>
+                    <p:menuitem value="Create User" url="/user/new.xhtml"/>
                 </p:submenu>
             </p:menu>
         </h:form>

@@ -6,13 +6,14 @@ package com.bfs.husbit.view.datamodel;
 
 import com.bfs.husbit.model.Room;
 import com.bfs.husbit.stateless.RoomFacade;
+
 import java.util.List;
 import javax.ejb.EJB;
 import javax.faces.model.ListDataModel;
+
 import org.primefaces.model.SelectableDataModel;
 
 /**
- *
  * @author lukman
  */
 public class RoomDataModel extends ListDataModel<Room> implements SelectableDataModel<Room> {

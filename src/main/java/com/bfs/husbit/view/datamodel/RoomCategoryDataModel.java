@@ -6,13 +6,14 @@ package com.bfs.husbit.view.datamodel;
 
 import com.bfs.husbit.model.RoomCategory;
 import com.bfs.husbit.stateless.RoomCategoryFacade;
+
 import java.util.List;
 import javax.ejb.EJB;
 import javax.faces.model.ListDataModel;
+
 import org.primefaces.model.SelectableDataModel;
 
 /**
- *
  * @author lukman
  */
 public class RoomCategoryDataModel extends ListDataModel<RoomCategory> implements SelectableDataModel<RoomCategory> {
@@ -35,6 +36,6 @@ public class RoomCategoryDataModel extends ListDataModel<RoomCategory> implement
     @Override
     public RoomCategory getRowData(String rowKey) {
         return roomCategoryFacade.find(Long.parseLong(rowKey));
-    } 
-    
+    }
+
 }

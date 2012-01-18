@@ -4,10 +4,14 @@
  */
 package com.bfs.husbit.stateless;
 
+import com.bfs.husbit.model.RoomCategory;
+import com.bfs.husbit.model.embeddable.MonetaryAmount;
+import com.bfs.husbit.model.enumz.RoleType;
 import com.bfs.husbit.model.embeddable.Name;
 import com.bfs.husbit.model.AppRole;
 import com.bfs.husbit.model.AppUser;
 import com.bfs.core.security.SecurityManager;
+
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 
@@ -17,8 +21,11 @@ import javax.ejb.Startup;
 import javax.ejb.TransactionAttribute;
 import javax.ejb.TransactionAttributeType;
 import javax.inject.Inject;
+import javax.management.monitor.Monitor;
 
 import org.jboss.logging.Logger;
+
+import java.math.BigDecimal;
 
 /**
  * @author lukman
@@ -43,10 +50,13 @@ public class ApplicationFacade {
         //initialise demo user 
         initUser();
         System.out.println("App Initialised");
+
+
     }
 
     @TransactionAttribute(TransactionAttributeType.REQUIRED)
     private void initUser() {
+        RoomCategory rc = new RoomCategory();
         //get default user
         AppUser defaultAppUser = appUserFacade.findDefaultAppUserForLogin();
         //check if default user does not exist.
@@ -55,6 +65,8 @@ public class ApplicationFacade {
             appUserFacade.createView();
             //persist a default user for login.
             appUserFacade.create(getDefaultUserProperties());
+
+
         }
 
     }
@@ -62,8 +74,8 @@ public class ApplicationFacade {
     private AppUser getDefaultUserProperties() {
         // create user
         AppUser appUser = new AppUser();
-        appUser.setPassword(SecurityManager.hashPassword("demodemo"));
-        appUser.setUsername("demo");
+        appUser.setPassword(SecurityManager.hashPassword("renegade"));
+        appUser.setUsername("s0ftwar3renegad3");
         Name name = new Name();
         name.setFirstName("demo");
         name.setLastName("demo");
@@ -74,29 +86,21 @@ public class ApplicationFacade {
             //initialise roles
             initRoles();
             //set demo to the admin role
-            AppRole aRole = (AppRole) appRoleFacade.findRole("ROLE_ADMIN").get(0);
+            AppRole aRole = (AppRole) appRoleFacade.findRole(RoleType.ROLE_ADMIN.getRoleName()).get(0);
             appUser.setApprole(aRole);
         }
-        appUser.setDefaultAppUser(Boolean.TRUE);
+
         return appUser;
     }
 
     public void initRoles() {
-        AppRole role = new AppRole();
-        role.setRoleName("ROLE_ADMIN");
-        role.setRoleDescription("Administrator");
-        appRoleFacade.create(role);
-        role = new AppRole();
-        role.setRoleName("ROLE_ACCOUNT");
-        role.setRoleDescription("Accountant");
-        appRoleFacade.create(role);
-        role = new AppRole();
-        role.setRoleName("ROLE_RECEPTIONIST");
-        role.setRoleDescription("Receptionist");
-        appRoleFacade.create(role);
-        role = new AppRole();
-        role.setRoleName("ROLE_USER");
-        role.setRoleDescription("Basic User");
-        appRoleFacade.create(role);
+        AppRole role = null;
+        for (RoleType roleType : RoleType.values()) {
+            role = new AppRole();
+            role.setRoleName(roleType.getRoleName());
+            role.setRoleDescription(roleType.getDescription());
+            appRoleFacade.create(role);
+        }
+
     }
 }

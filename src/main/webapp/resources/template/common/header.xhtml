@@ -13,7 +13,7 @@
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:p="http://primefaces.org/ui"
       xmlns:ui="http://java.sun.com/jsf/facelets">
-        
+
 
 <h:head>
 
@@ -29,17 +29,17 @@
         <div class="headerMenu">
             <p:toolbar>
                 <p:toolbarGroup align="left">
-                    <p:commandButton type="push"  action="#{app.home}" value="Home" immediate="true" />
+                    <p:commandButton type="push" action="#{app.home}" value="Home" immediate="true"/>
                     <p:menuButton value="Services">
-                        <p:menuitem value="Logout" action="#{app.logoutUser}"/>
+                        <p:menuitem value="Logout" url="#"/>
                         <p:menuitem value="Edit Details" url="#"/>
                     </p:menuButton>
                     <p:menuButton value="Accounts">
-                        <p:menuitem value="Logout" action="#{app.logoutUser}"/>
+                        <p:menuitem value="Logout" url="#"/>
                         <p:menuitem value="Edit Details" url="#"/>
                     </p:menuButton>
                     <p:menuButton value="Administration">
-                        <p:menuitem value="Users" action="#{app.logoutUser}"/>
+                        <p:menuitem value="Users" url="#"/>
                         <p:menuitem value="Edit Details" url="#"/>
                     </p:menuButton>
                     <p:commandButton type="push" action="#{app.moveToReports}" value="Report" immediate="true"/>

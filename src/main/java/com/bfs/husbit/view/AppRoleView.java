@@ -7,6 +7,7 @@ package com.bfs.husbit.view;
 import com.bfs.core.BaseSerializable;
 import com.bfs.husbit.model.AppRole;
 import com.bfs.husbit.stateless.AppRoleFacade;
+
 import java.util.List;
 import javax.ejb.EJB;
 import javax.enterprise.context.ConversationScoped;
@@ -14,7 +15,6 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 /**
- *
  * @author lukman
  */
 @Named
@@ -37,7 +37,7 @@ public class AppRoleView implements BaseSerializable {
         this.appRole = appRole;
     }
 
-    
+
     public List<AppRole> getAppRoleList() {
         appRoleList = appRoleFacade.findAll();
         return appRoleList;
@@ -57,5 +57,5 @@ public class AppRoleView implements BaseSerializable {
     }
 
     //------------------Other Operations ----------------------------
-    
+
 }

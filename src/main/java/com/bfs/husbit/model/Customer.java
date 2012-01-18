@@ -6,6 +6,7 @@ package com.bfs.husbit.model;
 
 import com.bfs.core.model.BaseModel;
 import com.bfs.husbit.model.embeddable.Name;
+
 import java.util.List;
 import javax.enterprise.context.Dependent;
 import javax.inject.Named;
@@ -15,7 +16,6 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
 /**
- *
  * @author lukman
  */
 @Entity
@@ -36,7 +36,7 @@ public class Customer extends BaseModel {
     public Customer() {
     }
 
-    
+
     @Id
     @GeneratedValue
     @Override
@@ -48,6 +48,7 @@ public class Customer extends BaseModel {
     public void setId(Long id) {
         super.setId(id);
     }
+
     public String getAddress() {
         return address;
     }
@@ -104,7 +105,7 @@ public class Customer extends BaseModel {
         this.phoneNumber = phoneNumber;
     }
 
-    @OneToMany(mappedBy="customer")
+    @OneToMany(mappedBy = "customer")
     public List<Attendance> getAttendances() {
         return attendances;
     }
@@ -112,8 +113,7 @@ public class Customer extends BaseModel {
     public void setAttendances(List<Attendance> attendances) {
         this.attendances = attendances;
     }
-    
-    
+
 
     @Override
     public int hashCode() {

@@ -8,19 +8,20 @@ import com.bfs.core.BaseSerializable;
 import com.bfs.core.security.SecurityManager;
 import com.bfs.husbit.model.AppRole;
 import com.bfs.husbit.model.AppUser;
-import com.bfs.husbit.resources.Messages;
+import com.bfs.husbit.util.qualifier.SelectedUser;
 import com.bfs.husbit.stateless.AppRoleFacade;
 import com.bfs.husbit.stateless.AppUserFacade;
 import com.bfs.husbit.view.datamodel.AppUserDataModel;
 
 import java.util.List;
+import java.util.Map;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
+import javax.enterprise.context.Conversation;
 import javax.enterprise.context.ConversationScoped;
-import javax.faces.application.FacesMessage;
+import javax.enterprise.inject.Produces;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
-import javax.faces.validator.ValidatorException;
 import javax.inject.Inject;
 import javax.inject.Named;
 
@@ -42,21 +43,26 @@ public class AppUserView implements BaseSerializable {
     private Logger log;
     @Inject
     private AppUser appUser;
+    @Inject
+    private Conversation conversation;
     private AppUser selectedAppUser;
     private List<AppUser> appUsers;
     private AppUserDataModel appUserDataModel;
+    private Long appUserDeleteId;
     private Boolean editMode;
 
-
     //------------- internal bean method -----------------------------------
-
     public AppUserView() {
     }
 
     @PostConstruct
-    public void checkBeans() {
+    public void initView() {
         log.infof("app User view created ");
         appUserDataModel = new AppUserDataModel(getAppUsers());
+    }
+
+    public void setAppUserDeleteId(Long appUserDeleteId) {
+        this.appUserDeleteId = appUserDeleteId;
     }
 
     public AppUser getAppUser() {
@@ -105,7 +111,7 @@ public class AppUserView implements BaseSerializable {
     /**
      * Creates an appUser at DB level
      *
-     * @return The next view which is the view.xhtml
+     * @return The next view which is the viewuser.xhtml
      */
     public String createappUser() {
 
@@ -119,20 +125,36 @@ public class AppUserView implements BaseSerializable {
         return "/user/manage?faces-redirect=true";
     }
 
-
-    public void setUpEdit() {
-
+    public String setUpEdit() {
+        conversation.begin();
+        return "/user/view?faces-redirect=true";
     }
 
-    public void removeAppuser() {
+    public String removeAppuser() {
+        FacesContext context = FacesContext.getCurrentInstance();
+        Map<String, String> params = context.getExternalContext().getRequestParameterMap();
+        appUserDeleteId = Long.parseLong(params.get("appUserId"));
+        int remove = appUserFacade.remove(appUserDeleteId);
+        if (remove < 1) {
+            return null;
+        }
+        return "/user/manage?faces-redirect=true";
+    }
 
+    public String updateAppuser() {
+        AppRole appRole = appRoleFacade.find(selectedAppUser.getApprole().getId());
+        selectedAppUser.setApprole(appRole);
+        appUserFacade.edit(selectedAppUser);
+        return "/user/manage?faces-redirect=true";
     }
 
     /**
      * Validate the creation of a user The bean style
      */
     public void validateRole(FacesContext context, UIComponent component, Object value) {
-
     }
 
+    public void endConversation() {
+        conversation.end();
+    }
 }

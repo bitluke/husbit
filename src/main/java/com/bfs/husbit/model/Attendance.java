@@ -5,6 +5,7 @@
 package com.bfs.husbit.model;
 
 import com.bfs.core.model.BaseModel;
+
 import java.util.Date;
 import javax.enterprise.context.Dependent;
 import javax.inject.Named;
@@ -16,7 +17,6 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 /**
- *
  * @author lukman
  */
 @Entity
@@ -44,7 +44,7 @@ public class Attendance extends BaseModel {
     public Attendance() {
     }
 
-    
+
     @Id
     @GeneratedValue
     @Override
@@ -56,7 +56,7 @@ public class Attendance extends BaseModel {
     public void setId(Long id) {
         super.setId(id);
     }
-    
+
     @ManyToOne
     public Room getRoom() {
         return room;

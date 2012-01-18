@@ -1,4 +1,4 @@
-package com.bfs.husbit.resources.qualifier;
+package com.bfs.husbit.util.qualifier;
 
 import javax.inject.Qualifier;
 import java.lang.annotation.Retention;
@@ -19,6 +19,5 @@ import static java.lang.annotation.ElementType.TYPE;
 @Retention(RetentionPolicy.RUNTIME)
 @Target({TYPE, METHOD, FIELD})
 @Qualifier
-public @interface HusbitIdentitySession {
-    
+public @interface HusbitDatabase {
 }

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.0" xmlns="http://java.sun.com/xml/ns/javaee"
-xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-xsi:schemaLocation="http://java.sun.com/xml/ns/javaee        
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
                 http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
 
 
@@ -11,21 +11,19 @@ xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
         <param-name>javax.faces.PROJECT_STAGE</param-name>
         <param-value>Development</param-value>
     </context-param>
-    
+
     <context-param>
         <param-name>javax.faces.SKIP_COMMENTS</param-name>
         <param-value>true</param-value>
     </context-param>
-    
+
     <!--primefaces theme-->
     <context-param>
         <param-name>primefaces.THEME</param-name>
         <param-value>smoothness</param-value>
     </context-param>
-  
-  
-   
-    
+
+
     <!-- JSF 2.0 Servlet activates automatically when the WEB-INF/faces-config.xml descriptor is present -->
 
     <servlet>
@@ -61,12 +59,12 @@ xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
         <exception-type>java.lang.Exception</exception-type>
         <location>/error.xhtml</location>
     </error-page>
-    
+
     <error-page>
         <error-code>404</error-code>
         <location>/pagenotfound.xhtml</location>
     </error-page>
-    
+
     <error-page>
         <error-code>500</error-code>
         <location>/error.xhtml</location>
@@ -76,10 +74,9 @@ xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
         <!-- Add additional files here, if desired, for example: <welcome-file>index.html</welcome-file> -->
         <welcome-file>index.xhtml</welcome-file>
     </welcome-file-list>
- 
 
-    
-      <!--JAAS configuration declaring the realm, login and login page error-->
+
+    <!--JAAS configuration declaring the realm, login and login page error-->
     <login-config>
         <auth-method>FORM</auth-method>
         <realm-name>jdbc-jdbcrealm</realm-name>
@@ -88,8 +85,8 @@ xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
             <form-error-page>/loginError.xhtml</form-error-page>
         </form-login-config>
     </login-config>
-    
-<!--    declaration of the Roles for the application -->
+
+    <!--    declaration of the Roles for the application -->
     <security-role>
         <role-name>ROLE_USER</role-name>
     </security-role>
@@ -102,5 +99,5 @@ xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
     <security-role>
         <role-name>ROLE_ACCOUNTANT</role-name>
     </security-role>
- 
+
 </web-app>

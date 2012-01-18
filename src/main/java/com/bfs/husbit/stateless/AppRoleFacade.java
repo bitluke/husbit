@@ -5,7 +5,7 @@
 package com.bfs.husbit.stateless;
 
 import com.bfs.husbit.model.AppRole;
-import com.bfs.husbit.resources.qualifier.HusbitDatabase;
+import com.bfs.husbit.util.qualifier.HusbitDatabase;
 
 import java.util.List;
 import javax.ejb.Stateless;

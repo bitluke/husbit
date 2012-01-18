@@ -1,0 +1,107 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+    <title>Husbit | User</title>
+</h:head>
+
+
+<h:body>
+    <ui:composition template="/resources/template/TwoColtemplate.xhtml">
+
+        <ui:define name="contentpart">
+
+            <div id="content">
+                <p:panel header="#{appUserView.editMode ? 'Update' : 'View'} User" id="UpdatePanel">
+                    <h:form styleClass="formStyle" id="update">
+                        <p:growl id="formMessage" autoUpdate="true"/>
+                        <h:panelGrid columns="4">
+                            <h:outputText value="#{msgs.firstName}"/>
+                            <h:outputText rendered="#{!appUserView.editMode}"
+                                          value="#{appUserView.selectedAppUser.name.firstName}" id="firstname"/>
+                            <p:inputText rendered="#{appUserView.editMode}"
+                                         value="#{appUserView.selectedAppUser.name.firstName}" id="efirstname"
+                                         title="Specify your firstname"/>
+
+
+                            <h:outputText value="#{msgs.middleName}"/>
+                            <h:outputText rendered="#{!appUserView.editMode}"
+                                          value="#{appUserView.selectedAppUser.name.middleName}" id="middlename"/>
+                            <p:inputText rendered="#{appUserView.editMode}"
+                                         value="#{appUserView.selectedAppUser.name.middleName}" id="emiddlename"
+                                         title="Specify your middle name"/>
+
+                            <h:outputText value="#{msgs.lastName}"/>
+                            <h:outputText rendered="#{!appUserView.editMode}"
+                                          value="#{appUserView.selectedAppUser.name.lastName}" id="lastname"/>
+                            <p:inputText rendered="#{appUserView.editMode}"
+                                         value="#{appUserView.selectedAppUser.name.lastName}" id="elastname"
+                                         title="Specify your lastname"/>
+
+
+                            <h:outputText value="#{msgs.userRole}"/>
+                            <h:outputText rendered="#{!appUserView.editMode}"
+                                          value="#{appUserView.selectedAppUser.approle.roleDescription}"
+                                          id="eseleApprole"/>
+                            <p:selectOneMenu rendered="#{appUserView.editMode}" id="seleApprole"
+                                             value="#{appUserView.selectedAppUser.approle.id}">
+                                <f:validator validatorId="com.bfs.husbit.model.AppUser"/>
+                                <f:selectItem itemLabel="Select a role" itemValue="-1"/>
+                                <f:selectItems value="#{appRoleView.appRoleList}" var="rolez"
+                                               itemLabel="#{rolez.roleDescription}" itemValue="#{rolez.id}"/>
+                            </p:selectOneMenu>
+
+                            <h:outputText value="#{msgs.userName}"/>
+                            <h:outputText rendered="#{!appUserView.editMode}"
+                                          value="#{appUserView.selectedAppUser.username}" id="userbame"/>
+                            <p:inputText rendered="#{appUserView.editMode}" title="Username to login "
+                                         value="#{appUserView.selectedAppUser.username}"
+                                         validatorMessage="Your Username is needed"
+                                         id="eusername"/>
+
+                            <p:spacer/>
+                            <p:spacer/>
+
+
+                            <p:spacer/>
+                            <h:panelGroup>
+                                <p:commandButton immediate="true" rendered="#{!appUserView.editMode}"
+                                                 value="#{msgs.button_back}"
+                                                 actionListener="#{appUserView.endConversation}"
+                                                 action="/user/manage?faces-redirect=true"/>
+                                <p:commandButton update=":update:formMessage:" rendered="#{appUserView.editMode}"
+                                                 value="#{msgs.button_update}"
+                                                 actionListener="#{appUserView.endConversation}"
+                                                 action="#{appUserView.updateAppuser}"/>
+                                <p:commandButton update=":update:formMessage:" rendered="#{appUserView.editMode}"
+                                                 value="#{msgs.button_cancel}" immediate="true"
+                                                 actionListener="#{appUserView.endConversation}"
+                                                 action="/user/manage?faces-redirect=true"/>
+                            </h:panelGroup>
+
+
+                        </h:panelGrid>
+                    </h:form>
+                </p:panel>
+            </div>
+        </ui:define>
+        <ui:define name="operationspart">
+            <h:form>
+                <p:menu>
+                    <p:submenu label="User Operations">
+                        <p:menuitem value="Create User" url="/user/new.xhtml"/>
+                        <p:menuitem value="Manage Users" url="/user/manage.xhtml"/>
+                    </p:submenu>
+                </p:menu>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+</h:body>
+
+</html>

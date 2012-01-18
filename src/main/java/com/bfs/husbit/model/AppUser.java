@@ -11,7 +11,6 @@ import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 import javax.inject.Named;
 import javax.persistence.*;
-import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -22,8 +21,10 @@ import javax.validation.constraints.Size;
 @Named
 @Dependent
 @NamedQueries({
-    @NamedQuery(name = "findDefaultAppUser", query = "select A from AppUser A where A.defaultAppUser = :dlt"),
-    @NamedQuery(name = "findAllAppUser", query = "select A from AppUser A where A.defaultAppUser = :dlt")
+        @NamedQuery(name = "findDefaultAppUser", query = "select A from AppUser A where A.username = :uzername"),
+        @NamedQuery(name = "findAllAppUser", query = "select A from AppUser A where A.username <> :uzername"),
+        @NamedQuery(name = "deleteAppUser", query = "delete from AppUser A where A.id = :idz")
+
 })
 public class AppUser extends BaseModel {
 
@@ -34,7 +35,6 @@ public class AppUser extends BaseModel {
     private String password;
     @Inject
     private AppRole approle;
-    private Boolean defaultAppUser = Boolean.FALSE;
     //private Boolean enabled = Boolean.TRUE;
 
     public AppUser() {
@@ -60,8 +60,8 @@ public class AppUser extends BaseModel {
         this.name = name;
     }
 
-    
-    @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH})
+
+    @ManyToOne(cascade = {CascadeType.REFRESH})
     public AppRole getApprole() {
         return approle;
     }
@@ -71,7 +71,7 @@ public class AppUser extends BaseModel {
     }
 
     @NotNull
-    @Size(min= 6)
+    @Size(min = 6)
     public String getPassword() {
         return password;
     }
@@ -89,21 +89,7 @@ public class AppUser extends BaseModel {
         this.username = username;
     }
 
-    public Boolean getDefaultAppUser() {
-        return defaultAppUser;
-    }
 
-    public void setDefaultAppUser(Boolean defaultAppUser) {
-        this.defaultAppUser = defaultAppUser;
-    }
-
-//    public Boolean getEnabled() {
-//        return enabled;
-//    }
-//
-//    public void setEnabled(Boolean enabled) {
-//        this.enabled = enabled;
-//    }
     @Override
     public int hashCode() {
         int hash = 0;
