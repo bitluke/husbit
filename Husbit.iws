@@ -15,70 +15,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d84cc244-fa87-4bac-8a70-45cb2dea2c22" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/bfs/husbit/model/embeddable/MonetaryAmount.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/bfs/husbit/model/enumz/RoleType.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/bfs/husbit/model/enumz/RoomState.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/bfs/husbit/util/qualifier/HusbitDatabase.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/bfs/husbit/view/RoomCategoryView.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/bfs/husbit/view/RoomView.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/bfs/husbit/view/validator/UserValidator.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/assets/room/newroom.xhtml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/assets/room/viewroom.xhtml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/assets/roomcategory/newroomcategory.xhtml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/assets/roomcategory/viewroomcategory.xhtml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/user/newuser.xhtml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/user/viewuser.xhtml" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/user/new.xhtml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/user/view.xhtml" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/bfs/husbit/resources/DatabaseManager.java" afterPath="$PROJECT_DIR$/src/main/java/com/bfs/husbit/util/DatabaseManager.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/bfs/husbit/resources/Messages.java" afterPath="$PROJECT_DIR$/src/main/java/com/bfs/husbit/util/Messages.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/bfs/husbit/resources/qualifier/HusbitDatabase.java" afterPath="$PROJECT_DIR$/src/main/java/com/bfs/husbit/util/qualifier/SelectedUser.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/bfs/husbit/resources/qualifier/HusbitIdentitySession.java" afterPath="$PROJECT_DIR$/src/main/java/com/bfs/husbit/util/qualifier/HusbitIdentitySession.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/user/manage.xhtml" afterPath="$PROJECT_DIR$/src/main/webapp/user/manageusers.xhtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Husbit.iml" afterPath="$PROJECT_DIR$/Husbit.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Husbit.ipr" afterPath="$PROJECT_DIR$/Husbit.ipr" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Husbit.iws" afterPath="$PROJECT_DIR$/Husbit.iws" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/faces-config.NavData" afterPath="$PROJECT_DIR$/faces-config.NavData" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/bfs/husbit/model/AppRole.java" afterPath="$PROJECT_DIR$/src/main/java/com/bfs/husbit/model/AppRole.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/bfs/husbit/model/AppUser.java" afterPath="$PROJECT_DIR$/src/main/java/com/bfs/husbit/model/AppUser.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/bfs/husbit/model/Attendance.java" afterPath="$PROJECT_DIR$/src/main/java/com/bfs/husbit/model/Attendance.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/bfs/husbit/model/Customer.java" afterPath="$PROJECT_DIR$/src/main/java/com/bfs/husbit/model/Customer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/bfs/husbit/model/Room.java" afterPath="$PROJECT_DIR$/src/main/java/com/bfs/husbit/model/Room.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/bfs/husbit/model/RoomCategory.java" afterPath="$PROJECT_DIR$/src/main/java/com/bfs/husbit/model/RoomCategory.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/bfs/husbit/stateless/AppRoleFacade.java" afterPath="$PROJECT_DIR$/src/main/java/com/bfs/husbit/stateless/AppRoleFacade.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/bfs/husbit/stateless/AppUserFacade.java" afterPath="$PROJECT_DIR$/src/main/java/com/bfs/husbit/stateless/AppUserFacade.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/bfs/husbit/stateless/ApplicationFacade.java" afterPath="$PROJECT_DIR$/src/main/java/com/bfs/husbit/stateless/ApplicationFacade.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/bfs/husbit/stateless/AttendanceFacade.java" afterPath="$PROJECT_DIR$/src/main/java/com/bfs/husbit/stateless/AttendanceFacade.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/bfs/husbit/stateless/CustomerFacade.java" afterPath="$PROJECT_DIR$/src/main/java/com/bfs/husbit/stateless/CustomerFacade.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/bfs/husbit/stateless/RoomCategoryFacade.java" afterPath="$PROJECT_DIR$/src/main/java/com/bfs/husbit/stateless/RoomCategoryFacade.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/bfs/husbit/stateless/RoomFacade.java" afterPath="$PROJECT_DIR$/src/main/java/com/bfs/husbit/stateless/RoomFacade.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/bfs/husbit/view/AppRoleView.java" afterPath="$PROJECT_DIR$/src/main/java/com/bfs/husbit/view/AppRoleView.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/bfs/husbit/view/AppUserView.java" afterPath="$PROJECT_DIR$/src/main/java/com/bfs/husbit/view/AppUserView.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/bfs/husbit/view/Application.java" afterPath="$PROJECT_DIR$/src/main/java/com/bfs/husbit/view/Application.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/bfs/husbit/view/datamodel/AppUserDataModel.java" afterPath="$PROJECT_DIR$/src/main/java/com/bfs/husbit/view/datamodel/AppUserDataModel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/bfs/husbit/view/datamodel/CustomerDataModel.java" afterPath="$PROJECT_DIR$/src/main/java/com/bfs/husbit/view/datamodel/CustomerDataModel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/bfs/husbit/view/datamodel/RoomCategoryDataModel.java" afterPath="$PROJECT_DIR$/src/main/java/com/bfs/husbit/view/datamodel/RoomCategoryDataModel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/bfs/husbit/view/datamodel/RoomDataModel.java" afterPath="$PROJECT_DIR$/src/main/java/com/bfs/husbit/view/datamodel/RoomDataModel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/messages.properties" afterPath="$PROJECT_DIR$/src/main/resources/messages.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/messages_en.properties" afterPath="$PROJECT_DIR$/src/main/resources/messages_en.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/setup/glassfish-resources.xml" afterPath="$PROJECT_DIR$/src/main/setup/glassfish-resources.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/beans.xml" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/beans.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/faces-config.xml" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/faces-config.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/glassfish-web.xml" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/glassfish-web.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/home.xhtml" afterPath="$PROJECT_DIR$/src/main/webapp/home.xhtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/index.xhtml" afterPath="$PROJECT_DIR$/src/main/webapp/index.xhtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/login.xhtml" afterPath="$PROJECT_DIR$/src/main/webapp/login.xhtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/logout.xhtml" afterPath="$PROJECT_DIR$/src/main/webapp/logout.xhtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/newTemplate.xhtml" afterPath="$PROJECT_DIR$/src/main/webapp/newTemplate.xhtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/newTemplateClient.xhtml" afterPath="$PROJECT_DIR$/src/main/webapp/newTemplateClient.xhtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/resources/css/yiitheme/main.css" afterPath="$PROJECT_DIR$/src/main/webapp/resources/css/yiitheme/main.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/resources/js/ie.js" afterPath="$PROJECT_DIR$/src/main/webapp/resources/js/ie.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/resources/template/TwoColtemplate.xhtml" afterPath="$PROJECT_DIR$/src/main/webapp/resources/template/TwoColtemplate.xhtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/resources/template/common/header.xhtml" afterPath="$PROJECT_DIR$/src/main/webapp/resources/template/common/header.xhtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/resources/template/common/singleContent.xhtml" afterPath="$PROJECT_DIR$/src/main/webapp/resources/template/common/singleContent.xhtml" />
     </list>
     <ignored path="Husbit.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -952,6 +889,7 @@
       <window_info id="IDEtalk" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3294509" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3294509" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="JSF" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3294509" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5141431" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="CDI" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.50415975" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32890365" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -965,7 +903,6 @@
       <window_info id="Atlassian " active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.327787" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.49750414" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5141431" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
