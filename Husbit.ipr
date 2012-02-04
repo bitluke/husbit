@@ -19,8 +19,8 @@
             <element id="module-output" name="Husbit" />
           </element>
           <element id="directory" name="lib">
-            <element id="library" level="project" name="Maven: mysql:mysql-connector-java:5.1.14" />
-            <element id="library" level="project" name="Maven: org.primefaces:primefaces:3.0.RC1" />
+            <element id="library" level="project" name="Maven: mysql:mysql-connector-java:5.1.18" />
+            <element id="library" level="project" name="Maven: org.primefaces:primefaces:3.0.1" />
             <element id="library" level="project" name="Maven: org.primefaces.themes:smoothness:1.0.2" />
             <element id="library" level="project" name="Maven: com.bfs:bitfingers:2.0" />
             <element id="library" level="project" name="Maven: org.jboss.seam.solder:seam-solder:3.0.0.Final" />
@@ -249,11 +249,6 @@
       </item>
     </group>
   </component>
-  <component name="ProjectInspectionProfilesVisibleTreeState">
-    <entry key="Project Default">
-      <profile-state />
-    </entry>
-  </component>
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Husbit.iml" filepath="$PROJECT_DIR$/Husbit.iml" />
@@ -262,7 +257,7 @@
   <component name="ProjectResources">
     <default-html-doctype>http://www.w3.org/1999/xhtml</default-html-doctype>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_5" assert-keyword="true" jdk-15="true" project-jdk-name="1.7" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_6" assert-keyword="true" jdk-15="true" project-jdk-name="1.7" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/classes" />
   </component>
   <component name="StarteamConfiguration">
@@ -446,15 +441,15 @@
         <root url="jar://$MAVEN_REPOSITORY$/junit/junit/4.8.2/junit-4.8.2-sources.jar!/" />
       </SOURCES>
     </library>
-    <library name="Maven: mysql:mysql-connector-java:5.1.14">
+    <library name="Maven: mysql:mysql-connector-java:5.1.18">
       <CLASSES>
-        <root url="jar://$MAVEN_REPOSITORY$/mysql/mysql-connector-java/5.1.14/mysql-connector-java-5.1.14.jar!/" />
+        <root url="jar://$MAVEN_REPOSITORY$/mysql/mysql-connector-java/5.1.18/mysql-connector-java-5.1.18.jar!/" />
       </CLASSES>
       <JAVADOC>
-        <root url="jar://$MAVEN_REPOSITORY$/mysql/mysql-connector-java/5.1.14/mysql-connector-java-5.1.14-javadoc.jar!/" />
+        <root url="jar://$MAVEN_REPOSITORY$/mysql/mysql-connector-java/5.1.18/mysql-connector-java-5.1.18-javadoc.jar!/" />
       </JAVADOC>
       <SOURCES>
-        <root url="jar://$MAVEN_REPOSITORY$/mysql/mysql-connector-java/5.1.14/mysql-connector-java-5.1.14-sources.jar!/" />
+        <root url="jar://$MAVEN_REPOSITORY$/mysql/mysql-connector-java/5.1.18/mysql-connector-java-5.1.18-sources.jar!/" />
       </SOURCES>
     </library>
     <library name="Maven: net.sf.jasperreports:jasperreports:4.5.0">
@@ -622,15 +617,15 @@
         <root url="jar://$MAVEN_REPOSITORY$/org/primefaces/themes/smoothness/1.0.2/smoothness-1.0.2-sources.jar!/" />
       </SOURCES>
     </library>
-    <library name="Maven: org.primefaces:primefaces:3.0.RC1">
+    <library name="Maven: org.primefaces:primefaces:3.0.1">
       <CLASSES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/primefaces/primefaces/3.0.RC1/primefaces-3.0.RC1.jar!/" />
+        <root url="jar://$MAVEN_REPOSITORY$/org/primefaces/primefaces/3.0.1/primefaces-3.0.1.jar!/" />
       </CLASSES>
       <JAVADOC>
-        <root url="jar://$MAVEN_REPOSITORY$/org/primefaces/primefaces/3.0.RC1/primefaces-3.0.RC1-javadoc.jar!/" />
+        <root url="jar://$MAVEN_REPOSITORY$/org/primefaces/primefaces/3.0.1/primefaces-3.0.1-javadoc.jar!/" />
       </JAVADOC>
       <SOURCES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/primefaces/primefaces/3.0.RC1/primefaces-3.0.RC1-sources.jar!/" />
+        <root url="jar://$MAVEN_REPOSITORY$/org/primefaces/primefaces/3.0.1/primefaces-3.0.1-sources.jar!/" />
       </SOURCES>
     </library>
     <library name="Maven: org.slf4j:slf4j-api:1.5.6">

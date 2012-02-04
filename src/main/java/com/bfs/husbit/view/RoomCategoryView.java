@@ -42,6 +42,8 @@ public class RoomCategoryView implements BaseSerializable {
      */
     @Inject
     private Room room;
+    @Inject
+    private Room roomCategorySelectedRoom;
     private RoomCategory selectedRoomCategory;
     private RoomCategoryDataModel roomCategoryDataModel;
     /**
@@ -49,6 +51,7 @@ public class RoomCategoryView implements BaseSerializable {
      */
     private RoomDataModel internalRoomDataModel;
     private Boolean editMode;
+    private Boolean roomEditMode;
     @Inject
     private Conversation rmCatConversation;
     private Long roomCategoryDeleteId;
@@ -74,6 +77,22 @@ public class RoomCategoryView implements BaseSerializable {
 
     public void setRoomCategory(RoomCategory roomCategory) {
         this.roomCategory = roomCategory;
+    }
+
+    public Boolean getRoomEditMode() {
+        return roomEditMode;
+    }
+
+    public void setRoomEditMode(Boolean roomEditMode) {
+        this.roomEditMode = roomEditMode;
+    }
+
+    public Room getRoomCategorySelectedRoom() {
+        return roomCategorySelectedRoom;
+    }
+
+    public void setRoomCategorySelectedRoom(Room roomCategorySelectedRoom) {
+        this.roomCategorySelectedRoom = roomCategorySelectedRoom;
     }
 
     @Produces
@@ -137,13 +156,15 @@ public class RoomCategoryView implements BaseSerializable {
         roomCategoryFacade.edit(selectedRoomCategory);
         return "/assets/roomcategory/newroomcategory.xhmtl?faces-redirect=true";
     }
+    
+    public String setUpRoomEdit(){
+        return "/assets/room/viewroom.xhtml?faces-redirect=true";
+    }
 
     public String setUpEdit() {
-       if(rmCatConversation.isTransient()){
-        System.out.println("rmCatConversation " + rmCatConversation + " Transient >>>" + rmCatConversation.isTransient() + " ID " + rmCatConversation.getId());
-        rmCatConversation.begin();
-        System.out.println("After rmCatConversation " + rmCatConversation + " Transient >>>" + rmCatConversation.isTransient() + " ID " + rmCatConversation.getId());
-         }
+        if (rmCatConversation.isTransient()) {
+            rmCatConversation.begin();
+        }
         internalRoomDataModel = new RoomDataModel(selectedRoomCategory.getRooms());
         return "/assets/roomcategory/viewroomcategory.xhmtl?faces-redirect=true";
     }
@@ -169,6 +190,7 @@ public class RoomCategoryView implements BaseSerializable {
 
     /**
      * To re-initialise the collector at the interface.
+     *
      * @return
      */
     public String reinitRoom() {

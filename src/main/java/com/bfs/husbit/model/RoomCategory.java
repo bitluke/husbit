@@ -73,7 +73,7 @@ public class RoomCategory extends BaseModel {
         this.rate = rate;
     }
 
-    @OneToMany(orphanRemoval = true,cascade = CascadeType.ALL,mappedBy = "roomCategory")
+    @OneToMany(orphanRemoval = true,cascade = {CascadeType.ALL},mappedBy = "roomCategory")
     public List<Room> getRooms() {
         return rooms;
     }

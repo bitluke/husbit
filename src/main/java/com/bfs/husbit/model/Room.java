@@ -57,7 +57,7 @@ public class Room extends BaseModel {
         this.name = name;
     }
 
-    @ManyToOne(cascade = {CascadeType.DETACH,CascadeType.REFRESH,CascadeType.REMOVE})
+    @ManyToOne(cascade = {CascadeType.MERGE,CascadeType.DETACH,CascadeType.REFRESH})
     public RoomCategory getRoomCategory() {
         return roomCategory;
     }

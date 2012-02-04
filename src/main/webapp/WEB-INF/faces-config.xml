@@ -39,4 +39,7 @@
     <lifecycle>
         <phase-listener>com.bfs.core.web.jsf.listener.PhaseListener</phase-listener>
     </lifecycle>
+    
+    
+
 </faces-config>

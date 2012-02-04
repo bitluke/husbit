@@ -1,10 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-  Created by IntelliJ IDEA.
-  User: lukman
-  Date: 1/12/12
-  Time: 6:16 PM
--->
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -112,20 +106,20 @@
 
                                         <p:column rendered="#{roomCategoryView.editMode}" headerText="Options">
                                             <p:commandButton icon="ui-icon ui-icon-search"
-                                                             action="#{roomView.setUpEdit}"
+                                                             action="#{roomCategoryView.setUpRoomEdit}"
                                                              title="View Room">
                                                 <f:setPropertyActionListener value="#{rmz}"
-                                                                             target="#{roomView.selectedRoom}"/>
-                                                <f:setPropertyActionListener target="#{roomView.editMode}"
+                                                                             target="#{roomCategoryView.roomCategorySelectedRoom}"/>
+                                                <f:setPropertyActionListener target="#{roomCategoryView.roomEditMode}"
                                                                              value="#{false}"/>
                                             </p:commandButton>
                                             <p:spacer width="5"/>
-                                            <p:commandButton icon="ui-icon ui-icon-pencil" action="#{roomView.setUpEdit}"
+                                            <p:commandButton icon="ui-icon ui-icon-pencil" action="#{roomCategoryView.setUpRoomEdit}"
                                                              title="Edit Room">
                                                 <f:setPropertyActionListener
-                                                    target="#{roomView.selectedRoom}"
+                                                    target="#{roomCategoryView.roomCategorySelectedRoom}"
                                                     value="#{rmz}"/>
-                                                <f:setPropertyActionListener target="#{roomView.editMode}"
+                                                <f:setPropertyActionListener target="#{roomCategoryView.roomEditMode}"
                                                                              value="#{true}"/>
                                             </p:commandButton>
 
