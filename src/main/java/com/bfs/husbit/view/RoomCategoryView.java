@@ -60,7 +60,6 @@ public class RoomCategoryView implements BaseSerializable {
     @PostConstruct
     public void initView() {
         roomCategoryDataModel = new RoomCategoryDataModel(getRoomCategoryList());
-
     }
 
     public Room getRoom() {
@@ -156,15 +155,14 @@ public class RoomCategoryView implements BaseSerializable {
         roomCategoryFacade.edit(selectedRoomCategory);
         return "/assets/roomcategory/newroomcategory.xhmtl?faces-redirect=true";
     }
-    
-    public String setUpRoomEdit(){
+
+    public String setUpRoomEdit() {
         return "/assets/room/viewroom.xhtml?faces-redirect=true";
     }
 
     public String setUpEdit() {
-        if (rmCatConversation.isTransient()) {
-            rmCatConversation.begin();
-        }
+        rmCatConversation.begin();
+        selectedRoomCategory = roomCategoryFacade.find(selectedRoomCategory.getId());
         internalRoomDataModel = new RoomDataModel(selectedRoomCategory.getRooms());
         return "/assets/roomcategory/viewroomcategory.xhmtl?faces-redirect=true";
     }
@@ -173,10 +171,7 @@ public class RoomCategoryView implements BaseSerializable {
         FacesContext context = FacesContext.getCurrentInstance();
         Map<String, String> params = context.getExternalContext().getRequestParameterMap();
         roomCategoryDeleteId = Long.parseLong(params.get("sRoomCategoryId"));
-        int remove = roomCategoryFacade.remove(roomCategoryDeleteId);
-        if (remove < 1) {
-            return null;
-        }
+        roomCategoryFacade.remove(roomCategoryFacade.find(roomCategoryDeleteId));
         return "/assets/roomcategory/newroomcategory?faces-redirect=true";
     }
 

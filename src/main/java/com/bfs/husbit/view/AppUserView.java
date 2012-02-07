@@ -8,7 +8,6 @@ import com.bfs.core.BaseSerializable;
 import com.bfs.core.security.SecurityManager;
 import com.bfs.husbit.model.AppRole;
 import com.bfs.husbit.model.AppUser;
-import com.bfs.husbit.util.qualifier.SelectedUser;
 import com.bfs.husbit.stateless.AppRoleFacade;
 import com.bfs.husbit.stateless.AppUserFacade;
 import com.bfs.husbit.view.datamodel.AppUserDataModel;
@@ -19,7 +18,6 @@ import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.enterprise.context.Conversation;
 import javax.enterprise.context.ConversationScoped;
-import javax.enterprise.inject.Produces;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
@@ -122,12 +120,12 @@ public class AppUserView implements BaseSerializable {
         log.infof("About to Create user with username  ", appUser.getUsername());
         appUserFacade.create(appUser);
         log.infof("Created user with username and redirecting", appUser.getUsername());
-        return "/user/manage?faces-redirect=true";
+        return "/user/manageusers?faces-redirect=true";
     }
 
     public String setUpEdit() {
         conversation.begin();
-        return "/user/view?faces-redirect=true";
+        return "/user/viewuser?faces-redirect=true";
     }
 
     public String removeAppuser() {
@@ -138,14 +136,14 @@ public class AppUserView implements BaseSerializable {
         if (remove < 1) {
             return null;
         }
-        return "/user/manage?faces-redirect=true";
+        return "/user/manageusers?faces-redirect=true";
     }
 
     public String updateAppuser() {
         AppRole appRole = appRoleFacade.find(selectedAppUser.getApprole().getId());
         selectedAppUser.setApprole(appRole);
         appUserFacade.edit(selectedAppUser);
-        return "/user/manage?faces-redirect=true";
+        return "/user/manageusers?faces-redirect=true";
     }
 
     /**

@@ -10,6 +10,6 @@ import com.bfs.husbit.model.Room;
  * To change this template use File | Settings | File Templates.
  */
 public enum RoomState {
-    EMPTY, RESERVED, PAID, IN_USE  ;
+    EMPTY, RESERVED, PAID, IN_USE;
 }
 

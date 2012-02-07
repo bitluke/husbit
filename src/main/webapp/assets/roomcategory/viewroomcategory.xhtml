@@ -31,12 +31,12 @@
                                              title="Specify name of room category"/>
 
                                 <h:outputText value="#{msgs.roomCategory_description}"/>
-                                <p:inputTextarea rendered="#{!roomCategoryView.editMode}" maxHeight="40" maxLength="120"
+                                <p:inputTextarea rendered="#{!roomCategoryView.editMode}" maxHeight="40"  maxlength="120"
                                                  value="#{roomCategoryView.selectedRoomCategory.description}"
                                                  disabled="true"
                                                  id="description"
                                                  title="Specify room category Description"/>
-                                <p:inputTextarea rendered="#{roomCategoryView.editMode}" maxHeight="40" maxLength="120"
+                                <p:inputTextarea rendered="#{roomCategoryView.editMode}" maxHeight="40" maxlength="120"
                                                  value="#{roomCategoryView.selectedRoomCategory.description}"
                                                  id="edescription"
                                                  title="Specify room category Description"/>

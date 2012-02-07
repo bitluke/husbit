@@ -57,14 +57,14 @@
                         </p:column>
 
                         <p:column headerText="Options">
-                            <p:commandButton image="ui-icon ui-icon-search" action="#{appUserView.setUpEdit}"
+                            <p:commandButton icon="ui-icon ui-icon-search" action="#{appUserView.setUpEdit}"
                                              title="View Issue">
                                 <f:setPropertyActionListener value="#{appUzer}"
                                                              target="#{appUserView.selectedAppUser}"/>
                                 <f:setPropertyActionListener target="#{appUserView.editMode}" value="#{false}"/>
                             </p:commandButton>
                             <p:spacer width="5"/>
-                            <p:commandButton image="ui-icon ui-icon-pencil" action="#{appUserView.setUpEdit}"
+                            <p:commandButton icon="ui-icon ui-icon-pencil" action="#{appUserView.setUpEdit}"
                                              title="Edit User">
                                 <f:setPropertyActionListener target="#{appUserView.selectedAppUser}"
                                                              value="#{appUzer}"/>
@@ -72,7 +72,7 @@
                             </p:commandButton>
                             <p:spacer width="5"/>
                             <p:commandButton onstart="confirmation.show()" update=":updateform:deletedsp"
-                                             image="ui-icon ui-icon-close" title="Remove User">
+                                             icon="ui-icon ui-icon-close" title="Remove User">
                                 <f:setPropertyActionListener target="#{appUserView.selectedAppUser}"
                                                              value="#{appUzer}"/>
                             </p:commandButton>
@@ -121,7 +121,7 @@
         <h:form>
             <p:menu>
                 <p:submenu label="Operations">
-                    <p:menuitem value="Create User" url="/user/new.xhtml"/>
+                    <p:menuitem value="Create User" url="/user/newuser.xhtml"/>
                 </p:submenu>
             </p:menu>
         </h:form>

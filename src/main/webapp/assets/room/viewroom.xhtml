@@ -38,6 +38,7 @@
                                           value="#{roomView.selectedRoom.roomCategory.name}"/>
                             <p:selectOneMenu rendered="#{roomView.editMode}" id="selectRoomCategory"
                                              value="#{roomView.selectedRoom.roomCategory.id}">
+                                <f:selectItem itemLabel="Select Room Category" itemValue=""/>
                                 <f:selectItems value="#{roomCategoryList}" var="rc"
                                                itemLabel="#{rc.name}" itemValue="#{rc.id}"/>
                             </p:selectOneMenu>

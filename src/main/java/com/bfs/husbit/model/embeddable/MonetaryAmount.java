@@ -24,14 +24,14 @@ import javax.validation.constraints.Min;
 @Dependent
 @Embeddable
 public class MonetaryAmount implements BaseSerializable {
-    
-    private  BigDecimal amount ;
+
+    private BigDecimal amount;
     private Currency currency = Currency.getInstance(Locale.getDefault());
 
     public MonetaryAmount() {
     }
 
-    @Digits(integer=6 , fraction=2)
+    @Digits(integer = 6, fraction = 2)
     public BigDecimal getAmount() {
         return amount;
     }
@@ -50,28 +50,28 @@ public class MonetaryAmount implements BaseSerializable {
 
     @Override
     public boolean equals(Object o) {
-		if (this == o) return true;
-		if (!(o instanceof MonetaryAmount)) return false;
+        if (this == o) return true;
+        if (!(o instanceof MonetaryAmount)) return false;
 
-		final MonetaryAmount monetaryAmount = (MonetaryAmount) o;
+        final MonetaryAmount monetaryAmount = (MonetaryAmount) o;
 
-		if (!currency.equals(monetaryAmount.currency)) return false;
-		if (!amount.equals(monetaryAmount.amount)) return false;
+        if (!currency.equals(monetaryAmount.currency)) return false;
+        if (!amount.equals(monetaryAmount.amount)) return false;
 
-		return true;
-	}
+        return true;
+    }
 
     @Override
-	public int hashCode() {
-		int result;
-		result = amount.hashCode();
-		result = 29 * result + currency.hashCode();
-		return result;
-	}
+    public int hashCode() {
+        int result;
+        result = amount.hashCode();
+        result = 29 * result + currency.hashCode();
+        return result;
+    }
 
     @Override
     public String toString() {
-		return getCurrency().getCurrencyCode()+ getAmount() ;
-	}
+        return getCurrency().getCurrencyCode() + getAmount();
+    }
 
 }

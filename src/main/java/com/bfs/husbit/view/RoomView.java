@@ -109,15 +109,16 @@ public class RoomView implements BaseSerializable {
 
     //----------------------- CRUD operations ---------------------------------
     public String setUpEdit() {
-        if (rmConversation.isTransient()) {
-        //System.out.println("rm Conversation " + rmConversation + " ID >>" + rmConversation.getId() + " transient ? " + rmConversation.isTransient());
-            rmConversation.begin();
-        }
+//        if (rmConversation.isTransient()) {
+        rmConversation.begin();
+//        }
         return "/assets/room/viewroom.xhtml?faces-redirect=true";
     }
 
     public String createRoom() {
-        room.setRoomCategory(roomCategoryFacade.find(room.getRoomCategory().getId()));
+        if (room.getRoomCategory().getId() != null) {
+            room.setRoomCategory(roomCategoryFacade.find(room.getRoomCategory().getId()));
+        }
         roomFacade.create(room);
         return "/assets/room/newroom.xhtml?faces-redirect=true";
     }
@@ -132,10 +133,7 @@ public class RoomView implements BaseSerializable {
         FacesContext context = FacesContext.getCurrentInstance();
         Map<String, String> params = context.getExternalContext().getRequestParameterMap();
         roomDeleteId = Long.parseLong(params.get("rmId"));
-        int remove = roomFacade.remove(roomDeleteId);
-        if (remove < 1) {
-            return null;
-        }
+        roomFacade.remove(roomFacade.find(roomDeleteId));
         return "/assets/room/newroom.xhtml?faces-redirect=true";
     }
 
@@ -145,7 +143,6 @@ public class RoomView implements BaseSerializable {
 
     //------------------Other Operations ----------------------------
     public void endConversation() {
-        
-            rmConversation.end();
+        rmConversation.end();
     }
 }

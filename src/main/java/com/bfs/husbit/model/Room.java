@@ -57,7 +57,7 @@ public class Room extends BaseModel {
         this.name = name;
     }
 
-    @ManyToOne(cascade = {CascadeType.MERGE,CascadeType.DETACH,CascadeType.REFRESH})
+    @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.REFRESH})
     public RoomCategory getRoomCategory() {
         return roomCategory;
     }
@@ -105,6 +105,6 @@ public class Room extends BaseModel {
 
     @Override
     public String toString() {
-        return "com.bfs.husbit.model.Room[ id=" + id + " name " + name  + "]";
+        return "com.bfs.husbit.model.Room[ id=" + id + " name " + name + "]";
     }
 }
