@@ -249,6 +249,9 @@
       </item>
     </group>
   </component>
+  <component name="ProjectDictionaryState">
+    <dictionary name="lukman" />
+  </component>
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Husbit.iml" filepath="$PROJECT_DIR$/Husbit.iml" />

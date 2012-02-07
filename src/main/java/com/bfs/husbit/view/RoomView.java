@@ -124,7 +124,9 @@ public class RoomView implements BaseSerializable {
     }
 
     public String editRoom() {
+        if (selectedRoom.getRoomCategory().getId() != null) {
         selectedRoom.setRoomCategory(roomCategoryFacade.find(selectedRoom.getRoomCategory().getId()));
+        }
         roomFacade.edit(selectedRoom);
         return "/assets/room/newroom.xhtml?faces-redirect=true";
     }

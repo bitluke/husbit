@@ -37,8 +37,8 @@
                             <h:outputText rendered="#{!roomView.editMode}"
                                           value="#{roomView.selectedRoom.roomCategory.name}"/>
                             <p:selectOneMenu rendered="#{roomView.editMode}" id="selectRoomCategory"
-                                             value="#{roomView.selectedRoom.roomCategory.id}">
-                                <f:selectItem itemLabel="Select Room Category" itemValue=""/>
+                                             value="#{roomView.selectedRoom.roomCategory eq null ? -1 : roomView.selectedRoom.roomCategory.id }">
+                                <f:selectItem itemLabel="Select Room Category" itemValue="-1"/>
                                 <f:selectItems value="#{roomCategoryList}" var="rc"
                                                itemLabel="#{rc.name}" itemValue="#{rc.id}"/>
                             </p:selectOneMenu>
